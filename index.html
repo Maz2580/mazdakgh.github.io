@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazdak Ghasemi - GIS Developer & Spatial Data Engineer</title>
+    <meta name="description" content="GIS Developer and Spatial Data Engineer specializing in web mapping, automation, and geospatial data engineering for government and research sectors.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Mazdak Ghasemi</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#results" class="nav-link">Results</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - IMPROVED -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Trust indicators -->
+                <div class="hero-trust-badges">
+                    <span class="trust-badge"><i class="fas fa-building"></i> Trusted by Government & Research</span>
+                    <span class="trust-badge"><i class="fas fa-check-circle"></i> Enterprise-Grade Solutions</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    I Help Organizations 
+                    <span class="gradient-text">Transform Spatial Data Into Decisions</span>
+                </h1>
+                <p class="hero-subtitle">
+                    GIS Developer & Spatial Data Engineer delivering automation systems that save 
+                    <strong>hundreds of hours annually</strong> for councils, research institutions, and enterprises 
+                    across Australia.
+                </p>
+                
+                <!-- Impact metrics -->
+                <div class="hero-metrics">
+                    <div class="metric">
+                        <span class="metric-value">90%</span>
+                        <span class="metric-label">Processing Time Reduced</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">50K+</span>
+                        <span class="metric-label">Records Automated Bi-weekly</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">5+</span>
+                        <span class="metric-label">Government Organisations Served</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#results" class="btn btn-primary">See How I Can Help</a>
+                    <a href="#projects" class="btn btn-secondary">View Case Studies</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="globe-container">
+                    <div class="globe"></div>
+                    <div class="globe-ring"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="fas fa-arrow-down"></i>
+        </div>
+    </section>
+
+    <!-- NEW: Results/Social Proof Section -->
+    <section id="results" class="results">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proven Results</h2>
+                <p class="section-subtitle">
+                    Real impact delivered for government, research, and enterprise clients
+                </p>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="result-content">
+                        <h3 class="result-headline">From 2 Days to 2 Hours</h3>
+                        <p class="result-description">
+                            Automated property data workflows for a regional council, cutting processing time by 90% 
+                            and eliminating manual errors in 50,000+ bi-weekly records.
+                        </p>
+                        <span class="result-client">Regional Council · Victoria</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="result-content">
+                        <h3 class="result-headline">10,000+ Emergency Assessments</h3>
+                        <p class="result-description">
+                            Built mobile GIS solution for flood and fire disaster recovery, enabling rapid damage 
+                            assessment with offline capability across affected regions.
+                        </p>
+                        <span class="result-client">Parks Victoria · Disaster Recovery</span>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="result-content">
+                        <h3 class="result-headline">70% Fewer Support Requests</h3>
+                        <p class="result-description">
+                            Developed AI-powered natural language interface for geospatial queries, 
+                            now handling 200+ queries weekly without manual intervention.
+                        </p>
+                        <span class="result-client">Research Institution · Melbourne</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client logos placeholder -->
+            <div class="clients-section">
+                <p class="clients-label">Organizations I've Worked With</p>
+                <div class="clients-logos">
+                    <div class="client-logo">
+                        <span>Greater Shepparton Council</span>
+                    </div>
+                    <div class="client-logo">
+                        <span>Parks Victoria</span>
+                    </div>
+                    <div class="client-logo">
+                        <span>University of Melbourne</span>
+                    </div>
+                    <div class="client-logo">
+                        <span>Curtin University</span>
+                    </div>
+                    <div class="client-logo">
+                        <span>CSDILA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Enterprise geospatial solutions with measurable business impact
+                </p>
+            </div>
+
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web-app">Web Applications</button>
+                <button class="filter-btn" data-filter="automation">Automation</button>
+                <button class="filter-btn" data-filter="enterprise">Enterprise GIS</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="automation">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn btn-small" onclick="openProjectModal('project1')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">FME</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">n8n</span>
+                        </div>
+                        <h3 class="project-title">Municipal Property Data Automation System</h3>
+                        <p class="project-description">
+                            Automated ETL pipeline processing 50,000+ property records bi-weekly, reducing processing time by 90% and eliminating manual errors.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-category"><i class="fas fa-tag"></i> Automation</span>
+                            <span class="project-impact"><i class="fas fa-chart-line"></i> 90% time reduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="web-app">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn btn-small" onclick="openProjectModal('project2')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">OpenLayers</span>
+                            <span class="tag">FastAPI</span>
+                            <span class="tag">PostGIS</span>
+                        </div>
+                        <h3 class="project-title">Enterprise Geospatial Dashboard Platform</h3>
+                        <p class="project-description">
+                            Full-stack web application visualizing environmental monitoring data across 200+ sensor locations with real-time updates.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-category"><i class="fas fa-tag"></i> Web Application</span>
+                            <span class="project-impact"><i class="fas fa-users"></i> 50+ concurrent users</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="enterprise">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn btn-small" onclick="openProjectModal('project3')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">ArcGIS Field Maps</span>
+                            <span class="tag">Survey123</span>
+                            <span class="tag">Power BI</span>
+                        </div>
+                        <h3 class="project-title">Disaster Recovery Field Data Collection System</h3>
+                        <p class="project-description">
+                            Mobile GIS solution enabling rapid damage assessment for flood and fire recovery operations with offline capability.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-category"><i class="fas fa-tag"></i> Enterprise GIS</span>
+                            <span class="project-impact"><i class="fas fa-database"></i> 10,000+ assessments</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="ml">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn btn-small" onclick="openProjectModal('project4')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">n8n</span>
+                            <span class="tag">OpenAI API</span>
+                            <span class="tag">React</span>
+                        </div>
+                        <h3 class="project-title">AI-Powered Spatial Query Platform</h3>
+                        <p class="project-description">
+                            Natural language interface for complex geospatial database queries, reducing support requests by 70%.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-category"><i class="fas fa-tag"></i> Machine Learning</span>
+                            <span class="project-impact"><i class="fas fa-comments"></i> 200+ queries/week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="automation">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn btn-small" onclick="openProjectModal('project5')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">GCP</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">GitLab CI/CD</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <h3 class="project-title">Cloud-Based Asset Management Integration</h3>
+                        <p class="project-description">
+                            Scalable cloud infrastructure for asset management with automated data synchronization and secure API endpoints.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-category"><i class="fas fa-tag"></i> Cloud Infrastructure</span>
+                            <span class="project-impact"><i class="fas fa-dollar-sign"></i> 40% cost reduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="web-app">
+                    <div class="project-image">
+                        <div class="project-placeholder">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <button class="btn btn-small" onclick="openProjectModal('project6')">View Details</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Cesium</span>
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">IoT</span>
+                        </div>
+                        <h3 class="project-title">Interactive 3D Urban Digital Twin</h3>
+                        <p class="project-description">
+                            3D visualization platform for indoor/outdoor environmental monitoring with real-time IoT sensor integration.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-category"><i class="fas fa-tag"></i> Web Application</span>
+                            <span class="project-impact"><i class="fas fa-sensor"></i> 50+ sensors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Expertise</h2>
+                <p class="section-subtitle">
+                    Full-stack geospatial capabilities from database design to production deployment
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="skill-title">Web Mapping & Visualization</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">OpenLayers</span>
+                        <span class="skill-tag">Leaflet</span>
+                        <span class="skill-tag">Cesium</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">D3.js</span>
+                        <span class="skill-tag">Mapbox GL JS</span>
+                        <span class="skill-tag">ArcGIS API</span>
+                        <span class="skill-tag">GeoServer</span>
+                        <span class="skill-tag">Geocortex</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-title">Geospatial Data Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PostGIS</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Oracle Spatial</span>
+                        <span class="skill-tag">FME</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">pandas</span>
+                        <span class="skill-tag">GeoPandas</span>
+                        <span class="skill-tag">ETL Pipelines</span>
+                        <span class="skill-tag">Apache Airflow</span>
+                        <span class="skill-tag">n8n</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="skill-title">Enterprise GIS Solutions</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ArcGIS Enterprise</span>
+                        <span class="skill-tag">ArcGIS Pro</span>
+                        <span class="skill-tag">ArcGIS Online</span>
+                        <span class="skill-tag">Portal</span>
+                        <span class="skill-tag">ArcGIS Server</span>
+                        <span class="skill-tag">Geocortex</span>
+                        <span class="skill-tag">Field Maps</span>
+                        <span class="skill-tag">Survey123</span>
+                        <span class="skill-tag">Experience Builder</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="skill-title">Machine Learning & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Random Forest</span>
+                        <span class="skill-tag">K-Means</span>
+                        <span class="skill-tag">Google Earth Engine</span>
+                        <span class="skill-tag">Spatial Analysis</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">RStudio</span>
+                        <span class="skill-tag">Shiny</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="skill-title">DevOps & Cloud</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">GitLab CI/CD</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">MQTT</span>
+                        <span class="skill-tag">IoT Integration</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="skill-title">Automation & Workflows</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">n8n</span>
+                        <span class="skill-tag">FME Workbench</span>
+                        <span class="skill-tag">Python Scripting</span>
+                        <span class="skill-tag">ModelBuilder</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Excel</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">GIS Developer & Data Engineer</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-left">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="about-bio">
+                        <p>
+                            I'm a GIS Developer and Spatial Data Engineer with deep expertise in building enterprise geospatial solutions 
+                            for government and research sectors. With a Master's in Spatial Engineering from the University of Melbourne 
+                            and extensive experience across local councils and research institutions, I specialize in automating complex 
+                            spatial workflows, developing full-stack web mapping applications, and architecting scalable data pipelines.
+                        </p>
+                        <p>
+                            Currently serving as GIS Officer at Greater Shepparton Council and Data Engineer at the Centre for Spatial 
+                            Data Infrastructures and Land Administration, I bridge the gap between spatial data science and practical 
+                            implementation. My work focuses on reducing manual effort through automation, improving data quality through 
+                            rigorous validation, and making geospatial insights accessible to non-technical stakeholders.
+                        </p>
+                        <p>
+                            I'm passionate about leveraging modern technologies—from OpenLayers and React for interactive mapping to 
+                            FME and Python for data engineering—to solve real-world spatial challenges.
+                        </p>
+                    </div>
+                    <div class="about-cta">
+                        <a href="Resume__1_.pdf" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Start a Conversation
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-right">
+                    <div class="about-section">
+                        <h3 class="about-section-title">
+                            <i class="fas fa-graduation-cap"></i> Education
+                        </h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Master's in Spatial Engineering</h4>
+                                    <p class="timeline-org">University of Melbourne</p>
+                                    <p class="timeline-date">Feb 2022 - Dec 2024</p>
+                                    <p class="timeline-detail">
+                                        Capstone: Digital Twin with IoT for real-time indoor & outdoor environmental monitoring
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Master's in Petroleum Engineering</h4>
+                                    <p class="timeline-org">Azad University Central Tehran</p>
+                                    <p class="timeline-date">Sep 2017 - Jul 2020</p>
+                                    <p class="timeline-detail">
+                                        Oil and Gas Exploration specialization
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Bachelor of Science in Civil Engineering</h4>
+                                    <p class="timeline-org">Azad University Bandar-E-Anzali</p>
+                                    <p class="timeline-date">Sep 2013 - May 2017</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h3 class="about-section-title">
+                            <i class="fas fa-briefcase"></i> Experience Highlights
+                        </h3>
+                        <div class="experience-grid">
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <h4>GIS Officer</h4>
+                                    <span class="experience-period">Jun 2024 - Present</span>
+                                </div>
+                                <p class="experience-org">Greater Shepparton Council</p>
+                                <ul class="experience-list">
+                                    <li>Lead automation of spatial data workflows using FME and Python</li>
+                                    <li>Manage enterprise GIS infrastructure (ArcGIS Enterprise, Geocortex)</li>
+                                    <li>Process bi-weekly property updates through Victorian Edit System</li>
+                                </ul>
+                            </div>
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <h4>Data Engineer</h4>
+                                    <span class="experience-period">Dec 2024 - Present</span>
+                                </div>
+                                <p class="experience-org">Centre for Spatial Data Infrastructures (CSDILA)</p>
+                                <ul class="experience-list">
+                                    <li>Architect geospatial data workflows with n8n, Python, and PostGIS</li>
+                                    <li>Integrate AI-driven analytics into enterprise platforms</li>
+                                    <li>Deploy cloud solutions on Google Cloud Platform</li>
+                                </ul>
+                            </div>
+                            <div class="experience-item">
+                                <div class="experience-header">
+                                    <h4>GIS Analyst</h4>
+                                    <span class="experience-period">May 2022 - May 2024</span>
+                                </div>
+                                <p class="experience-org">Parks Victoria</p>
+                                <ul class="experience-list">
+                                    <li>Led geospatial initiatives for emergency response and disaster recovery</li>
+                                    <li>Developed field data collection solutions (Field Maps, Survey123)</li>
+                                    <li>Managed complex spatial data workflows using FME and ArcGIS</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Services/How I Help Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How I Can Help</h2>
+                <p class="section-subtitle">
+                    Specialized solutions for organizations looking to unlock the value of their spatial data
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="service-title">Workflow Automation</h3>
+                    <p class="service-description">
+                        Eliminate manual data processing with custom ETL pipelines. I build systems that run 
+                        autonomously, reducing processing time by up to 90%.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> FME & Python automation</li>
+                        <li><i class="fas fa-check"></i> Scheduled data synchronization</li>
+                        <li><i class="fas fa-check"></i> Error handling & monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Web Mapping Applications</h3>
+                    <p class="service-description">
+                        Interactive, production-ready web applications that make spatial data accessible 
+                        to technical and non-technical users alike.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> React & OpenLayers/Cesium</li>
+                        <li><i class="fas fa-check"></i> Real-time data visualization</li>
+                        <li><i class="fas fa-check"></i> Mobile-responsive design</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="service-title">Spatial Database Design</h3>
+                    <p class="service-description">
+                        Scalable database architectures that support your organization's growth while 
+                        maintaining data integrity and performance.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> PostGIS & Oracle Spatial</li>
+                        <li><i class="fas fa-check"></i> Schema design & optimization</li>
+                        <li><i class="fas fa-check"></i> Migration & integration</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Enterprise GIS Consulting</h3>
+                    <p class="service-description">
+                        Strategic guidance on ArcGIS Enterprise deployments, Geocortex implementations, 
+                        and GIS infrastructure optimization.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Architecture assessment</li>
+                        <li><i class="fas fa-check"></i> Implementation support</li>
+                        <li><i class="fas fa-check"></i> Team training & documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IMPROVED Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Talk</h2>
+                <p class="section-subtitle">
+                    Have a spatial data challenge? Let's explore how I might be able to help.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-left">
+                    <!-- CHANGED: Scarcity/exclusivity messaging -->
+                    <div class="contact-info-card availability-card">
+                        <div class="availability-header">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Engagement Approach</h4>
+                        </div>
+                        <p class="availability-text">
+                            I selectively take on projects where I can deliver meaningful impact. 
+                            If your organization is working on interesting spatial challenges, 
+                            I'd love to hear about them.
+                        </p>
+                        <div class="availability-note">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Initial consultations are complimentary</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Typical Response Time</h4>
+                                <p>Within 48 hours</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-methods">
+                        <a href="https://linkedin.com/in/maz-ghasemi-2815201bb" class="contact-method" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>Connect</span>
+                        </a>
+                        <a href="mailto:Mazdak.gh1995@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="tel:+61402347929" class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>Call</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-right">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="you@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization" placeholder="Your organization">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="project-type">What Are You Looking For? *</label>
+                            <select id="project-type" name="project-type" required>
+                                <option value="">Select an option...</option>
+                                <option value="web-mapping">Web Mapping Application</option>
+                                <option value="automation">GIS Automation & ETL</option>
+                                <option value="database">Spatial Database Design</option>
+                                <option value="enterprise">Enterprise GIS Implementation</option>
+                                <option value="field-collection">Field Data Collection System</option>
+                                <option value="consulting">Consulting & Training</option>
+                                <option value="explore">Just Exploring / General Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell Me About Your Challenge *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="What spatial data challenge are you trying to solve?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Start the Conversation</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-brand">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Mazdak Ghasemi</span>
+                    </div>
+                    <p class="footer-tagline">
+                        Transforming spatial data into strategic advantage
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#results">Results</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">Web Mapping</a></li>
+                            <li><a href="#services">Automation</a></li>
+                            <li><a href="#services">Data Engineering</a></li>
+                            <li><a href="#services">Consulting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://linkedin.com/in/maz-ghasemi-2815201bb" target="_blank">LinkedIn</a></li>
+                            <li><a href="mailto:Mazdak.gh1995@gmail.com">Email</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mazdak Ghasemi. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/maz-ghasemi-2815201bb" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/mazdakgh" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:Mazdak.gh1995@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
