@@ -129,6 +129,105 @@ const modalBody = document.getElementById('modal-body');
 
 // Project data
 const projectData = {
+    umami: {
+        title: 'UMAMI - University of Melbourne AI for Mapping & Insights',
+        category: 'GeoAI Platform | Enterprise Solution',
+        tags: ['GeoAI', 'n8n', 'PostGIS', 'GPT-4', 'Gemini', 'Groq', 'CesiumJS', 'Google Earth Engine', 'React', 'JWT Auth'],
+        challenge: `Research institutions and sustainability planners needed an intuitive way to query complex geospatial databases without SQL expertise. Traditional GIS tools required specialized training, creating bottlenecks when non-technical users needed spatial insights. The challenge was to build an enterprise-grade platform that could handle natural language queries while maintaining accuracy, security, and performance at scale.`,
+        solution: `
+            <ul>
+                <li>Architected multi-agent "swarm" system with 7 specialized AI agents (Spatial Analyst, Data Validator, GIS Troubleshooter, Performance Optimizer, Quality Assurance, and more) orchestrated through n8n workflows</li>
+                <li>Implemented multi-LLM strategy: Gemini for query decomposition, GPT-4 for code generation and execution, Groq for fast formatting with agents critiquing each other's outputs</li>
+                <li>Built natural language to PostGIS SQL translation engine with automatic spatial analysis generation</li>
+                <li>Integrated Google Earth Engine for NDVI, NDWI, elevation, land cover, and surface temperature analysis</li>
+                <li>Developed CesiumJS-based 3D visualization with pipeline clearance analysis and elevation profiles</li>
+                <li>Implemented full production stack: JWT authentication, role-based access control, personal API key management, admin dashboard</li>
+                <li>Created VicMap services integration and real-time campus dataset connectivity</li>
+                <li>Built interactive response system delivering GeoJSON, maps, tables, and charts</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li>Currently deployed on <strong>University of Melbourne campus datasets</strong> supporting sustainability planners and research teams</li>
+                <li>Processing <strong>200+ natural language queries weekly</strong> with 90% accuracy rate</li>
+                <li><strong>70% reduction in support requests</strong> to GIS team from non-technical users</li>
+                <li>Secured funding from <strong>Melbourne Climate Futures (Climate Research Accelerator)</strong> for scaling to precinct and city level</li>
+                <li>Expanding to government and industry partners across Victoria</li>
+                <li>Platform handles complex spatial operations that previously required GIS specialists</li>
+            </ul>
+        `,
+        architecture: `Multi-agent swarm architecture: n8n workflow orchestration, Python backends with FastAPI,
+                       PostgreSQL/PostGIS database, Multiple LLM integration (Gemini, GPT-4, Groq), React frontend,
+                       CesiumJS for 3D visualization, Google Earth Engine API, JWT authentication, Role-based access control.`,
+        codeAvailable: true,
+        demoLink: 'https://drive.google.com/file/d/1jVf-fg_V63DQSixJDvxHTbm43zOMfo6x/view?usp=sharing'
+    },
+    veniceBiennale: {
+        title: 'Song of the Cricket - Venice Biennale 2025',
+        category: 'Research & Conservation | International Collaboration',
+        tags: ['Earth Observation', 'AI Habitat Modeling', 'ArcGIS StoryMaps', 'Digital Twin', 'Land Use Analysis', 'Species Conservation'],
+        challenge: `The endangered Zeuneriana marmorata cricket species faces extinction in the Venice Lagoon due to habitat loss and environmental change. The project required mapping historical land-use changes, analyzing vegetation dynamics, and developing an AI-based habitat suitability model to guide species translocation efforts. This interdisciplinary challenge brought together ecologists, designers, engineers, and geospatial scientists in an international collaboration.`,
+        solution: `
+            <ul>
+                <li>Led geospatial analysis mapping historical land-use change and vegetation dynamics across Venice Lagoon using multi-temporal satellite imagery</li>
+                <li>Developed AI-based habitat suitability modeling to identify optimal translocation sites for endangered cricket species</li>
+                <li>Integrated Earth observation data with ecological field surveys to validate habitat quality indicators</li>
+                <li>Created interactive ArcGIS StoryMap documenting the project's scientific approach, findings, and conservation strategy</li>
+                <li>Designed spatial analysis workflows supporting floating ecological infrastructure placement</li>
+                <li>Established foundation for future adaptive Digital Twin system monitoring habitat changes in real-time</li>
+                <li>Collaborated with University of Melbourne (CSDILA), Arup, and international partners across Italy and Australia</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>Featured at Venice Biennale 2025</strong> showcasing innovative intersection of technology, ecology, and design</li>
+                <li>Identified <strong>priority translocation zones</strong> based on multi-criteria habitat suitability analysis</li>
+                <li>Created comprehensive <strong>historical land-use change analysis</strong> spanning multiple decades</li>
+                <li>Established <strong>international research collaboration</strong> between Australian and European institutions</li>
+                <li>Developed replicable methodology for <strong>AI-driven species conservation</strong> applicable to other endangered species</li>
+                <li>Foundation work for <strong>adaptive Digital Twin system</strong> for ongoing ecosystem monitoring</li>
+            </ul>
+        `,
+        architecture: `Multi-temporal satellite imagery analysis, AI-based habitat suitability modeling,
+                       ArcGIS Pro for spatial analysis, ArcGIS StoryMaps for communication,
+                       Earth observation data integration, Field survey data fusion, Cloud-based geospatial processing.`,
+        codeAvailable: false,
+        demoLink: 'https://storymaps.arcgis.com/stories/bb06dd4eb5164d7eb9fc0dc7ddf1e16c'
+    },
+    digitalTwinIoT: {
+        title: 'Digital Twin with IoT for Real-time Indoor Environmental Monitoring',
+        category: 'Digital Twin | IoT | Smart Buildings',
+        tags: ['Digital Twin', 'IoT', 'LoRaWAN', 'MQTT', 'Real-time Monitoring', 'CesiumJS', 'React', 'Environmental Sensors'],
+        challenge: `University of Melbourne's D-Lab needed a comprehensive system to monitor and visualize indoor environmental conditions in real-time for climate control optimization and energy efficiency. The challenge involved integrating diverse IoT sensors, establishing reliable data transmission over LoRaWAN, overcoming data protocol compatibility issues, and creating spatially accurate interactive dashboards for proactive environmental management.`,
+        solution: `
+            <ul>
+                <li>Developed four-layer Digital Twin architecture: sensing layer (IoT sensors), network layer (LoRaWAN), data processing layer (MQTT real-time sync), application layer (interactive dashboards)</li>
+                <li>Deployed environmental sensor network tracking CO₂, temperature, humidity, and air quality across D-Lab facility</li>
+                <li>Implemented LoRaWAN connectivity for low-power, long-range sensor communication</li>
+                <li>Built MQTT-based real-time data synchronization pipeline ensuring sub-second latency</li>
+                <li>Created interactive 3D visualization dashboard using CesiumJS and React for spatially accurate environmental monitoring</li>
+                <li>Overcame data protocol challenges through custom middleware ensuring reliable sensor-to-platform communication</li>
+                <li>Designed system architecture supporting future expansion to outdoor applications (flood, fire detection)</li>
+                <li>Integrated climate control optimization algorithms based on real-time sensor data</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>Stable real-time monitoring</strong> across entire D-Lab facility with 99.5% uptime</li>
+                <li><strong>Enhanced climate control</strong> enabling data-driven HVAC optimization</li>
+                <li><strong>Energy use optimization</strong> through intelligent environmental monitoring</li>
+                <li><strong>Proactive environmental management</strong> with predictive alerts for temperature/air quality anomalies</li>
+                <li><strong>Scalable architecture</strong> proven reliable for future expansion to outdoor monitoring</li>
+                <li>Completed as <strong>Master's capstone project</strong> at University of Melbourne</li>
+                <li>Foundation for future ML integration for predictive insights and AR/VR immersive interaction</li>
+            </ul>
+        `,
+        architecture: `Four-layer Digital Twin architecture: IoT sensor network (CO₂, temperature, humidity sensors),
+                       LoRaWAN network infrastructure, MQTT real-time data pipeline, React + CesiumJS visualization layer,
+                       PostgreSQL time-series database, Custom middleware for protocol translation.`,
+        codeAvailable: true,
+        demoLink: 'https://drive.google.com/file/d/189wQVBo0v57z9PZNVuZiXQuXRUWfj0RG/view?usp=sharing'
+    },
     project1: {
         title: 'Municipal Property Data Automation System',
         category: 'Automation | Data Engineering',
@@ -339,14 +438,19 @@ function openProjectModal(projectId) {
                 <p>${project.architecture}</p>
             </div>
             
-            ${project.codeAvailable ? `
+            ${project.codeAvailable || project.demoLink ? `
                 <div class="project-modal-footer">
-                    <p><i class="fas fa-code"></i> Sanitized code samples and architecture diagrams available upon request</p>
+                    ${project.demoLink ? `
+                        <p><i class="fas fa-external-link-alt"></i> <a href="${project.demoLink}" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: underline;">View Project Demo/Documentation</a></p>
+                    ` : ''}
+                    ${project.codeAvailable ? `
+                        <p><i class="fas fa-code"></i> Sanitized code samples and architecture diagrams available upon request</p>
+                    ` : ''}
                 </div>
             ` : ''}
         </div>
     `;
-    
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -382,41 +486,54 @@ budgetInput.addEventListener('input', (e) => {
     budgetDisplay.textContent = value.toLocaleString();
 });
 
-// Form submission
+// Form submission with Formspree
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData.entries());
-    
+
     // Show loading state
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const originalText = submitButton.innerHTML;
     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitButton.disabled = true;
-    
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-        // Success message
-        formMessage.className = 'form-message success';
-        formMessage.textContent = 'Thank you for your message! I will get back to you within 48 hours.';
-        
-        // Reset form
-        contactForm.reset();
-        budgetDisplay.textContent = '15,000';
-        
+
+    try {
+        // Submit form to Formspree
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            // Success message
+            formMessage.className = 'form-message success';
+            formMessage.textContent = 'Thank you for your message! I will get back to you within 48 hours.';
+
+            // Reset form
+            contactForm.reset();
+
+            // Hide message after 7 seconds
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+                formMessage.textContent = '';
+            }, 7000);
+        } else {
+            // Error message
+            formMessage.className = 'form-message error';
+            formMessage.textContent = 'Oops! There was a problem submitting your form. Please try again or email me directly.';
+        }
+    } catch (error) {
+        // Network error
+        formMessage.className = 'form-message error';
+        formMessage.textContent = 'Network error. Please check your connection and try again, or email me directly at Mazdak.gh1995@gmail.com';
+    } finally {
         // Reset button
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
-        
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            formMessage.style.display = 'none';
-        }, 5000);
-        
-        // Log form data (in production, send to backend)
-        console.log('Form submitted:', data);
-    }, 1500);
+    }
 });
 
 // ===== SCROLL ANIMATIONS =====
@@ -483,21 +600,84 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// ===== ANIMATED COUNTER FOR METRICS =====
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = Math.ceil(target);
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.ceil(start);
+        }
+    }, 16);
+}
+
+// Intersection Observer for metrics animation
+const metricsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const metricValues = entry.target.querySelectorAll('.metric-value[data-target]');
+            metricValues.forEach(value => {
+                const target = parseInt(value.getAttribute('data-target'));
+                animateCounter(value, target);
+                value.removeAttribute('data-target'); // Prevent re-animation
+            });
+            metricsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
 // ===== INITIALIZE =====
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial active nav link
     updateActiveNavLink();
-    
+
     // Add animation delays to project cards
     document.querySelectorAll('.project-card').forEach((card, index) => {
         card.style.animationDelay = `${index * 0.1}s`;
     });
-    
+
     // Add animation delays to skill cards
     document.querySelectorAll('.skill-card').forEach((card, index) => {
         card.style.animationDelay = `${index * 0.15}s`;
     });
-    
+
+    // Hero highlights are now static badges - no animation needed
+    // Achievement badges will animate on page load via CSS
+
+    // Observe GitHub stats for counter animation
+    const githubStats = document.querySelector('.github-stats');
+    if (githubStats) {
+        metricsObserver.observe(githubStats);
+    }
+
+    // Add stagger animation to testimonials
+    document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+    });
+
+    // Animate tech bars on scroll
+    const techBarsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.tech-bar-fill').forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.animation = 'fillBar 1.5s ease-out forwards';
+                    }, index * 100);
+                });
+                techBarsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const techGrid = document.querySelector('.tech-grid');
+    if (techGrid) {
+        techBarsObserver.observe(techGrid);
+    }
+
     console.log('Portfolio initialized successfully!');
 });
 
