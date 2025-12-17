@@ -722,11 +722,284 @@ function isInViewport(element) {
     );
 }
 
+// ===== CERTIFICATE FILTERING =====
+function initCertificateFilters() {
+    const filterButtons = document.querySelectorAll('.cert-filter-btn');
+    const certificateCards = document.querySelectorAll('.cert-card');
+    const shownCountElement = document.getElementById('shown-count');
+
+    if (!filterButtons.length || !certificateCards.length) {
+        return; // Exit if elements don't exist
+    }
+
+    // Filter certificates by category
+    function filterCertificates(category) {
+        let visibleCount = 0;
+
+        certificateCards.forEach(card => {
+            const cardCategories = card.getAttribute('data-category').split(' ');
+
+            if (category === 'all' || cardCategories.includes(category)) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Update the shown count
+        if (shownCountElement) {
+            shownCountElement.textContent = visibleCount;
+        }
+    }
+
+    // Add click event listeners to filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            // Get category and filter
+            const category = button.getAttribute('data-category');
+            filterCertificates(category);
+        });
+    });
+
+    // Initialize with all certificates visible
+    filterCertificates('all');
+}
+
+// Initialize certificate filters when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initCertificateFilters();
+});
+
+// ===== 3D PARTICLE NETWORK CANVAS =====
+class ParticleNetwork {
+    constructor() {
+        this.canvas = document.getElementById('particle-canvas');
+        if (!this.canvas) return;
+
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.particleCount = 80;
+        this.maxDistance = 150;
+        this.mouse = { x: null, y: null, radius: 150 };
+
+        this.init();
+    }
+
+    init() {
+        this.resize();
+        this.createParticles();
+        this.animate();
+
+        window.addEventListener('resize', () => this.resize());
+        window.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+        window.addEventListener('mouseout', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+        });
+    }
+
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = document.documentElement.scrollHeight;
+    }
+
+    createParticles() {
+        this.particles = [];
+        for (let i = 0; i < this.particleCount; i++) {
+            this.particles.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 2 + 1
+            });
+        }
+    }
+
+    handleMouseMove(e) {
+        this.mouse.x = e.clientX;
+        this.mouse.y = e.clientY + window.scrollY;
+    }
+
+    drawParticles() {
+        this.particles.forEach(particle => {
+            // Mouse interaction
+            if (this.mouse.x && this.mouse.y) {
+                const dx = particle.x - this.mouse.x;
+                const dy = particle.y - this.mouse.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.mouse.radius) {
+                    const force = (this.mouse.radius - distance) / this.mouse.radius;
+                    const angle = Math.atan2(dy, dx);
+                    particle.vx += Math.cos(angle) * force * 0.2;
+                    particle.vy += Math.sin(angle) * force * 0.2;
+                }
+            }
+
+            // Update position
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+
+            // Boundary check
+            if (particle.x < 0 || particle.x > this.canvas.width) particle.vx *= -1;
+            if (particle.y < 0 || particle.y > this.canvas.height) particle.vy *= -1;
+
+            // Friction
+            particle.vx *= 0.99;
+            particle.vy *= 0.99;
+
+            // Draw particle
+            this.ctx.beginPath();
+            this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'rgba(14, 165, 233, 0.8)';
+            this.ctx.fill();
+        });
+    }
+
+    connectParticles() {
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const dx = this.particles[i].x - this.particles[j].x;
+                const dy = this.particles[i].y - this.particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < this.maxDistance) {
+                    const opacity = 1 - (distance / this.maxDistance);
+                    this.ctx.beginPath();
+                    this.ctx.strokeStyle = `rgba(14, 165, 233, ${opacity * 0.3})`;
+                    this.ctx.lineWidth = 1;
+                    this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                    this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                    this.ctx.stroke();
+                }
+            }
+        }
+    }
+
+    animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.drawParticles();
+        this.connectParticles();
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// ===== 3D CARD TILT EFFECT =====
+function init3DCardTilt() {
+    const cards = document.querySelectorAll('.project-card, .cert-card, .experience-card, .testimonial-card');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * 5;
+            const rotateY = ((x - centerX) / centerX) * -5;
+
+            card.style.transform = `
+                perspective(1000px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                translateZ(10px)
+                scale(1.02)
+            `;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0) scale(1)';
+        });
+    });
+}
+
+// ===== SCROLL-BASED PARALLAX =====
+function initScrollParallax() {
+    const hero = document.querySelector('.hero-visual');
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+
+        // Parallax effect for hero
+        if (hero && scrolled < window.innerHeight) {
+            hero.style.transform = `translateY(${scrolled * 0.4}px)`;
+        }
+    });
+}
+
+// Initialize all 3D effects
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize particle network
+    new ParticleNetwork();
+
+    // Initialize 3D card tilts
+    init3DCardTilt();
+
+    // Initialize parallax
+    initScrollParallax();
+
+    console.log('3D interactive effects initialized!');
+});
+
 // Export functions for external use
 window.portfolioUtils = {
     openProjectModal,
     closeProjectModal,
     scrollToTop,
     getViewport,
-    isInViewport
+    isInViewport,
+    initCertificateFilters
 };
+
+// ===== COLLAPSIBLE SECTIONS =====
+function initCollapsibleSections() {
+    const expandButtons = document.querySelectorAll('.expand-btn');
+
+    expandButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            const preview = document.querySelector(`[data-preview="${targetId}"]`);
+
+            if (targetSection) {
+                // Toggle active state
+                const isActive = targetSection.classList.contains('active');
+
+                if (isActive) {
+                    // Collapse
+                    targetSection.classList.remove('active');
+                    button.classList.remove('active');
+                    button.innerHTML = '<i class="fas fa-chevron-down"></i> <span>View All</span>';
+                    if (preview) preview.classList.remove('expanded');
+
+                    // Scroll to section top
+                    const sectionTop = targetSection.closest('section');
+                    if (sectionTop) {
+                        sectionTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                } else {
+                    // Expand
+                    targetSection.classList.add('active');
+                    button.classList.add('active');
+                    button.innerHTML = '<i class="fas fa-chevron-up"></i> <span>Show Less</span>';
+                    if (preview) preview.classList.add('expanded');
+                }
+            }
+        });
+    });
+}
+
+// Initialize collapsible sections
+document.addEventListener('DOMContentLoaded', () => {
+    initCollapsibleSections();
+});

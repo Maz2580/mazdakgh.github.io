@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mazdak Ghasemi - GIS Developer & Spatial Data Engineer | GeoAI Specialist</title>
-    <meta name="description" content="GIS Developer and Spatial Data Engineer specializing in GeoAI, web mapping, automation, and geospatial data engineering for government and research sectors. Creator of UMAMI - AI-powered geospatial platform.">
-    <meta name="keywords" content="GIS Developer, Spatial Data Engineer, GeoAI, Web Mapping, ArcGIS, OpenLayers, PostGIS, Digital Twin, IoT, Melbourne">
+    <meta name="description"
+        content="GIS Developer and Spatial Data Engineer specializing in GeoAI, web mapping, automation, and geospatial data engineering for government and research sectors. Creator of UMAMI - AI-powered geospatial platform.">
+    <meta name="keywords"
+        content="GIS Developer, Spatial Data Engineer, GeoAI, Web Mapping, ArcGIS, OpenLayers, PostGIS, Digital Twin, IoT, Melbourne">
     <meta name="author" content="Mazdak Ghasemi">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://maz2580.github.io/mazdakgh.github.io/">
     <meta property="og:title" content="Mazdak Ghasemi - GIS Developer & GeoAI Specialist">
-    <meta property="og:description" content="Transforming spatial data into strategic advantage through automation, AI, and innovative geospatial solutions.">
+    <meta property="og:description"
+        content="Transforming spatial data into strategic advantage through automation, AI, and innovative geospatial solutions.">
     <meta property="og:image" content="https://maz2580.github.io/mazdakgh.github.io/preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://maz2580.github.io/mazdakgh.github.io/">
     <meta property="twitter:title" content="Mazdak Ghasemi - GIS Developer & GeoAI Specialist">
-    <meta property="twitter:description" content="Transforming spatial data into strategic advantage through automation, AI, and innovative geospatial solutions.">
+    <meta property="twitter:description"
+        content="Transforming spatial data into strategic advantage through automation, AI, and innovative geospatial solutions.">
     <meta property="twitter:image" content="https://maz2580.github.io/mazdakgh.github.io/preview.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+    <!-- 3D Animated Background Canvas -->
+    <canvas id="particle-canvas" class="particle-canvas"></canvas>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -43,7 +53,9 @@
                 <li><a href="#results" class="nav-link">Results</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -66,7 +78,7 @@
                     <span class="trust-badge"><i class="fas fa-building"></i> Trusted by Government & Research</span>
                     <span class="trust-badge"><i class="fas fa-check-circle"></i> Enterprise-Grade Solutions</span>
                 </div>
-                
+
                 <h1 class="hero-title">
                     I Build AI-Powered
                     <span class="gradient-text">Geospatial Solutions That Transform Data Into Action</span>
@@ -116,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="hero-cta">
                     <a href="#results" class="btn btn-primary">See How I Can Help</a>
                     <a href="#projects" class="btn btn-secondary">View Case Studies</a>
@@ -153,7 +165,7 @@
                     <div class="result-content">
                         <h3 class="result-headline">From 2 Days to 2 Hours</h3>
                         <p class="result-description">
-                            Automated property data workflows for a regional council, cutting processing time by 90% 
+                            Automated property data workflows for a regional council, cutting processing time by 90%
                             and eliminating manual errors in 50,000+ bi-weekly records.
                         </p>
                         <span class="result-client">Regional Council · Victoria</span>
@@ -167,7 +179,7 @@
                     <div class="result-content">
                         <h3 class="result-headline">10,000+ Emergency Assessments</h3>
                         <p class="result-description">
-                            Built mobile GIS solution for flood and fire disaster recovery, enabling rapid damage 
+                            Built mobile GIS solution for flood and fire disaster recovery, enabling rapid damage
                             assessment with offline capability across affected regions.
                         </p>
                         <span class="result-client">Parks Victoria · Disaster Recovery</span>
@@ -181,7 +193,7 @@
                     <div class="result-content">
                         <h3 class="result-headline">70% Fewer Support Requests</h3>
                         <p class="result-description">
-                            Developed AI-powered natural language interface for geospatial queries, 
+                            Developed AI-powered natural language interface for geospatial queries,
                             now handling 200+ queries weekly without manual intervention.
                         </p>
                         <span class="result-client">Research Institution · Melbourne</span>
@@ -254,7 +266,9 @@
                         </div>
                         <h3 class="project-title">UMAMI - AI for Mapping & Insights</h3>
                         <p class="project-description">
-                            Enterprise GeoAI platform enabling natural language queries over spatial databases. Multi-agent swarm architecture with 7 specialized AI agents orchestrated through n8n workflows.
+                            Enterprise GeoAI platform enabling natural language queries over spatial databases.
+                            Multi-agent swarm architecture with 7 specialized AI agents orchestrated through n8n
+                            workflows.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> GeoAI Platform</span>
@@ -270,7 +284,8 @@
                             <i class="fas fa-globe-europe"></i>
                         </div>
                         <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('veniceBiennale')">View Details</button>
+                            <button class="btn btn-small" onclick="openProjectModal('veniceBiennale')">View
+                                Details</button>
                         </div>
                     </div>
                     <div class="project-content">
@@ -282,7 +297,8 @@
                         </div>
                         <h3 class="project-title">Song of the Cricket - Venice Biennale 2025</h3>
                         <p class="project-description">
-                            International collaboration using Earth observation and AI-based habitat modeling to restore endangered species in Venice Lagoon. Featured at Venice Biennale.
+                            International collaboration using Earth observation and AI-based habitat modeling to restore
+                            endangered species in Venice Lagoon. Featured at Venice Biennale.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Research & Conservation</span>
@@ -298,7 +314,8 @@
                             <i class="fas fa-cube"></i>
                         </div>
                         <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('digitalTwinIoT')">View Details</button>
+                            <button class="btn btn-small" onclick="openProjectModal('digitalTwinIoT')">View
+                                Details</button>
                         </div>
                     </div>
                     <div class="project-content">
@@ -311,7 +328,9 @@
                         </div>
                         <h3 class="project-title">Digital Twin with IoT for Indoor Environmental Monitoring</h3>
                         <p class="project-description">
-                            Real-time monitoring system for indoor environments using Digital Twin technology and IoT sensors. Four-layer architecture tracking CO₂, temperature, and humidity with LoRaWAN connectivity.
+                            Real-time monitoring system for indoor environments using Digital Twin technology and IoT
+                            sensors. Four-layer architecture tracking CO₂, temperature, and humidity with LoRaWAN
+                            connectivity.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Digital Twin</span>
@@ -339,7 +358,8 @@
                         </div>
                         <h3 class="project-title">Municipal Property Data Automation System</h3>
                         <p class="project-description">
-                            Automated ETL pipeline processing 50,000+ property records bi-weekly, reducing processing time by 90% and eliminating manual errors.
+                            Automated ETL pipeline processing 50,000+ property records bi-weekly, reducing processing
+                            time by 90% and eliminating manual errors.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Automation</span>
@@ -367,7 +387,8 @@
                         </div>
                         <h3 class="project-title">Enterprise Geospatial Dashboard Platform</h3>
                         <p class="project-description">
-                            Full-stack web application visualizing environmental monitoring data across 200+ sensor locations with real-time updates.
+                            Full-stack web application visualizing environmental monitoring data across 200+ sensor
+                            locations with real-time updates.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Web Application</span>
@@ -394,7 +415,8 @@
                         </div>
                         <h3 class="project-title">Disaster Recovery Field Data Collection System</h3>
                         <p class="project-description">
-                            Mobile GIS solution enabling rapid damage assessment for flood and fire recovery operations with offline capability.
+                            Mobile GIS solution enabling rapid damage assessment for flood and fire recovery operations
+                            with offline capability.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Enterprise GIS</span>
@@ -422,7 +444,8 @@
                         </div>
                         <h3 class="project-title">AI-Powered Spatial Query Platform</h3>
                         <p class="project-description">
-                            Natural language interface for complex geospatial database queries, reducing support requests by 70%.
+                            Natural language interface for complex geospatial database queries, reducing support
+                            requests by 70%.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Machine Learning</span>
@@ -450,7 +473,8 @@
                         </div>
                         <h3 class="project-title">Cloud-Based Asset Management Integration</h3>
                         <p class="project-description">
-                            Scalable cloud infrastructure for asset management with automated data synchronization and secure API endpoints.
+                            Scalable cloud infrastructure for asset management with automated data synchronization and
+                            secure API endpoints.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Cloud Infrastructure</span>
@@ -718,19 +742,28 @@
                     </div>
                     <div class="about-bio">
                         <p>
-                            I'm a GIS Developer and Spatial Data Engineer with deep expertise in building enterprise geospatial solutions 
-                            for government and research sectors. With a Master's in Spatial Engineering from the University of Melbourne 
-                            and extensive experience across local councils and research institutions, I specialize in automating complex 
-                            spatial workflows, developing full-stack web mapping applications, and architecting scalable data pipelines.
+                            I'm a GIS Developer and Spatial Data Engineer with deep expertise in building enterprise
+                            geospatial solutions
+                            for government and research sectors. With a Master's in Spatial Engineering from the
+                            University of Melbourne
+                            and extensive experience across local councils and research institutions, I specialize in
+                            automating complex
+                            spatial workflows, developing full-stack web mapping applications, and architecting scalable
+                            data pipelines.
                         </p>
                         <p>
-                            Currently serving as GIS Officer at Greater Shepparton Council and Data Engineer at the Centre for Spatial 
-                            Data Infrastructures and Land Administration, I bridge the gap between spatial data science and practical 
-                            implementation. My work focuses on reducing manual effort through automation, improving data quality through 
-                            rigorous validation, and making geospatial insights accessible to non-technical stakeholders.
+                            Currently serving as GIS Officer at Greater Shepparton Council and Data Engineer at the
+                            Centre for Spatial
+                            Data Infrastructures and Land Administration, I bridge the gap between spatial data science
+                            and practical
+                            implementation. My work focuses on reducing manual effort through automation, improving data
+                            quality through
+                            rigorous validation, and making geospatial insights accessible to non-technical
+                            stakeholders.
                         </p>
                         <p>
-                            I'm passionate about leveraging modern technologies—from OpenLayers and React for interactive mapping to 
+                            I'm passionate about leveraging modern technologies—from OpenLayers and React for
+                            interactive mapping to
                             FME and Python for data engineering—to solve real-world spatial challenges.
                         </p>
                     </div>
@@ -759,7 +792,8 @@
                                     <p class="timeline-org">University of Melbourne</p>
                                     <p class="timeline-date">Feb 2022 - Dec 2024</p>
                                     <p class="timeline-detail">
-                                        Capstone: Digital Twin with IoT for real-time indoor & outdoor environmental monitoring
+                                        Capstone: Digital Twin with IoT for real-time indoor & outdoor environmental
+                                        monitoring
                                     </p>
                                 </div>
                             </div>
@@ -854,7 +888,7 @@
                     </div>
                     <h3 class="service-title">Workflow Automation</h3>
                     <p class="service-description">
-                        Eliminate manual data processing with custom ETL pipelines. I build systems that run 
+                        Eliminate manual data processing with custom ETL pipelines. I build systems that run
                         autonomously, reducing processing time by up to 90%.
                     </p>
                     <ul class="service-features">
@@ -870,7 +904,7 @@
                     </div>
                     <h3 class="service-title">Web Mapping Applications</h3>
                     <p class="service-description">
-                        Interactive, production-ready web applications that make spatial data accessible 
+                        Interactive, production-ready web applications that make spatial data accessible
                         to technical and non-technical users alike.
                     </p>
                     <ul class="service-features">
@@ -886,7 +920,7 @@
                     </div>
                     <h3 class="service-title">Spatial Database Design</h3>
                     <p class="service-description">
-                        Scalable database architectures that support your organization's growth while 
+                        Scalable database architectures that support your organization's growth while
                         maintaining data integrity and performance.
                     </p>
                     <ul class="service-features">
@@ -902,7 +936,7 @@
                     </div>
                     <h3 class="service-title">Enterprise GIS Consulting</h3>
                     <p class="service-description">
-                        Strategic guidance on ArcGIS Enterprise deployments, Geocortex implementations, 
+                        Strategic guidance on ArcGIS Enterprise deployments, Geocortex implementations,
                         and GIS infrastructure optimization.
                     </p>
                     <ul class="service-features">
@@ -910,6 +944,564 @@
                         <li><i class="fas fa-check"></i> Implementation support</li>
                         <li><i class="fas fa-check"></i> Team training & documentation</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">
+                    5+ roles across government, research, and private sectors showcasing versatility and impact
+                </p>
+            </div>
+
+            <div class="experience-timeline">
+                <!-- GIS Officer - Greater Shepparton Council -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">GIS Officer</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-building"></i> Greater Shepparton Council
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> June 2024 – Present
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">FME Automation</span>
+                        <span class="exp-tag">ArcGIS Enterprise</span>
+                        <span class="exp-tag">Data Governance</span>
+                        <span class="exp-tag">Python</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Leading enterprise GIS operations for local government, specializing in cadastral data
+                            automation and property information systems.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Ensure timely integration</strong> of authoritative Vicmap datasets to support
+                                Council-wide operations
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Design, develop, and manage complex GIS data layers</strong> in ArcGIS Pro for
+                                planning, asset management, and regulatory compliance
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Drive cross-departmental collaboration</strong> by providing advanced GIS data
+                                analysis, troubleshooting, and tailored spatial insights
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Process property updates and subdivision changes</strong> via the Victorian Edit
+                                System (VES)
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Liaise with internal stakeholders</strong> and external data providers to
+                                resolve geospatial requests and continuously improve system performance
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Automated 50,000+ property record processing</strong> using FME, reducing manual
+                                validation from 8+ hours to 30 minutes
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Engineer - CSDILA -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">Data Engineer</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-university"></i> Centre for Spatial Data Infrastructures and Land
+                                Administration
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> December 2024 – Present
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">GeoAI</span>
+                        <span class="exp-tag">Multi-Agent Systems</span>
+                        <span class="exp-tag">PostGIS</span>
+                        <span class="exp-tag">n8n</span>
+                        <span class="exp-tag">LLM Integration</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Architecting cutting-edge GeoAI platforms and spatial data engineering solutions for
+                            University of Melbourne research initiatives.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Architect and automate end-to-end geospatial data workflows</strong> using n8n,
+                                Python, SQL, and PostGIS
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Develop and govern geospatial metadata</strong>, data catalogs, and custom
+                                schemas for data quality, interoperability, and AI model training
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Design and deploy cloud-based geospatial solutions</strong> on Google Cloud
+                                Platform with secure, scalable application hosting
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Built full-stack mapping applications</strong> (Python backend + React frontend)
+                                serving spatial features to research and industry users
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Dockerised APIs, schedulers, and UIs</strong> with Compose; implemented
+                                versioned releases via GitLab CI/CD and container registry
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Designed JSON/GeoJSON API contracts</strong> and authentication systems
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Supported high-profile projects</strong> including UEDLAB and ARUP by processing
+                                satellite and field data
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Applied unsupervised/supervised classification</strong> (K-Means, Random Forest)
+                                for change detection, land cover, and flood/sea-level overlay analysis
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Deployed IoT integration using MQTT protocols</strong> with dynamic dashboards
+                                for real-time geospatial monitoring
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Ensured data integrity</strong> through geometry correction, standardisation,
+                                and consistent styling
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Managed secrets and configs</strong> via masked CI variables and .env files with
+                                least-privilege access for service accounts
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Built UMAMI platform</strong> - 7-agent swarm architecture processing 200+
+                                natural language spatial queries weekly
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GIS Officer - Mansfield Shire Council -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">GIS Officer</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-building"></i> Mansfield Shire Council
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> September 2024 – June 2025
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">Field Data Collection</span>
+                        <span class="exp-tag">Survey123</span>
+                        <span class="exp-tag">Field Maps</span>
+                        <span class="exp-tag">Training Delivery</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Delivered field data collection solutions and staff training for local government
+                            operations.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Designed and automated ETL processes</strong> using Python, SQL, and PostGIS for
+                                data validation
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Consolidated and reconciled spatial datasets</strong> from multiple sources into
+                                the centralised GIS database
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Conducted quality assessment</strong> and metadata management for property and
+                                asset data
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Utilised POZI, QGIS, and AutoCAD</strong> for spatial visualisation
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Streamlined spatial data integration</strong> with POZI Connect, SynergySoft,
+                                MapInfo Pro, and MBS Premium
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Managed asset data</strong> using Assetic for accurate spatial representation
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Designed and deployed Survey123 forms</strong> for asset management and field
+                                inspections
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Trained cross-departmental teams</strong> on ESRI field collection tools
+                                (Collector, Field Maps, Survey123)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Research Assistant - CSDILA [NEW] -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">Research Assistant</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-university"></i> Centre for Spatial Data Infrastructures and Land
+                                Administration
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> December 2023 – November 2024
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">Spatial Research</span>
+                        <span class="exp-tag">Digital Twins</span>
+                        <span class="exp-tag">Data Analysis</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Contributed to spatial data infrastructure research, supporting the development of digital
+                            twin technologies and spatial data management frameworks.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Conducted research on AI-Driven Generative Urban Design</strong>, enhancing
+                                urban design efficiency through spatial analysis and modelling
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Assisted in advancing spatial ontologies</strong> and improving 3D cadastre
+                                processing efficiency
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Managed integration of geospatial data</strong> into GeoServer for Digital Twin
+                                framework visualisation
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Performed geometry correction</strong>, coordinate system adjustments, and data
+                                styling for consistency
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Supported research initiatives</strong> focusing on 3D spatial data integration
+                                and urban analytics
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Research Assistant (GIS Analyst) - Curtin University [NEW] -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">Research Assistant (GIS Analyst)</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-university"></i> Curtin University
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> May 2024 – September 2024
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">GIS Analysis</span>
+                        <span class="exp-tag">Spatial Data</span>
+                        <span class="exp-tag">Research Support</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Provided specialized GIS analysis and data support for university research projects.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Enhanced the Envision Tomorrow Australia (ET-Oz)</strong> sustainable planning
+                                model using ArcGIS Pro and ArcGIS Online
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Applied predictive modelling</strong> and scenario planning for urban
+                                regeneration initiatives targeting net-zero emissions
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Customised spatial datasets</strong> specifically for Australian urban
+                                landscapes
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Fostered cross-sector collaboration</strong> to ensure data accuracy and
+                                actionable insights
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Conducted spatial analysis</strong> to support key research objectives and data
+                                visualization needs
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GIS Analyst - Parks Victoria -->
+                <div class="experience-card highlight-card">
+                    <div class="exp-badge">Emergency Response Leadership</div>
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">GIS Analyst</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-tree"></i> Parks Victoria
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> May 2022 – May 2024
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">Emergency Response</span>
+                        <span class="exp-tag">Disaster Recovery</span>
+                        <span class="exp-tag">Risk Assessment</span>
+                        <span class="exp-tag">Stakeholder Engagement</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Led critical GIS operations for Victoria's largest land manager, specializing in emergency
+                            response mapping and environmental risk assessment.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <strong>Led spatial routing, impact mapping, and resource allocation</strong> for
+                                emergency response and disaster recovery operations
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Managed complex spatial data workflows</strong> using FME, ArcGIS Pro, and
+                                ArcGIS Enterprise for rapid emergency response
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Developed integrated field data collection solutions</strong> using ArcGIS
+                                Online, ArcGIS Enterprise, Collector app, Field Maps, and Survey123 for real-time
+                                decision-making
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Processed and exported GPS data</strong> for detailed mapping and analysis of
+                                affected regions
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Generated targeted analytical reports</strong> and visual dashboards improving
+                                stakeholder communication
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Created a dedicated GIS database</strong> for disaster recovery with real-time
+                                field updates
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Updated and validated spatial information</strong> within the corporate database
+                                from recovery sites
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Managed user access</strong> to ensure recovery teams had access to essential
+                                mapping and analysis tools
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Spatial Data Analyst - HUMAYA Automation -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">Spatial Data Analyst</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-industry"></i> HUMAYA Automation
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> March 2022 – May 2022
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">Full-Stack Development</span>
+                        <span class="exp-tag">OpenLayers</span>
+                        <span class="exp-tag">React</span>
+                        <span class="exp-tag">PostgreSQL/PostGIS</span>
+                        <span class="exp-tag">DevOps</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Developed enterprise web mapping applications for infrastructure management and spatial
+                            analysis.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Designed spatial databases</strong> (ESRI geodatabases, SQL Server) for
+                                infrastructure placement and risk assessment
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Conducted spatial analysis</strong> to identify strategic locations and
+                                landslide risk zones for proactive mitigation
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Integrated geospatial datasets with IoT solutions</strong> for smart metering,
+                                precision agriculture, and logistics monitoring
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Maintained GIS/3D/GPS datasets</strong> for corporate spatial intelligence
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Provided AutoCAD drafting support</strong> for geological maps and surveys
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Built full-stack web mapping platform</strong> using React, OpenLayers, and
+                                PostGIS for utility infrastructure visualization
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- GIS Analyst - Avale Enterprises -->
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3 class="exp-title">GIS Analyst</h3>
+                            <p class="exp-company">
+                                <i class="fas fa-satellite"></i> Avale Enterprises
+                            </p>
+                        </div>
+                        <div class="exp-period">
+                            <i class="far fa-calendar-alt"></i> May 2021 – February 2022
+                        </div>
+                    </div>
+                    <div class="exp-tags">
+                        <span class="exp-tag">Remote Sensing</span>
+                        <span class="exp-tag">Machine Learning</span>
+                        <span class="exp-tag">Change Detection</span>
+                        <span class="exp-tag">ArcGIS Pro</span>
+                    </div>
+                    <div class="exp-content">
+                        <p class="exp-description">
+                            Specialized in satellite imagery analysis and machine learning for environmental monitoring
+                            and land use classification.
+                        </p>
+                        <ul class="exp-achievements">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Enhanced spatial dataset accuracy</strong> through routing optimisation and
+                                geometry correction
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Led cartographic production</strong> with optimised symbology using Portal for
+                                ArcGIS
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Restructured geospatial databases</strong> and administrative processes in
+                                ArcGIS Online
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Improved organisational data compliance</strong> and operational standards
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Developed ML models</strong> using Random Forest and K-Means for automated land
+                                cover classification
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Summary Stats -->
+            <div class="experience-summary">
+                <div class="summary-stat">
+                    <div class="summary-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="summary-content">
+                        <h4 class="summary-number">8</h4>
+                        <p class="summary-label">Professional Roles</p>
+                    </div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="summary-content">
+                        <h4 class="summary-number">Emergency Response</h4>
+                        <p class="summary-label">Flood & Fire Disaster Mapping</p>
+                    </div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="summary-content">
+                        <h4 class="summary-number">3 Concurrent</h4>
+                        <p class="summary-label">Roles at Peak</p>
+                    </div>
+                </div>
+                <div class="summary-stat">
+                    <div class="summary-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="summary-content">
+                        <h4 class="summary-number">3 Sectors</h4>
+                        <p class="summary-label">Government, Research, Private</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -935,8 +1527,10 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Mazdak's expertise in GIS automation transformed our data processing workflows. His innovative approach
-                        to solving complex spatial problems saved our team countless hours and improved data accuracy significantly."
+                        "Mazdak's expertise in GIS automation transformed our data processing workflows. His innovative
+                        approach
+                        to solving complex spatial problems saved our team countless hours and improved data accuracy
+                        significantly."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">
@@ -958,8 +1552,10 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Working with Mazdak on the Digital Twin project was exceptional. His ability to integrate IoT sensors
-                        with geospatial visualization platforms showcased his deep technical knowledge and problem-solving skills."
+                        "Working with Mazdak on the Digital Twin project was exceptional. His ability to integrate IoT
+                        sensors
+                        with geospatial visualization platforms showcased his deep technical knowledge and
+                        problem-solving skills."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">
@@ -981,7 +1577,8 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Mazdak's development of our AI-powered spatial query platform revolutionized how our non-technical team
+                        "Mazdak's development of our AI-powered spatial query platform revolutionized how our
+                        non-technical team
                         interacts with complex geospatial databases. His multi-agent system design is truly innovative."
                     </p>
                     <div class="testimonial-author">
@@ -994,6 +1591,1312 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Certifications</h2>
+                <p class="section-subtitle">
+                    79+ verified credentials across AI, GIS platforms, cloud computing, and data engineering
+                </p>
+            </div>
+
+            <!-- Certificate Filters -->
+            <div class="cert-filters">
+                <button class="cert-filter-btn active" data-category="all">
+                    <i class="fas fa-certificate"></i> All Certificates <span class="cert-count">(74)</span>
+                </button>
+                <button class="cert-filter-btn" data-category="ai-ml">
+                    <i class="fas fa-brain"></i> AI & Machine Learning <span class="cert-count">(18)</span>
+                </button>
+                <button class="cert-filter-btn" data-category="gis">
+                    <i class="fas fa-map-marked-alt"></i> GIS Platforms <span class="cert-count">(33)</span>
+                </button>
+                <button class="cert-filter-btn" data-category="data">
+                    <i class="fas fa-database"></i> Data Engineering <span class="cert-count">(8)</span>
+                </button>
+                <button class="cert-filter-btn" data-category="cloud">
+                    <i class="fas fa-cloud"></i> Cloud & DevOps <span class="cert-count">(9)</span>
+                </button>
+                <button class="cert-filter-btn" data-category="dev">
+                    <i class="fas fa-code"></i> Development <span class="cert-count">(4)</span>
+                </button>
+                <button class="cert-filter-btn" data-category="pm">
+                    <i class="fas fa-tasks"></i> Project Management <span class="cert-count">(6)</span>
+                </button>
+            </div>
+
+            <!-- Certificates Grid -->
+            <div class="certificates-grid" id="certificates-grid">
+                <!-- AI & Machine Learning Certificates -->
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Discover the Art of Prompting</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">AI</span>
+                        <span class="cert-tag">Prompting</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/GM5PQBVVAZY0" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Gen AI Agents: Transform Your Organization</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                        <span class="cert-tag">AI Agents</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/3DAJAXW0IO1P" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Gen AI Apps: Transform Your Work</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                        <span class="cert-tag">Applications</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/SN9XNCPAWZ7R" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Gen AI: Beyond the Chatbot</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/BU67HJJOQWQM" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Gen AI: Navigate the Landscape</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/HI7GCR6UNW7M" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Gen AI: Unlock Foundational Concepts</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                        <span class="cert-tag">Fundamentals</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/4FNUE31HUYQZ" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card featured-cert" data-category="ai-ml">
+                    <div class="cert-badge">Professional Certificate</div>
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Generative AI Leader</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                        <span class="cert-tag">Leadership</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/CMOL9HNTKKOZ"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Google AI Essentials</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">AI</span>
+                        <span class="cert-tag">Essentials</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/EWM0RN90R5ML"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Introduction to AI</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">AI</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/02D4NS0YJBJ8" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Maximize Productivity With AI Tools</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">AI</span>
+                        <span class="cert-tag">Productivity</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/M2XHOR1LM2NB" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Stay Ahead of the AI Curve</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">AI</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/OLCKZFW6A46R" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Use AI Responsibly</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">AI Ethics</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/EHFOXJY3HF1V" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <!-- Continue with more AI/ML certificates (Cloud badges from Credly) -->
+                <div class="cert-card" data-category="ai-ml cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Create ML Models with BigQuery ML</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">ML</span>
+                        <span class="cert-tag">BigQuery</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/6a4f6c54-6d4f-43fe-a5d9-5ba9ee1bab0a/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Use Machine Learning APIs on Google Cloud</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">ML</span>
+                        <span class="cert-tag">APIs</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/cf26755e-a128-46bc-9a66-b6636ffce040" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Develop GenAI Apps with Gemini and Streamlit</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                        <span class="cert-tag">Gemini</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/ad0742c9-3bf0-4cc1-af8b-14c48fbd0296/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Explore Generative AI with Vertex AI Gemini API</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                        <span class="cert-tag">Vertex AI</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/c92c5c94-4fb7-4373-af5e-c6a4f882a23a/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Prepare Data for ML APIs on Google Cloud</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">ML</span>
+                        <span class="cert-tag">Data Prep</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/49cd041a-cb6b-4a5e-b9c7-17064b633579/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="ai-ml cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Prompt Design in Vertex AI</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GenAI</span>
+                        <span class="cert-tag">Prompting</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/85ecb9db-ee95-4ceb-885b-15fa2b17eabd/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <!-- Cloud & DevOps Certificates -->
+                <div class="cert-card" data-category="cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Configure Service Accounts and IAM Roles</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">IAM</span>
+                        <span class="cert-tag">Security</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/85b4b477-9b80-4bcd-970f-af69abb52211/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="cloud data">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Streaming Analytics into BigQuery</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">BigQuery</span>
+                        <span class="cert-tag">Analytics</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/903eb893-2c61-415b-bd95-61c4711b18c8/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="cloud data">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Derive Insights from BigQuery Data</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">BigQuery</span>
+                        <span class="cert-tag">Analytics</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/4b2b0f19-47a9-4811-a772-abad1b45c1cc/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="cloud">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google Cloud</span>
+                    </div>
+                    <h3 class="cert-title">Basics of Google Cloud Compute</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Compute</span>
+                        <span class="cert-tag">Infrastructure</span>
+                    </div>
+                    <a href="https://www.credly.com/badges/2a2d6a13-686a-489e-b497-38fd5764bc93/linked_in_profile"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Badge
+                    </a>
+                </div>
+
+                <!-- Data Engineering & ETL -->
+                <div class="cert-card featured-cert" data-category="data">
+                    <div class="cert-badge">Advanced</div>
+                    <div class="cert-provider">
+                        <i class="fas fa-cogs"></i>
+                        <span>Safe Software</span>
+                    </div>
+                    <h3 class="cert-title">FME Form Advanced</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">FME</span>
+                        <span class="cert-tag">ETL</span>
+                    </div>
+                    <a href="http://verify.skilljar.com/c/7kmbcf6s2wbr" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="data">
+                    <div class="cert-provider">
+                        <i class="fas fa-cogs"></i>
+                        <span>Safe Software</span>
+                    </div>
+                    <h3 class="cert-title">FME Form Basic</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">FME</span>
+                        <span class="cert-tag">ETL</span>
+                    </div>
+                    <a href="http://verify.skilljar.com/c/5mo6bund6h3x" target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="data dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Udemy</span>
+                    </div>
+                    <h3 class="cert-title">The Complete SQL Bootcamp</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">SQL</span>
+                        <span class="cert-tag">Database</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1PFouUUJGO0l7aE4NtYaC7d6uGefbUkMv/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="data gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Udemy</span>
+                    </div>
+                    <h3 class="cert-title">Introduction to Spatial Databases with PostGIS</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">PostGIS</span>
+                        <span class="cert-tag">QGIS</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1NxcaqyAkjpVhWHmjgs2yktdqvZ1vrLrs/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="data gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Udemy</span>
+                    </div>
+                    <h3 class="cert-title">Complete Enterprise GIS (Opensource)</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">GIS</span>
+                        <span class="cert-tag">Web Mapping</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1ei44EApSJP30QhX3pD6urWFoINdkbSo5/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <!-- GIS Platform Certificates (ESRI) -->
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Spatial Data Science: The New Frontier</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Data Science</span>
+                        <span class="cert-tag">Spatial</span>
+                    </div>
+                    <span class="cert-link placeholder-link">
+                        <i class="fas fa-clock"></i> Certificate Pending
+                    </span>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">GIS for Climate Action</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Climate</span>
+                        <span class="cert-tag">GIS</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1rltiFW1ol7uX6F891GrorkYhaMOGiNjh/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Cartography</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Mapping</span>
+                        <span class="cert-tag">Design</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1eHUocBf1R5CiSyGOS1B1nZQqwYGk8D1a/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Going Places with Spatial Analysis</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Analysis</span>
+                        <span class="cert-tag">Spatial</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1ZC1-A66YGMYfX5XrsazgE9miACkyrbQn/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Configuring ArcGIS Online Organization</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">ArcGIS Online</span>
+                        <span class="cert-tag">Admin</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1KkocLkRd_yayD5rzQYVq7ev3z2kxsxNt/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Data Science Workflows Using ArcGIS Notebooks</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Notebooks</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1G7kR0C7okJma6EcZNf3NEevI1YxPwBjA/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <!-- Additional ESRI certificates (showing subset due to large number) -->
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Python Scripting for Geoprocessing Workflows</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Automation</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/12fyA08xb7QYVkNuy0nzZi7KV01rOhX4z/view?usp=share_link"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Python for Geospatial</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Geospatial</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1AksPRv055-u92WZIBSuI3pBBWe0tIsGN/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">ArcGIS Survey123 Basics</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Survey123</span>
+                        <span class="cert-tag">Field Collection</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/13ZP3SHRJrA2vruFo5jZoXtcI0JNloqA3/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">ArcGIS Indoors: Deploying Apps</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Indoors</span>
+                        <span class="cert-tag">Mobile</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1CdMC4UTtIbwqS9Ot9S5Q3iX_uka0nqP2/view?usp=share_link"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Building Geoprocessing Models Using ArcGIS Pro</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">ModelBuilder</span>
+                        <span class="cert-tag">Automation</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1OftmTrUvdzsUAo9bthYCpscXBh1y2Ft_/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Introduction to ArcGIS API for Python</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">API</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1x6BOyTzohy1QeCBFY9fTgctp85xEpVl3/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Visualizing Data Using ArcGIS API for Python</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Visualization</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1I8wLq-iPUGR1yN5Q25Yz7sE4j4_IeYac/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Performing Analysis Using ArcGIS API for Python</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Analysis</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1izxjuGkHr7iCHTLyN7aknKRr6VxFAhbS/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+
+
+
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Distance Analysis Using ArcGIS Pro</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Analysis</span>
+                        <span class="cert-tag">Spatial</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1v97UmweBouuPv2QMw0gOk1eZ7gz16Kzu/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Terrain Analysis Using ArcGIS Pro</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Terrain</span>
+                        <span class="cert-tag">3D</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1r7nHk-mtHnVbLmtujnJY6NeKylM1xJZT/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Suitability Modeling: Introduction</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Modeling</span>
+                        <span class="cert-tag">Suitability</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1B0Kd6F4veY1otl2oZiUO4dz9_8JklORj/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Creating and Sharing GIS Content (ArcGIS Online)</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">ArcGIS Online</span>
+                        <span class="cert-tag">Sharing</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1rIqWfKTitozVYjG-ZArFOcKQFCE51WJu/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Managing Data Quality (ArcGIS Data Reviewer)</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">QA/QC</span>
+                        <span class="cert-tag">Data Quality</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1NdXA9oER9ALOnrj5Ab8DgTi3EAuA6CwS/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <!-- Additional ESRI certificates (many more - showing representative sample) -->
+
+
+                <!-- Development Certificates -->
+                <div class="cert-card" data-category="dev">
+                    <div class="cert-provider">
+                        <i class="fab fa-meta"></i>
+                        <span>Meta</span>
+                    </div>
+                    <h3 class="cert-title">Introduction to Front-End Development</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Frontend</span>
+                        <span class="cert-tag">React</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/PWFJV5FYGVIC" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Udemy</span>
+                    </div>
+                    <h3 class="cert-title">Complete Guide For Leaflet JS</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Leaflet</span>
+                        <span class="cert-tag">Web Mapping</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/12MvO2RThqPvo6BZDhW9ZQtQ_kYwDWI8I/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Udemy</span>
+                    </div>
+                    <h3 class="cert-title">Creating Smart Maps With Python and Leaflet</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Leaflet</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1pLITgOc5Kq3v2aEi0__c0UjXPONbuftr/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Udemy</span>
+                    </div>
+                    <h3 class="cert-title">Basics of JavaScript Web Apps</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">JavaScript</span>
+                        <span class="cert-tag">Web Dev</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1Dh5D-5N7TkrUWxjkOFWsykOmJ9BMOMHR/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <!-- Project Management Certificates -->
+                <div class="cert-card" data-category="pm">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Agile Project Management</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Agile</span>
+                        <span class="cert-tag">Scrum</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/11CMAWI28NJE" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card featured-cert" data-category="pm">
+                    <div class="cert-badge">Professional Certificate</div>
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Google Project Management</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">PM</span>
+                        <span class="cert-tag">Professional</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/5AP885RXUD0N"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="pm">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Project Execution: Running the Project</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Execution</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/M7YW0CUT594Z" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="pm">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Project Planning: Putting It All Together</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Planning</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/WRG3LDRENTIS" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="pm">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Foundations of Project Management</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Fundamentals</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/YS2BDDYMAY52" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="pm">
+                    <div class="cert-provider">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                    <h3 class="cert-title">Capstone: Applying Project Management</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Capstone</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/8NZ6MCA8Q78G" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <!-- ITIL Certificate -->
+                <div class="cert-card" data-category="pm">
+                    <div class="cert-provider">
+                        <i class="fas fa-certificate"></i>
+                        <span>ITIL</span>
+                    </div>
+                    <h3 class="cert-title">ITIL Foundation in IT Service Management</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">ITIL</span>
+                        <span class="cert-tag">IT Service</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/11fk3gS1P4uZ_UIPHgd8sy3ITq2OacXaO/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <!-- More GIS certificates completing the 38 total -->
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Transform AEC Projects with GIS and BIM</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">BIM</span>
+                        <span class="cert-tag">AEC</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/17ycH19bgBUUQVfXv_SOQ8OviCb7ULIJg/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Creating Underground Scene in ArcGIS Online</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">3D</span>
+                        <span class="cert-tag">Underground</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1FlsRxWMkiJJlsWJfkXT1V3tfPEMkpQDq/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Using Arcade Expressions in ArcGIS Dashboards</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Arcade</span>
+                        <span class="cert-tag">Dashboards</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1cNjHnp7TeEUBezxFG7GthZZXDE_Cxofr/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Monitoring an ArcGIS Online Organization</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Admin</span>
+                        <span class="cert-tag">Monitoring</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1_jtRGWDa5BxBZBW0dui-ZXfo9T2stgiq/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Archiving Data in a Multiuser Geodatabase</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Geodatabase</span>
+                        <span class="cert-tag">Archiving</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1UDbqbqChpSdhtOeEDVi8XgFNk3PC_EkP/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Automating Workflows Using ArcGIS Pro Tasks</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Automation</span>
+                        <span class="cert-tag">Tasks</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1n8Uni0nxIcV5geGm9m8_DDCRvaD1NiNf/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Administering Content Using ArcGIS API for Python</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Admin</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1f779bWLxIVetzfXnnFF80bxgalglw7p3/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Accessing Data in Portal Using ArcGIS API for Python</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Portal</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1Uo5Wuh7SluTqg-hHq-zdCQ4qyhF7_aYc/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Getting Started with the Geodatabase</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Geodatabase</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1rx5ffcD3FvfHmRCsbh1PWcINwBJN88Ag/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Displaying Raster Data in ArcGIS</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Raster</span>
+                        <span class="cert-tag">Imagery</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1Dk_rAdgBR4_40rJiRaQEctLHyeQoKxED/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Processing Raster Data Using ArcGIS Pro</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Raster</span>
+                        <span class="cert-tag">Processing</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1WLaePkvEhN8lZAc2STgEHY-95H-lHJ78/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+
+
+
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Getting Started with Data Management</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Data Management</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1EEShr_SZiyNoOHqGHfoV82Z_QAQxn5ni/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Getting Started with Mapping and Visualization</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Mapping</span>
+                        <span class="cert-tag">Visualization</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1as-G11Z23GS_L6s8yoHgG9AR2OXcB1u2/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Getting Started with Spatial Analysis</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Analysis</span>
+                        <span class="cert-tag">Spatial</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/19AW5PdmdAM3oO1UnD4RCv7jN_UyZPQZR/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Querying Data Using ArcGIS Pro</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">SQL</span>
+                        <span class="cert-tag">Queries</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1UkIsytsE9jVFjkSBMxah1Rf5BFuJll1d/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Understanding Spatial Relationships</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Spatial</span>
+                        <span class="cert-tag">Relationships</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/18If1vpQWtjLPMPkzLRynrTj_eBfkLAcp/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Python Scripting: Modifying Layer Properties</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Scripting</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1mtGv3wI1Cz14HAVUV12CdbGq_kdfpDUd/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Python Scripting: Modifying Page Layouts</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Layout</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/1GMES1xVE-J81ZkHNLAUADr6I8i6vC8Mt/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis dev">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Python Scripting: Repairing Data Sources</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Python</span>
+                        <span class="cert-tag">Automation</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/15cd-dhQJqJyyUPjAS408ohZQuisYwVGH/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Suitability Modeling: Weighted Suitability Model</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Modeling</span>
+                        <span class="cert-tag">Suitability</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/16lJxPU758tRQmXxSYqLxqZ6UEMKcanbJ/view?usp=sharing"
+                        target="_blank" class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-card" data-category="gis">
+                    <div class="cert-provider">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Esri</span>
+                    </div>
+                    <h3 class="cert-title">Project Initiation: Starting a Successful Project</h3>
+                    <div class="cert-tags">
+                        <span class="cert-tag">Project</span>
+                        <span class="cert-tag">Initiation</span>
+                    </div>
+                    <a href="https://www.coursera.org/account/accomplishments/records/WG4KM0KJAJ5B" target="_blank"
+                        class="cert-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <!-- Load More Button (optional) -->
+            <div class="cert-actions">
+                <p class="cert-summary">
+                    <i class="fas fa-check-circle"></i>
+                    Showing <span id="shown-count">74</span> of <strong>74 professional certifications</strong>
+                </p>
             </div>
         </div>
     </section>
@@ -1017,8 +2920,8 @@
                             <h4>Engagement Approach</h4>
                         </div>
                         <p class="availability-text">
-                            I selectively take on projects where I can deliver meaningful impact. 
-                            If your organization is working on interesting spatial challenges, 
+                            I selectively take on projects where I can deliver meaningful impact.
+                            If your organization is working on interesting spatial challenges,
                             I'd love to hear about them.
                         </p>
                         <div class="availability-note">
@@ -1088,7 +2991,8 @@
 
                         <div class="form-group">
                             <label for="message">Tell Me About Your Challenge *</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="What spatial data challenge are you trying to solve?"></textarea>
+                            <textarea id="message" name="message" rows="5" required
+                                placeholder="What spatial data challenge are you trying to solve?"></textarea>
                         </div>
 
                         <!-- Honeypot field for spam protection -->
@@ -1145,7 +3049,8 @@
                     <div class="footer-column">
                         <h4>Connect</h4>
                         <ul>
-                            <li><a href="https://linkedin.com/in/maz-ghasemi-2815201bb" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://linkedin.com/in/maz-ghasemi-2815201bb" target="_blank">LinkedIn</a>
+                            </li>
                             <li><a href="mailto:Mazdak.gh1995@gmail.com">Email</a></li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
@@ -1181,4 +3086,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
