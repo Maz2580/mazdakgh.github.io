@@ -130,37 +130,39 @@ const modalBody = document.getElementById('modal-body');
 // Project data
 const projectData = {
     umami: {
-        title: 'UMAMI - University of Melbourne AI for Mapping & Insights',
+        title: 'UMAMI v2.7.0 - University of Melbourne AI for Mapping & Insights',
         category: 'GeoAI Platform | Enterprise Solution',
-        tags: ['GeoAI', 'n8n', 'PostGIS', 'GPT-4', 'Gemini', 'Groq', 'CesiumJS', 'Google Earth Engine', 'React', 'JWT Auth'],
+        tags: ['GeoAI', 'MCP Protocol', 'PostGIS', 'GPT-4', 'Claude', 'Gemini', 'CesiumJS', 'Google Earth Engine', 'React 19', 'IoT', 'RAG'],
         challenge: `Research institutions and sustainability planners needed an intuitive way to query complex geospatial databases without SQL expertise. Traditional GIS tools required specialized training, creating bottlenecks when non-technical users needed spatial insights. The challenge was to build an enterprise-grade platform that could handle natural language queries while maintaining accuracy, security, and performance at scale.`,
         solution: `
             <ul>
-                <li>Architected multi-agent "swarm" system with 7 specialized AI agents (Spatial Analyst, Data Validator, GIS Troubleshooter, Performance Optimizer, Quality Assurance, and more) orchestrated through n8n workflows</li>
-                <li>Implemented multi-LLM strategy: Gemini for query decomposition, GPT-4 for code generation and execution, Groq for fast formatting with agents critiquing each other's outputs</li>
-                <li>Built natural language to PostGIS SQL translation engine with automatic spatial analysis generation</li>
-                <li>Integrated Google Earth Engine for NDVI, NDWI, elevation, land cover, and surface temperature analysis</li>
-                <li>Developed CesiumJS-based 3D visualization with pipeline clearance analysis and elevation profiles</li>
+                <li>Architected <strong>6-agent swarm intelligence system</strong> with Ant Colony Optimization (Spatial Analyst, Data Validator, GIS Troubleshooter, Innovation Specialist, Performance Optimizer, Quality Assurance)</li>
+                <li>Built <strong>MCP Server Management</strong> layer with 11+ pre-configured servers (GIS-MCP with 89 functions, PostGIS, GitHub, GDAL, OSM, Geocode, Weather)</li>
+                <li>Developed <strong>MCP Flows</strong> - visual workflow editor with 100+ node types for drag-and-drop geospatial pipeline creation</li>
+                <li>Implemented multi-LLM strategy: OpenAI GPT-4, Anthropic Claude, Google Gemini, Groq with agents critiquing each other's outputs</li>
+                <li>Built <strong>IoT Sensor Dashboard</strong> with real-time MQTT environmental monitoring and WebSocket streaming</li>
+                <li>Created <strong>RAG Service</strong> with vector embeddings for semantic search over geospatial documentation</li>
+                <li>Integrated Google Earth Engine for NDVI, NDWI, elevation, land cover, and surface temperature analysis with AI-generated code</li>
+                <li>Developed CesiumJS-based 3D visualization with pipeline clearance analysis, elevation profiles, and 3D building models</li>
                 <li>Implemented full production stack: JWT authentication, role-based access control, personal API key management, admin dashboard</li>
-                <li>Created VicMap services integration and real-time campus dataset connectivity</li>
-                <li>Built interactive response system delivering GeoJSON, maps, tables, and charts</li>
             </ul>
         `,
         results: `
             <ul>
-                <li>Currently deployed on <strong>University of Melbourne campus datasets</strong> supporting sustainability planners and research teams</li>
+                <li>Currently deployed at <strong><a href="https://geollm.idigitaltwin.org/UMAMI" target="_blank">geollm.idigitaltwin.org/UMAMI</a></strong> supporting sustainability planners and research teams</li>
                 <li>Processing <strong>200+ natural language queries weekly</strong> with 90% accuracy rate</li>
                 <li><strong>70% reduction in support requests</strong> to GIS team from non-technical users</li>
+                <li><strong>11+ MCP servers</strong> with 89 geospatial functions available for AI tool use</li>
                 <li>Secured funding from <strong>Melbourne Climate Futures (Climate Research Accelerator)</strong> for scaling to precinct and city level</li>
                 <li>Expanding to government and industry partners across Victoria</li>
-                <li>Platform handles complex spatial operations that previously required GIS specialists</li>
             </ul>
         `,
-        architecture: `Multi-agent swarm architecture: n8n workflow orchestration, Python backends with FastAPI,
-                       PostgreSQL/PostGIS database, Multiple LLM integration (Gemini, GPT-4, Groq), React frontend,
-                       CesiumJS for 3D visualization, Google Earth Engine API, JWT authentication, Role-based access control.`,
+        architecture: `6-agent swarm with Ant Colony Optimization, MCP Server layer (11+ servers), MCP Flows visual workflow editor,
+                       n8n external pipeline, FastAPI backends, PostgreSQL/PostGIS + MongoDB, Multiple LLM providers (OpenAI, Claude, Gemini, Groq),
+                       React 19 frontend, CesiumJS 3D visualization, Google Earth Engine API, MQTT IoT integration, RAG with vector embeddings,
+                       JWT authentication, Docker + GitLab CI/CD.`,
         codeAvailable: true,
-        demoLink: 'https://drive.google.com/file/d/1jVf-fg_V63DQSixJDvxHTbm43zOMfo6x/view?usp=sharing'
+        demoLink: 'https://geollm.idigitaltwin.org/UMAMI'
     },
     veniceBiennale: {
         title: 'Song of the Cricket - Venice Biennale 2025',
@@ -377,8 +379,8 @@ const projectData = {
         title: 'Interactive 3D Urban Digital Twin',
         category: 'Web Application | 3D Visualization',
         tags: ['Cesium', 'React', 'TypeScript', 'IoT', 'MQTT'],
-        challenge: `University research project required 3D visualization platform for indoor/outdoor environmental 
-                   monitoring with real-time sensor integration. Traditional 2D mapping was insufficient for understanding 
+        challenge: `University research project required 3D visualization platform for indoor/outdoor environmental
+                   monitoring with real-time sensor integration. Traditional 2D mapping was insufficient for understanding
                    vertical air quality gradients in urban canyons.`,
         solution: `
             <ul>
@@ -398,8 +400,139 @@ const projectData = {
                 <li>Presented at <strong>Venice Biennale</strong> and multiple academic conferences</li>
             </ul>
         `,
-        architecture: `React with TypeScript, Cesium for 3D rendering, MQTT broker for IoT data, 
+        architecture: `React with TypeScript, Cesium for 3D rendering, MQTT broker for IoT data,
                        Node.js backend for data processing, MongoDB for time-series data storage.`,
+        codeAvailable: true
+    },
+    urbanmind: {
+        title: 'UrbanMind - Urban Scenario Planning Toolkit',
+        category: 'Urban Planning | GIS Analysis',
+        tags: ['QGIS', 'Python', 'React', 'FastAPI', 'PostGIS', 'MapLibre', 'TypeScript', 'Plan Melbourne'],
+        challenge: `Urban planners in Australia lacked open-source tools that combined scenario planning with fiscal impact analysis and property valuation. Existing tools were either too expensive, not calibrated for Australian standards, or required extensive GIS expertise. The challenge was to create a comprehensive planning toolkit accessible to both GIS professionals and planning officers.`,
+        solution: `
+            <ul>
+                <li>Developed <strong>9 comprehensive analysis models</strong>: Land Use Mix (Shannon entropy), Transport Impact (Austroads), Fiscal Impact (Council rates, developer contributions), Green Infrastructure (WSUD, carbon, urban heat island), Housing Balance, Location Efficiency (Walk Score, Transit Score, 20-min neighbourhood), Development Feasibility (NPV, IRR), Redevelopment Timing, Seven D Model</li>
+                <li>Built dual-interface system: <strong>QGIS Plugin</strong> (100% complete) for desktop GIS professionals and <strong>Web Platform</strong> (92% complete) for browser-based collaboration</li>
+                <li>Implemented Australian-calibrated standards: Plan Melbourne, Victorian Planning Provisions, Austroads guidelines, VIC EPA environmental standards</li>
+                <li>Integrated AI capabilities with multi-provider support (OpenRouter, Groq, Ollama) and SAM image segmentation</li>
+                <li>Created Microsoft Building Footprints integration (5M+ Australian buildings) and OSMnx network analysis</li>
+                <li>Built ABS Census integration and VicMap data connectivity</li>
+                <li>Developed interactive painting tools (circle, polygon, rectangle, point) for scenario creation</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>~16,500 lines of code</strong> across QGIS plugin and web platform</li>
+                <li><strong>9 analysis models</strong> covering all aspects of urban scenario planning</li>
+                <li><strong>First Australian open-source tool</strong> combining Envision Tomorrow methodology with fiscal impact and property valuation</li>
+                <li>Calibrated for <strong>Plan Melbourne standards</strong> and Victorian Planning Provisions</li>
+                <li>Potential partnership opportunity with <strong>RACE for 2030 ET-Oz</strong> (Envision Tomorrow Australia)</li>
+                <li>Web platform at 92% completion with React 18 + TypeScript + MapLibre GL JS frontend</li>
+            </ul>
+        `,
+        architecture: `QGIS Plugin: Python, PyQt, NumPy. Web Platform: FastAPI + SQLAlchemy + PostGIS backend,
+                       React 18 + TypeScript + MapLibre GL JS frontend, Recharts for visualization,
+                       Multi-provider AI (OpenRouter, Groq, Ollama), MongoDB for scenarios, Docker deployment.`,
+        codeAvailable: true
+    },
+    catastropheiq: {
+        title: 'CatastropheIQ - Multi-Agent Insurance Claims Platform',
+        category: 'Insurance Tech | AI Automation',
+        tags: ['FastAPI', 'MongoDB', 'React', '3D Globe', 'Satellite Analysis', 'Multi-Agent AI', 'Real-time'],
+        challenge: `Insurance companies face significant delays in processing disaster-related claims due to manual verification processes. After hurricanes, wildfires, or floods, adjusters must physically assess damage, cross-reference with policy data, and validate claims - a process that can take weeks while policyholders wait for assistance. The challenge was to automate this pipeline using AI and satellite imagery.`,
+        solution: `
+            <ul>
+                <li>Architected <strong>3 autonomous AI agents</strong> working in coordination:
+                    <ul>
+                        <li><strong>Geo Sentinel</strong>: Real-time disaster detection from NWS alerts + satellite imagery analysis for damage assessment</li>
+                        <li><strong>Claims Verifier</strong>: Auto-approval pipeline combining social media evidence with satellite damage scores</li>
+                        <li><strong>Revenue Engine</strong>: Automated client outreach, demo scheduling, and trial activation</li>
+                    </ul>
+                </li>
+                <li>Built real-time disaster mapping with 3D Globe visualization showing affected areas and damage radius</li>
+                <li>Implemented satellite analysis module calculating area affected, building damage count, and estimated loss</li>
+                <li>Created social intelligence layer analyzing geo-tagged posts, damage keywords, and sentiment</li>
+                <li>Developed auto-approval logic: claims with 3+ social evidence posts AND 70%+ satellite damage score get instant approval</li>
+                <li>Built revenue dashboard tracking demos sent, trials activated, and conversion rates</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>3-agent autonomous system</strong> handling end-to-end disaster response workflow</li>
+                <li><strong>Satellite + social evidence fusion</strong> for automated claim verification</li>
+                <li>Real-time processing with <strong>sub-minute detection to claim generation</strong></li>
+                <li>Scalable architecture supporting multiple concurrent disaster events</li>
+                <li>Revenue automation achieving <strong>23.5% demo-to-trial conversion rate</strong></li>
+                <li>Full-stack implementation: FastAPI backend, React frontend, MongoDB for persistence</li>
+            </ul>
+        `,
+        architecture: `FastAPI backend with async processing, MongoDB for disaster events and claims storage,
+                       React frontend with 3D Globe (likely Cesium or Globe.gl), Real-time WebSocket updates,
+                       Satellite imagery integration, Social media API integration, Automated notification system.`,
+        codeAvailable: true
+    },
+    sustainabilityDashboard: {
+        title: 'Sustainability Dashboard - University of Melbourne',
+        category: 'Data Visualization | Sustainability',
+        tags: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Role-based Access', 'Dashboard Builder'],
+        challenge: `The University of Melbourne needed a comprehensive dashboard to track progress toward Sustainability Plan 2030 targets across academic, operational, and community areas. The existing reporting was fragmented across spreadsheets and static reports, making it difficult for stakeholders to understand progress and identify areas needing attention.`,
+        solution: `
+            <ul>
+                <li>Built interactive dashboard with <strong>10+ widget types</strong>: KPI Grids, Chart Grids (Bar, Line, Pie, Area), Rich Text, Indicators with trends, Embedded Content (iframes), Tables with CSV upload, Lists, Gauges, Details blocks</li>
+                <li>Implemented <strong>role-based access control</strong>: Admin (full control + user management), Editor (dashboard editing), Viewer (read-only)</li>
+                <li>Created <strong>visual dashboard editor</strong> allowing authorized users to add, remove, reorder, and configure widgets without coding</li>
+                <li>Designed categorized metrics structure covering Teaching & Research, Operations, and Community areas</li>
+                <li>Built admin panel for managing access requests and editor permissions</li>
+                <li>Implemented responsive design adapting to desktop, tablet, and mobile devices</li>
+                <li>Architected for future <strong>Google Gemini API integration</strong> for AI-driven insights and natural language querying</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>10+ customizable widget types</strong> for flexible data presentation</li>
+                <li><strong>Visual dashboard editor</strong> enabling non-technical users to customize views</li>
+                <li><strong>Role-based access</strong> ensuring appropriate permissions across stakeholder groups</li>
+                <li>Responsive design serving users across all device types</li>
+                <li>Foundation for <strong>AI-powered insights</strong> via Gemini API integration</li>
+                <li>Scalable architecture supporting future database integration</li>
+            </ul>
+        `,
+        architecture: `React with TypeScript for type-safe development, Tailwind CSS for responsive styling,
+                       Recharts for data visualization, Papaparse for CSV processing, localStorage for persistence,
+                       Planned: Google Gemini API for AI insights, Backend database integration.`,
+        codeAvailable: true
+    },
+    mcpNexus: {
+        title: 'MCP Nexus Manager - Model Context Protocol Platform',
+        category: 'AI Infrastructure | Developer Tools',
+        tags: ['React 19', 'TypeScript', 'Vite', 'MCP Protocol', 'Gemini AI', 'Visual Workflows', 'GeoAI'],
+        challenge: `The emerging Model Context Protocol (MCP) standard enables AI models to interact with external tools and data sources, but managing multiple MCP servers, monitoring their health, and building workflows requires significant technical expertise. GIS and remote sensing professionals needed a user-friendly interface to leverage MCP servers for spatial analysis without deep protocol knowledge.`,
+        solution: `
+            <ul>
+                <li>Built <strong>full-stack MCP server management interface</strong> supporting stdio, SSE, and WebSocket transports</li>
+                <li>Implemented <strong>real-time health monitoring</strong> with latency tracking, uptime monitoring, and automatic reconnection</li>
+                <li>Created <strong>visual drag-and-drop workflow builder</strong> with node-based execution for chaining MCP tool calls</li>
+                <li>Developed <strong>GeoAI analysis module</strong> with object detection, segmentation, and change detection capabilities</li>
+                <li>Built <strong>custom tool builder</strong> allowing users to create MCP tools using Python, SQL, or AI models</li>
+                <li>Integrated <strong>Gemini AI assistant</strong> for natural language query planning and execution</li>
+                <li>Created <strong>server discovery catalog</strong> with 30+ pre-configured MCP servers across categories: File & Data, Search & Web, GIS & Spatial, Developer Tools, AI & ML</li>
+                <li>Implemented health dashboard with system metrics, network traffic visualization, and performance monitoring</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>30+ pre-configured MCP servers</strong> ready for instant deployment</li>
+                <li><strong>Visual workflow builder</strong> eliminating need for code-based MCP orchestration</li>
+                <li><strong>GeoAI capabilities</strong> accessible through intuitive UI</li>
+                <li><strong>Gemini-powered</strong> natural language interface for query planning</li>
+                <li>Real-time health monitoring ensuring <strong>reliable server connectivity</strong></li>
+                <li>Custom tool creation enabling <strong>extensible MCP ecosystem</strong></li>
+                <li>Later integrated into <strong>UMAMI platform</strong> as advanced MCP server management layer</li>
+            </ul>
+        `,
+        architecture: `React 19 + TypeScript frontend, Vite for fast development, Gemini API for AI features,
+                       MCP client implementation (stdio, SSE, WebSocket), Health monitoring service,
+                       Visual workflow engine, Tailwind CSS + Lucide icons for UI.`,
         codeAvailable: true
     }
 };
