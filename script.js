@@ -74,28 +74,7 @@ if (mobileMenuToggle) {
     });
 }
 
-// ===== THEME TOGGLE =====
-const themeToggle = document.getElementById('theme-toggle');
-let currentTheme = localStorage.getItem('theme') || 'dark';
-
-// Apply saved theme
-if (currentTheme === 'light') {
-    document.body.classList.add('light-theme');
-    themeToggle.querySelector('i').classList.replace('fa-sun', 'fa-moon');
-}
-
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-theme');
-    const icon = themeToggle.querySelector('i');
-    
-    if (document.body.classList.contains('light-theme')) {
-        icon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'light');
-    } else {
-        icon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'dark');
-    }
-});
+// ===== THEME: Dark mode only =====
 
 // ===== PROJECT FILTERING =====
 const filterButtons = document.querySelectorAll('.filter-btn');
@@ -162,7 +141,7 @@ const projectData = {
                        React 19 frontend, CesiumJS 3D visualization, Google Earth Engine API, MQTT IoT integration, RAG with vector embeddings,
                        JWT authentication, Docker + GitLab CI/CD.`,
         codeAvailable: true,
-        demoLink: 'https://geollm.idigitaltwin.org/UMAMI'
+        demoLink: 'https://geollm.idigitaltwin.org/TEST-UMAMI/'
     },
     veniceBiennale: {
         title: 'Song of the Cricket - Venice Biennale 2025',
@@ -407,33 +386,142 @@ const projectData = {
     urbanmind: {
         title: 'UrbanMind - Urban Scenario Planning Toolkit',
         category: 'Urban Planning | GIS Analysis',
-        tags: ['QGIS', 'Python', 'React', 'FastAPI', 'PostGIS', 'MapLibre', 'TypeScript', 'Plan Melbourne'],
-        challenge: `Urban planners in Australia lacked open-source tools that combined scenario planning with fiscal impact analysis and property valuation. Existing tools were either too expensive, not calibrated for Australian standards, or required extensive GIS expertise. The challenge was to create a comprehensive planning toolkit accessible to both GIS professionals and planning officers.`,
+        tags: ['QGIS', 'Python', 'React 18', 'FastAPI', 'PostGIS', 'MapLibre', 'TypeScript', 'deck.gl', 'AI', 'Plan Melbourne'],
+        challenge: `Urban planners in Australia lacked open-source tools that combined scenario planning with fiscal impact analysis, climate resilience modelling, and property valuation. Existing tools were either too expensive, not calibrated for Australian standards, or required extensive GIS expertise. The challenge was to create a comprehensive planning toolkit accessible to both GIS professionals and planning officers — integrating 36+ real data sources and 23 analysis models into a single platform.`,
         solution: `
             <ul>
-                <li>Developed <strong>9 comprehensive analysis models</strong>: Land Use Mix (Shannon entropy), Transport Impact (Austroads), Fiscal Impact (Council rates, developer contributions), Green Infrastructure (WSUD, carbon, urban heat island), Housing Balance, Location Efficiency (Walk Score, Transit Score, 20-min neighbourhood), Development Feasibility (NPV, IRR), Redevelopment Timing, Seven D Model</li>
-                <li>Built dual-interface system: <strong>QGIS Plugin</strong> (100% complete) for desktop GIS professionals and <strong>Web Platform</strong> (92% complete) for browser-based collaboration</li>
-                <li>Implemented Australian-calibrated standards: Plan Melbourne, Victorian Planning Provisions, Austroads guidelines, VIC EPA environmental standards</li>
-                <li>Integrated AI capabilities with multi-provider support (OpenRouter, Groq, Ollama) and SAM image segmentation</li>
-                <li>Created Microsoft Building Footprints integration (5M+ Australian buildings) and OSMnx network analysis</li>
-                <li>Built ABS Census integration and VicMap data connectivity</li>
-                <li>Developed interactive painting tools (circle, polygon, rectangle, point) for scenario creation</li>
+                <li>Developed <strong>23 analysis models</strong> across 3 tiers: 12 core (Land Use Mix, Transport Impact, Fiscal Impact, Green Infrastructure, Housing Balance, Location Efficiency, Development Feasibility, Redevelopment Timing, Seven D Model, Embodied Carbon, Biodiversity, Urban Heat), 3 composite (20-min Neighbourhood, CBA, Social Equity), and 8 climate/government models (Flood Risk, Climate Projections, Building Stock, Energy Hardship, Cool Rooms, UHI Impact, Retrofit vs Rebuild, Asset Priority)</li>
+                <li>Built dual-interface system: <strong>QGIS Plugin</strong> for desktop GIS professionals and <strong>Web Platform</strong> for browser-based collaboration with dark glassmorphism UI, 3D building extrusions (deck.gl), and animated landing page</li>
+                <li>Integrated <strong>36+ real data sources</strong>: ABS Census 2021 (14 dataflows), VicMap, PTV GTFS (30K+ stops), Microsoft Building Footprints (5M+ buildings), Overture Maps (2.35B+ buildings), Heritage Victoria, Atlas of Living Australia, NatureKit, OSMnx walkability, and more</li>
+                <li>Built <strong>AI-powered features</strong>: streaming chat, analysis insights for all 23 models, AI-enhanced PDF reports, natural language scenario creation, policy compliance checker (VPP & Plan Melbourne), SAM image segmentation, and AI Proposal Engine</li>
+                <li>Implemented <strong>Smart City API</strong> (Phase 7) with API key management, webhook subscriptions, and developer portal</li>
+                <li>Created split-panel scenario comparison (swipe, side-by-side, 2x2 grid), command palette (Cmd+K), keyboard shortcuts, and Knowledge Hub with 42 sections</li>
+                <li>Deployed with Docker on university infrastructure (64 vCPU, 251GB RAM), Cloudflare Tunnel for HTTPS, and GitHub Actions CI/CD</li>
             </ul>
         `,
         results: `
             <ul>
-                <li><strong>~16,500 lines of code</strong> across QGIS plugin and web platform</li>
-                <li><strong>9 analysis models</strong> covering all aspects of urban scenario planning</li>
-                <li><strong>First Australian open-source tool</strong> combining Envision Tomorrow methodology with fiscal impact and property valuation</li>
-                <li>Calibrated for <strong>Plan Melbourne standards</strong> and Victorian Planning Provisions</li>
-                <li>Potential partnership opportunity with <strong>RACE for 2030 ET-Oz</strong> (Envision Tomorrow Australia)</li>
-                <li>Web platform at 92% completion with React 18 + TypeScript + MapLibre GL JS frontend</li>
+                <li><strong>Live at <a href="https://urbanmind.terrascout.app" target="_blank" style="color: var(--primary-color);">urbanmind.terrascout.app</a></strong> — fully deployed and accessible</li>
+                <li><strong>23 analysis models</strong> covering urban planning, climate resilience, and government strategy</li>
+                <li><strong>36+ real data integrations</strong> including ABS Census, VicMap, PTV GTFS, Microsoft/Overture building footprints</li>
+                <li><strong>7 completed development phases</strong> spanning foundation through Smart City API</li>
+                <li><strong>First Australian open-source tool</strong> combining Envision Tomorrow methodology with fiscal impact, biodiversity, embodied carbon, and urban heat modelling</li>
+                <li>Calibrated for <strong>Plan Melbourne standards</strong>, Victorian Planning Provisions, and Austroads guidelines</li>
+                <li>Supabase Auth with email/password, Google, and GitHub login</li>
             </ul>
         `,
-        architecture: `QGIS Plugin: Python, PyQt, NumPy. Web Platform: FastAPI + SQLAlchemy + PostGIS backend,
-                       React 18 + TypeScript + MapLibre GL JS frontend, Recharts for visualization,
-                       Multi-provider AI (OpenRouter, Groq, Ollama), MongoDB for scenarios, Docker deployment.`,
-        codeAvailable: true
+        architecture: `QGIS Plugin: Python, PyQt, NumPy. Web Platform: FastAPI + SQLAlchemy 2.0 + GeoAlchemy2 + PostGIS backend,
+                       React 18 + TypeScript + MapLibre GL JS + deck.gl frontend, Zustand state management (14 stores),
+                       Multi-provider AI (OpenRouter, Groq, Ollama), MongoDB Atlas for AI/unstructured data,
+                       Supabase Auth, Docker + Cloudflare Tunnel, GitHub Actions CI/CD, 64 vCPU university server.`,
+        codeAvailable: true,
+        demoLink: 'https://urbanmind.terrascout.app'
+    },
+    terrascout: {
+        title: 'Terrascout - Geospatial Data Scoping & Feasibility Platform',
+        category: 'GeoAI Platform | SaaS',
+        tags: ['FastAPI', 'React 19', 'PostGIS', 'MCP Server', 'CLI', 'Typer', 'STAC', 'Supabase', 'Docker', 'AI Agents'],
+        challenge: `Selecting the right satellite imagery or spatial dataset for a project is a manual, error-prone process. Geospatial consultants spend days to weeks evaluating dozens of providers, comparing resolutions, checking revisit frequencies, assessing cloud cover, and verifying that sensors can actually detect what the project requires — all before a single image is ordered.`,
+        solution: `
+            <ul>
+                <li>Built an <strong>intelligent scoping engine</strong> with brief parsing (Tier 1: regex/keyword, Tier 2: LLM fallback), progressive matching (spatial → resolution → spectral → temporal), and weighted scoring across 5 dimensions</li>
+                <li>Created <strong>knowledge base</strong> covering 12 providers, 14 sensors, 100+ spectral bands, 8 use cases, and detection thresholds with peer-reviewed DOI references</li>
+                <li>Developed <strong>5 AI agents</strong>: Methodology Writer, Procurement Drafter, QA Reviewer, Regulatory Checker, Report Assistant</li>
+                <li>Built <strong>6 MCP tools</strong> (via FastMCP 3.1) for Claude/Cursor/AI assistant integration: scope_geospatial_data, get_feasibility, get_cloud_cover, preview_satellite_data, search_providers, generate_scope_report</li>
+                <li>Shipped <strong>Terrascout CLI</strong> (Typer + Rich) with 7 command groups and 20 commands — pip-installable, talks to the HTTP API</li>
+                <li>Built interactive frontend with dark-theme glass-morphism UI, Leaflet map for AOI drawing, Framer Motion transitions, comparison mode with radar charts, and PDF report generation</li>
+                <li>Implemented enterprise features: Supabase JWT auth, project workspaces, pricing tiers (Free/Pro/BYOK), Fernet-encrypted BYOK API keys, change alerts (SendGrid), admin dashboard, APScheduler background automation</li>
+                <li>Core principle: <strong>80% deterministic logic</strong> (PostGIS + structured lookups), LLM only invoked when confidence &lt; 0.7 — keeping token costs near zero</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>Live at <a href="https://terrascout.app" target="_blank" style="color: var(--primary-color);">terrascout.app</a></strong> — fully deployed on Oracle Cloud (Always Free tier)</li>
+                <li><strong>217 tests</strong> across 22 test files (190 backend + 27 CLI)</li>
+                <li><strong>6 MCP tools</strong> enabling AI assistants to call geospatial scoping functions directly</li>
+                <li><strong>5 AI agents</strong> transforming scope results into actionable deliverables (methodology, procurement, QA, compliance, reports)</li>
+                <li><strong>12 providers, 14 sensors, 100+ spectral bands</strong> in the knowledge base</li>
+                <li>Full CLI with <strong>20 commands</strong> for terminal-based workflows</li>
+                <li>GitHub Actions CI/CD with automated test → deploy via SSH</li>
+            </ul>
+        `,
+        architecture: `FastAPI (async, Python 3.13) backend with 40+ endpoints, PostgreSQL + PostGIS (Supabase) with 17 tables,
+                       SQLAlchemy 2.0 + GeoAlchemy2, Supabase JWT auth, Groq + OpenRouter for LLM,
+                       FastMCP 3.1 (hybrid HTTP + stdio, 6 tools), Typer + Rich CLI,
+                       React 19 + TypeScript + Vite 7 + Tailwind CSS v4 frontend, Leaflet + Recharts + Framer Motion,
+                       Docker Compose (backend + nginx + Redis), Oracle Cloud hosting, GitHub Actions CI/CD.`,
+        codeAvailable: true,
+        demoLink: 'https://terrascout.app'
+    },
+    geospark: {
+        title: 'GeoSpark - The Open-Source Geospatial Intelligence Protocol & Engine',
+        category: 'Open Source | GeoAI Protocol',
+        tags: ['Python', 'MCP Server', 'Benchmarks', 'Docker', 'PostGIS', 'Spatial Reasoning', 'CLI', 'Open Source'],
+        challenge: `Current LLMs fail at spatial reasoning — mislabeling topological relationships ~80% of the time and showing 42–80% performance drops on complex spatial tasks. Ask any LLM "Is the Louvre inside the 7th arrondissement of Paris?" and it will confidently guess wrong. LLMs have no geometric engine, no coordinate system awareness, and no way to verify spatial claims. They hallucinate distances, confuse containment with proximity, and silently swap lat/lon.`,
+        solution: `
+            <ul>
+                <li>Designed the <strong>GeoSpark Protocol (GSP)</strong> — a standardized JSON protocol for spatial queries, analogous to MCP but for geospatial intelligence</li>
+                <li>Built a <strong>Spatial Reasoning Engine</strong> with topology, geodesic distance, CRS transforms, buffering, area calculations, centroid computation, and nearest-neighbor — all geometrically correct</li>
+                <li>Created <strong>GeoSpark Bench</strong> — 535 benchmark questions across 5 suites (GeoDistance, GeoReason, GeoTopo, GeoChange, GeoMultimodal) proving LLMs fail 70%+ on spatial tasks</li>
+                <li>Implemented <strong>MCP Server</strong> enabling Claude, ChatGPT, or any MCP-compatible AI assistant to gain spatial reasoning capabilities</li>
+                <li>Developed <strong>pluggable tool system</strong>: geocoding, satellite imagery (STAC), terrain/elevation, routing (OSRM), spectral indices, change detection</li>
+                <li>Built <strong>GeoSpark Flows</strong> — DAG-based workflow automation with conditional routing and pre-built templates</li>
+                <li>Created <strong>Spatial Knowledge Graph</strong> with entity-relation graphs, BFS traversal, auto-relate, and natural language queries</li>
+                <li>Designed <strong>plugin ecosystem</strong> with manifest-based discovery, lifecycle hooks, and dependency management</li>
+                <li>Published on <strong>PyPI</strong> as <code>geospark-ai</code> — <code>pip install geospark-ai</code></li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>Published on PyPI</strong> — installable via <code>pip install geospark-ai</code></li>
+                <li><strong>Live API</strong> at <a href="https://geospark.terrascout.app/docs" target="_blank" style="color: var(--primary-color);">geospark.terrascout.app</a> with 11 endpoints and Swagger docs</li>
+                <li><strong>535 benchmark questions</strong> across 5 suites — LLMs score 0% on geodesic distance (GeoSpark brings it to 75%)</li>
+                <li><strong>446 tests</strong> passing across 4 completed development phases</li>
+                <li><strong>Zero-cost stack</strong> option: OpenRouter free models + Supabase free tier for full spatial AI at $0/month</li>
+                <li>MCP Server enabling any AI assistant to gain ground-truth spatial reasoning</li>
+                <li>Open source under <strong>Apache 2.0</strong> license</li>
+            </ul>
+        `,
+        architecture: `Python library with GeoSpark Protocol (GSP) layer, Spatial Reasoning Engine (Shapely, pyproj, geopy),
+                       Pluggable tools (geocoder, STAC satellite, terrain, OSRM routing, change detection),
+                       GeoSpark Flows (DAG runner), Spatial Knowledge Graph (BFS, NL queries),
+                       Plugin system (community ecosystem), MCP Server integration,
+                       FastAPI REST API, Docker + Docker Compose (PostGIS), CLI (Typer), CI/CD with GitHub Actions.`,
+        codeAvailable: true,
+        demoLink: 'https://github.com/Maz2580/geospark'
+    },
+    ksaGrf17: {
+        title: 'KSA-GRF17 WebODM Plugin',
+        category: 'Drone Processing | Geodesy',
+        tags: ['WebODM', 'Python', 'Django', 'React', 'EXIF', 'PROJ', 'Docker', 'REST API'],
+        challenge: `Drone image processing in Saudi Arabia requires the KSA-GRF17 (Geodetic Reference Frame 2017) coordinate system, which uses a 7-parameter Helmert transformation from ITRF2014. Manually configuring the correct UTM zone and PROJ string for each processing task is error-prone and requires specialized geodetic knowledge that most drone operators don't have.`,
+        solution: `
+            <ul>
+                <li>Built a <strong>zero-configuration WebODM plugin</strong> that automatically reads GPS coordinates from drone image EXIF data</li>
+                <li>Implemented <strong>automatic UTM zone detection</strong> covering all 5 KSA zones (36N–40N, EPSG 9356–9360)</li>
+                <li>Auto-injects the correct <strong>KSA-GRF17 PROJ string</strong> with the 7-parameter Helmert transformation (EPSG:9383)</li>
+                <li>Added <strong>KSA boundary check</strong> — plugin only activates for images within Saudi Arabia</li>
+                <li>Created <strong>React UI panel</strong> showing detected zone and CRS info during task creation</li>
+                <li>Built <strong>REST API endpoints</strong> for programmatic zone detection and preset retrieval</li>
+                <li>Fully self-contained — <strong>no external network calls</strong>, completely auditable</li>
+                <li>Provided comprehensive documentation including installation guide and complete KSA-GRF17 reference</li>
+            </ul>
+        `,
+        results: `
+            <ul>
+                <li><strong>Zero configuration</strong> for end users — just upload drone images and process</li>
+                <li><strong>5 UTM zones</strong> fully supported with correct TOWGS84 parameters</li>
+                <li><strong>Automatic detection</strong> eliminates manual CRS errors in drone processing</li>
+                <li>Works with standard WebODM Docker installation — simple container copy to install</li>
+                <li>Ready-to-install ZIP package in the <code>dist/</code> folder</li>
+                <li>REST API for integration with external tools and automated pipelines</li>
+            </ul>
+        `,
+        architecture: `Django plugin architecture (WebODM core), Python backend with exifread for GPS extraction,
+                       Django signals for auto-injection at task creation, PROJ string generation for KSA-GRF17,
+                       React JSX UI panel, REST API endpoints, Docker deployment (webapp + worker containers).`,
+        codeAvailable: true,
+        demoLink: 'https://github.com/Maz2580/ksa-grf17-webodm-plugin'
     },
     catastropheiq: {
         title: 'CatastropheIQ - Multi-Agent Insurance Claims Platform',
