@@ -1,140 +1,74 @@
-# Mazdak Ghasemi - GIS Developer & GeoAI Specialist Portfolio
+# Mazdak Ghasemi - Spatial Data Engineer & GeoAI Specialist
 
-Professional portfolio website showcasing GIS development, GeoAI platforms, and spatial data engineering projects.
+Professional portfolio showcasing AI-powered geospatial platforms, open-source tools, and spatial data engineering — from raw data to production deployment.
 
-## 🌐 Live Site
+## Live Site
 
-**[https://maz2580.github.io/mazdakgh.github.io/](https://maz2580.github.io/mazdakgh.github.io/)**
+- **Vercel**: [https://mazdakghgithubio.vercel.app](https://mazdakghgithubio.vercel.app)
+- **GitHub Pages**: [https://maz2580.github.io/mazdakgh.github.io/](https://maz2580.github.io/mazdakgh.github.io/)
 
-## 🎯 Overview
+## Overview
 
-This portfolio showcases my expertise in:
-- **GeoAI Platforms**: Multi-agent AI systems for spatial analysis
-- **Web Mapping Applications**: Interactive geospatial visualizations
-- **Automation Systems**: ETL pipelines processing 50K+ records
-- **Digital Twin Technology**: IoT-integrated real-time monitoring
-- **Enterprise GIS Solutions**: Production-grade spatial systems
+This portfolio showcases my work across:
+- **AI-Powered Geospatial Platforms**: Terrascout, UrbanMind, UMAMI — 3 live platforms in production
+- **Open-Source Tools**: GeoSpark on PyPI — spatial AI protocol with 535 benchmarks and 446 tests
+- **Spatial Data Engineering**: ETL pipelines, PostGIS, 36+ real data source integrations
+- **CLI & MCP Tools**: pip-installable CLIs, MCP servers for AI assistant integration
+- **Remote Sensing & GIS**: Satellite data scoping, drone processing, Google Earth Engine
 
-## 🚀 Featured Projects
+## Featured Projects
+
+### Terrascout - Geospatial Data Scoping Platform
+Provider-agnostic satellite, LiDAR, and aerial data scoping platform. 80% deterministic / 20% LLM architecture. Ships as web app, CLI (20 commands), MCP server (6 tools), and REST API. Live at [terrascout.app](https://terrascout.app).
+
+### UrbanMind - Urban Scenario Planning Toolkit
+23 analysis models calibrated to Australian standards, 36+ real data sources (ABS Census, VicMap, PTV GTFS, Microsoft Building Footprints). QGIS plugin + web platform. Live at [urbanmind.terrascout.app](https://urbanmind.terrascout.app).
+
+### GeoSpark - Geospatial Intelligence Protocol & Engine
+Open-source protocol giving AI models ground-truth spatial reasoning. 535 benchmark questions prove LLMs fail 70%+ on spatial tasks. Published on PyPI (`pip install geospark-ai`). Apache 2.0.
 
 ### UMAMI - AI for Mapping & Insights
-Enterprise GeoAI platform with 7-agent swarm architecture enabling natural language queries over spatial databases. Currently in production at University of Melbourne.
+AI platform enabling natural language queries over spatial databases. Processing 200+ queries weekly with 90% accuracy. In production at University of Melbourne.
 
-### Song of the Cricket - Venice Biennale 2025
-International collaboration using Earth observation and AI habitat modeling for endangered species conservation. Featured at Venice Biennale.
+### KSA-GRF17 WebODM Plugin
+Zero-configuration WebODM plugin for Saudi Arabia's KSA-GRF17 coordinate system. Auto-detects UTM zone from drone image EXIF GPS data.
 
-### Digital Twin with IoT
-Real-time indoor environmental monitoring system using LoRaWAN, MQTT, and 3D visualization with CesiumJS.
-
-## 🛠️ Technologies Used
+## Technologies
 
 ### Frontend
-- HTML5 with semantic markup
-- CSS3 (Custom properties, Flexbox, Grid, Animations)
+- HTML5, CSS3 (Custom properties, Grid, Animations)
 - Vanilla JavaScript (ES6+)
-- Font Awesome Icons
-- Google Fonts (Inter)
+- Font Awesome Icons, Google Fonts (Inter)
 
-### Features & Libraries
+### Features
 - Intersection Observer API for scroll animations
-- CSS Grid & Flexbox for responsive layouts
-- Custom animated counters
-- Modal system for project details
-- Theme toggle (Dark/Light mode)
+- Responsive layouts (CSS Grid & Flexbox)
+- Modal system for detailed project case studies
+- Dark theme design
 - SEO optimized with Open Graph tags
 
-## 📁 Project Structure
+## Deployment
 
-```
-├── index.html          # Main HTML file with semantic structure
-├── styles.css          # All styling with CSS variables
-├── script.js           # Interactive functionality & animations
-├── Resume__1_.pdf      # Downloadable resume
-└── README.md           # This file
-```
-
-## ✨ Key Features
-
-### Design & UX
-- ✅ Fully responsive design (mobile-first approach)
-- ✅ Dark/Light theme toggle with localStorage persistence
-- ✅ Smooth scroll navigation with active state tracking
-- ✅ Animated counters for metrics (scroll-triggered)
-- ✅ Staggered animations for cards and sections
-- ✅ Interactive project modals with detailed case studies
-
-### Content Sections
-1. **Hero Section**: Value proposition with animated metrics
-2. **Results Section**: Proven impact with client testimonials
-3. **Projects Section**: 9 detailed projects with filtering
-4. **GitHub Activity**: Live stats and technology focus
-5. **Skills Section**: Comprehensive technical expertise
-6. **About Section**: Education and experience timeline
-7. **Testimonials**: Social proof from colleagues
-8. **Contact Section**: Multi-channel contact options
-
-### Performance
-- ✅ Optimized animations using CSS transforms
-- ✅ Lazy-loaded scroll animations with Intersection Observer
-- ✅ Minimal JavaScript for fast page loads
-- ✅ Mobile-responsive across all devices
-
-## 🎨 Design Highlights
-
-- **Color Scheme**: Professional dark theme with cyan/teal gradient accents
-- **Typography**: Inter font family for clean, modern appearance
-- **Animations**: Smooth transitions, counters, and scroll effects
-- **Featured Projects**: Special badge and styling for key work
-- **Interactive Elements**: Hover states, progress bars, and modals
-
-## 📊 SEO & Social Sharing
-
-- Complete meta tags for search engines
-- Open Graph tags for Facebook/LinkedIn
-- Twitter Card integration
-- Structured semantic HTML
-- Custom favicon
-- Descriptive alt text and ARIA labels
-
-## 🚀 Deployment
-
-This site is deployed using GitHub Pages:
-
-1. **Repository**: `Maz2580/mazdakgh.github.io`
-2. **Branch**: `master` (or `main`)
-3. **URL**: https://maz2580.github.io/mazdakgh.github.io/
-
-### Deployment Steps
+Deployed on **Vercel** with auto-deploy from GitHub:
 
 ```bash
-# Navigate to project directory
-cd mazdakgh.github.io
+# Deploy to Vercel
+vercel --prod
 
-# Stage all changes
-git add .
-
-# Commit changes
-git commit -m "Update portfolio with new features"
-
-# Push to GitHub
+# Or push to GitHub (auto-deploys if connected)
 git push origin master
 ```
 
-Changes are automatically deployed to GitHub Pages within a few minutes.
-
-## 📧 Contact
+## Contact
 
 - **LinkedIn**: [maz-ghasemi-2815201bb](https://linkedin.com/in/maz-ghasemi-2815201bb)
 - **GitHub**: [Maz2580](https://github.com/Maz2580)
 - **Email**: Mazdak.gh1995@gmail.com
-- **Phone**: +61 402 347 929
 
-## 📝 License
+## License
 
-© 2025 Mazdak Ghasemi. All rights reserved.
+All rights reserved. Mazdak Ghasemi 2025-2026.
 
 ---
 
-**Built with**: HTML5, CSS3, Vanilla JavaScript
-**Optimized for**: Performance, SEO, and User Experience
-**Last Updated**: December 2025
+**Built with**: HTML5, CSS3, Vanilla JavaScript | **Hosted on**: Vercel
