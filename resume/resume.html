@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mazdak Ghasemi Tootkaboni — Resume</title>
+<!--
+  Source for Mazdak_Ghasemi_Resume.pdf.
+  Rebuild (from Git Bash):
+    "/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --disable-gpu --no-pdf-header-footer \
+      --print-to-pdf="S:\gitprofile\mazdakgh.github.io\Mazdak_Ghasemi_Resume.pdf" \
+      "file:///S:/gitprofile/mazdakgh.github.io/resume/resume.html"
+-->
+<style>
+    @page { size: A4; margin: 11mm 14mm 11mm 14mm; }
+    :root { --navy: #1f3864; --blue: #2e75b6; --ink: #1d1d1d; --muted: #555; }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        color: var(--ink);
+        background: #fff;
+        font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+        font-size: 10pt;
+        line-height: 1.28;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    a { color: var(--blue); text-decoration: underline; }
+    b, strong { font-weight: 700; }
+
+    header { text-align: center; padding-bottom: 6pt; border-bottom: 1.2pt solid var(--blue); margin-bottom: 4pt; }
+    h1 { color: var(--navy); font-size: 22pt; font-weight: 700; letter-spacing: 0.4pt; margin: 0 0 3pt; text-transform: uppercase; }
+    .tagline { font-style: italic; color: var(--muted); font-size: 11pt; margin-bottom: 3pt; }
+    .contact { font-size: 10pt; margin: 1.5pt 0; }
+    .contact .sep { color: var(--muted); margin: 0 5pt; }
+    .contact .hl { color: var(--navy); font-weight: 700; }
+
+    h2 {
+        color: var(--navy);
+        font-size: 12pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 8pt 0 4pt;
+        padding-bottom: 2pt;
+        border-bottom: 1pt solid var(--blue);
+        break-after: avoid;
+    }
+    p { margin: 0 0 4pt; text-align: justify; }
+
+    .proj { margin: 0 0 4pt; break-inside: avoid; }
+    .proj-head { color: var(--ink); }
+    .proj-head .name { color: var(--navy); font-weight: 700; }
+    .proj p { margin: 1pt 0 0; }
+    .facts { font-weight: 700; }
+
+    .job { margin: 0 0 4.5pt; }
+    .job-head { break-after: avoid; break-inside: avoid; }
+    .job-head + ul, .job-head + .job-note { break-before: avoid; }
+    .job ul li:first-child { break-before: avoid; }
+    .job-title { font-weight: 700; font-size: 11pt; }
+    .job-title .org { color: var(--navy); }
+    .job-title .bar { color: var(--muted); font-weight: 400; margin: 0 5pt; }
+    .job-meta { font-style: italic; color: var(--muted); font-size: 9.5pt; margin: 0.5pt 0 1pt; break-after: avoid; }
+    .job-note { font-style: italic; color: var(--muted); font-size: 9.5pt; margin: 0 0 1pt; }
+
+    ul { margin: 1pt 0 0; padding-left: 14pt; }
+    li { margin: 0 0 1pt; text-align: justify; break-inside: avoid; }
+    li::marker { color: var(--ink); }
+
+    .edu { margin: 0 0 3pt; }
+    .edu .deg { font-weight: 700; }
+    .edu .sep { color: var(--muted); margin: 0 5pt; }
+    .edu .cap { font-style: italic; color: var(--muted); font-size: 9.5pt; }
+
+    .skills p { margin: 0 0 3pt; text-align: left; }
+    .skills .k { color: var(--navy); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Mazdak Ghasemi Tootkaboni</h1>
+    <div class="tagline">GIS Systems Analyst &amp; Developer&nbsp; | &nbsp;Field-to-Back-Office Esri Solutions&nbsp; | &nbsp;Process Automation</div>
+    <div class="contact">
+        <span class="hl">Open to relocation</span><span class="sep">|</span>0402 347 929<span class="sep">|</span><a href="mailto:Mazdak.gh1995@gmail.com">Mazdak.gh1995@gmail.com</a>
+    </div>
+    <div class="contact">
+        <a href="https://linkedin.com/in/maz-ghasemi-2815201bb">LinkedIn</a><span class="sep">|</span>
+        <a href="https://mazdakghgithubio.vercel.app/">Portfolio</a><span class="sep">|</span>
+        <a href="https://github.com/Maz2580">GitHub</a><span class="sep">|</span>
+        <span class="hl">Full Australian work rights</span>
+    </div>
+</header>
+
+<h2>Professional Summary</h2>
+<p>
+    GIS Systems Analyst &amp; Developer and Esri Enterprise specialist, currently building the <b>City of Tea Tree Gully's works
+    management solution</b> on the ArcGIS platform. Hands-on experience designing, deploying and automating works management and
+    field-data-collection solutions across Victorian and South Australian local government and state agencies — bridging field
+    operations to back-office systems with <b>ArcGIS Enterprise, Experience Builder, ArcGIS Dashboards, Survey123 and Field Maps</b>,
+    combined with strong process automation (FME, Python, SQL, PostGIS) and integration experience across enterprise asset
+    management platforms (<b>Confirm, Assetic</b>). Master of Spatial Engineering from the University of Melbourne. Builds production
+    geospatial solutions from requirements to deployment with one consistent approach: automate the deterministic parts of a
+    workflow, make every decision traceable, and keep people in control of the judgement calls — delivering well-documented
+    systems that field crews and back-office teams actually use.
+</p>
+
+<h2>Selected Projects Demonstrating Solution-Development Capability</h2>
+
+<div class="proj">
+    <div class="proj-head"><span class="name">Vicmap M1 Validation Pipeline</span> — Council property-update automation, open source · <a href="https://github.com/Maz2580/vicmap-m1-ai-pipeline">github.com/Maz2580/vicmap-m1-ai-pipeline</a></div>
+    <p>Built at Greater Shepparton to automate the fortnightly M1 cycle end-to-end: inbox monitoring for the Vicmap delivery,
+    FME reload workspaces, Pozi Connect M1 generation, then validation of every row against the rates system (SQL Server) and
+    Vicmap layers in ArcSDE. Deterministic rules settle clear cases; a language model reviews only ambiguous rows with
+    strict-schema output; each row gets KEEP/REJECT with a reason and confidence for officer sign-off.
+    <span class="facts">Read-only database access by design · published security audit with critical findings fixed · CI on Windows &amp; Linux · reusable by any Victorian council.</span></p>
+</div>
+
+<div class="proj">
+    <div class="proj-head"><span class="name">UMAMI</span> — University of Melbourne · AI-assisted spatial query platform · <a href="https://geollm.idigitaltwin.org/UMAMI/">geollm.idigitaltwin.org/UMAMI</a></div>
+    <p>Lead developer of a platform that lets non-technical staff and researchers ask spatial questions of PostGIS data in plain
+    language, removing the GIS team as a bottleneck for routine queries. Integrates PostGIS, multi-provider LLMs with tool
+    servers (MCP), CesiumJS 3D visualisation and IoT/MQTT sensor dashboards, with JWT authentication and role-based access;
+    containerised and released through GitLab CI/CD.</p>
+</div>
+
+<div class="proj">
+    <div class="proj-head"><span class="name">Terrascout</span> — Geospatial data scoping platform · <a href="https://terrascout.app">terrascout.app</a></div>
+    <p>Architected an end-to-end commercial platform that turns a plain-English project brief into ranked satellite, aerial and
+    LiDAR datasets with feasibility checks: FastAPI back end, React/TypeScript front end, PostGIS + pgvector, REST API, a CLI
+    published on PyPI and an MCP server for AI assistants. Rules and embeddings run first and the LLM is called only below a
+    confidence threshold; every AI agent has a deterministic fallback.
+    <span class="facts">900+ automated tests · 23 providers / 29 sensors · health-gated CI/CD deploys.</span></p>
+</div>
+
+<div class="proj">
+    <div class="proj-head"><span class="name">UrbanMind</span> — Urban scenario planning platform for Australian practice · <a href="https://urbanmind.terrascout.app">urbanmind.terrascout.app</a></div>
+    <p>Integrated 36+ real datasets (ABS Census, Vicmap, PTV GTFS, building footprints) into 25 planning models — walkability,
+    density, transit access, fiscal impact, urban heat and net-zero scenarios — parameterised to Plan Melbourne and Austroads.
+    A U-Net surrogate trained on heat-simulation outputs gives near-instant results. One model library serves both a
+    <b>QGIS plugin</b> for practitioners and a web platform for teams, deployed behind Cloudflare Tunnel with self-hosted CI.</p>
+</div>
+
+<div class="proj">
+    <div class="proj-head"><span class="name">GeoSpark</span> — Open-source spatial AI library on PyPI · <a href="https://github.com/Maz2580/geospark">github.com/Maz2580/geospark</a></div>
+    <p>Designed a protocol and MCP tools that expose deterministic geodesic and topology computation (Shapely, pyproj) to any
+    language model, plus a benchmark measuring models with and without tools — reporting negative results as well as gains.
+    <span class="facts">535-question benchmark across 9 models · 779 automated tests · Apache 2.0 · manuscript under peer review.</span></p>
+</div>
+
+<h2>Professional Experience</h2>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">Systems Analyst / Developer (GIS)<span class="bar">|</span><span class="org">City of Tea Tree Gully</span></div>
+        <div class="job-meta">Sep 2026 – Present&nbsp; | &nbsp;Adelaide, SA&nbsp; | &nbsp;Remote</div>
+    </div>
+    <ul>
+        <li>Developing and delivering the Council's <b>works management solution</b> across the City Operations portfolio — geospatial digital works-solutions that lift process efficiency and effectiveness.</li>
+        <li>Building applications across the works lifecycle: <b>proactive work assignment against assets, crew scheduling, field data capture, contractor work request dashboards</b> and interactive geospatial map views of all works.</li>
+        <li>Gathering requirements with business stakeholders and translating them into technical solutions on the <b>ArcGIS/Esri platform</b>; designing applications for in-house and external users.</li>
+        <li>Supporting integrations with external systems via <b>APIs, web services and middleware platforms</b>; leading design of dashboard reporting that gives stakeholders actionable, data-driven insight.</li>
+        <li>Creating design specifications, technical diagrams and user guides; troubleshooting ArcGIS web applications; coordinating testing of new features before release and delivering user training.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">Data Engineer<span class="bar">|</span><span class="org">CSDILA, University of Melbourne</span></div>
+        <div class="job-meta">Dec 2024 – Present&nbsp; | &nbsp;Melbourne, VIC&nbsp; | &nbsp;Remote</div>
+    </div>
+    <ul>
+        <li>Lead delivery of <b>UMAMI</b>, the University's AI-assisted spatial query platform — enabling self-service spatial questions for non-technical staff and researchers.</li>
+        <li>Architect and automate end-to-end geospatial data workflows using <b>n8n, Python, SQL and PostGIS</b>, reducing manual intervention and improving the reliability of spatial analytics.</li>
+        <li><b>Dockerise APIs, schedulers and UIs with Compose; implement versioned, repeatable releases via GitLab CI/CD</b> and container registry; deploy on Google Cloud Platform with secrets in masked CI variables and least-privilege service accounts.</li>
+        <li>Design JSON/GeoJSON API contracts and authentication patterns; build Python back ends and React front ends serving spatial features and analytics to research and industry users.</li>
+        <li>Develop and govern geospatial metadata, data catalogues and custom schemas for data quality, interoperability and reproducibility.</li>
+        <li>Deliver geospatial inputs to projects including Arup, Venice Biennale: Song of the Cricket and UEDLAB — processing satellite and field data (Google Earth Engine, Landsat, Sentinel-2), applying supervised/unsupervised classification (Random Forest, K-Means), and producing change detection, land cover and habitat mapping outputs.</li>
+        <li>Deploy IoT integration via <b>MQTT</b> with dynamic dashboards for real-time geospatial monitoring.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">GIS &amp; Assets Officer<span class="bar">|</span><span class="org">Greater Shepparton City Council</span></div>
+        <div class="job-meta">Jun 2025 – Sep 2026&nbsp; | &nbsp;Shepparton, VIC&nbsp; | &nbsp;On-site</div>
+    </div>
+    <ul>
+        <li>Administered Council's enterprise GIS environment across <b>ArcGIS Pro, ArcGIS Enterprise, ArcGIS Server and Geocortex</b> — governing metadata standards, schema/version control practices, test plans and cataloguing for reliable, auditable services.</li>
+        <li><b>Automated the fortnightly M1 property-update cycle end-to-end</b> with FME and Python — rules-first validation against the rates system and Vicmap, language-model review of ambiguous rows only, read-only database access and officer sign-off; later open-sourced for other Victorian councils.</li>
+        <li>Linked the <b>Content Manager</b> records system to GIS — extracting record numbers from capital works exports and matching documents to ArcSDE layers through FME and Python.</li>
+        <li>Managed council infrastructure assets — road surfaces and base, footpaths, shared paths, drainage (pits and pipes) and kerbs — across the full lifecycle in <b>Confirm asset management software</b>.</li>
+        <li>Cross-validated records between Confirm and the corporate GIS database, correcting geometries and resolving discrepancies to maintain a single source of truth.</li>
+        <li>Built reproducible feature sets for asset failure, degradation and lifecycle modelling — combining condition proxies, age/usage attributes, environmental context and topology to support evidence-based prioritisation.</li>
+        <li>Developed and maintained <b>web map applications</b> and analytical maps for capital works planning, work programs, stakeholder briefings and operational reporting.</li>
+        <li>Processed property and subdivision changes via the Victorian Edit System (VES); partnered with planning, engineering, capital works and property teams on spatial analysis and troubleshooting; applied least-privilege access for publishing and data services.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">GIS Officer<span class="bar">|</span><span class="org">Mansfield Shire Council</span></div>
+        <div class="job-meta">Sep 2024 – Jun 2025&nbsp; | &nbsp;Mansfield, VIC&nbsp; | &nbsp;Hybrid</div>
+    </div>
+    <div class="job-note">Sole GIS professional — owned the full GIS function including vendor relationships, software procurement and subscription administration.</div>
+    <ul>
+        <li>Owned end-to-end GIS service delivery for planning, rates, property and asset teams as the sole spatial professional — managing day-to-day spatial support, vendor engagement and procurement decisions.</li>
+        <li><b>Designed and automated ETL pipelines using Python, SQL and PostGIS</b> to validate, transform and load multi-source spatial datasets into the central GIS database.</li>
+        <li>Consolidated and reconciled fragmented spatial datasets — ensuring data integrity, attribution, geometry quality, metadata and QA compliance across council systems.</li>
+        <li>Conducted quality assessment, metadata management and routine updates for new and existing property and asset data within the GIS system.</li>
+        <li>Integrated GIS workflows with <b>POZI Connect, SynergySoft, MapInfo Pro, MBS Premium and Assetic</b> — improving consistency between spatial, financial and asset records.</li>
+        <li>Engaged with planning, rates and asset management teams to interpret user requirements, <b>document procedures</b> and communicate data updates across the organisation.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">Research Assistant<span class="bar">|</span><span class="org">CSDILA, University of Melbourne</span></div>
+        <div class="job-meta">Dec 2023 – Nov 2024&nbsp; | &nbsp;Melbourne, VIC&nbsp; | &nbsp;Remote</div>
+    </div>
+    <ul>
+        <li>Conducted research on AI-driven generative urban design — applying advanced spatial analysis, modelling and integration techniques.</li>
+        <li>Advanced spatial ontologies and 3D cadastre processing — contributing to structured, accurate and reliable geospatial data management.</li>
+        <li>Integrated geospatial datasets into <b>GeoServer</b> and Digital Twin visualisation environments — improving accessibility for research and industry stakeholders.</li>
+        <li>Cleaned, corrected and harmonised diverse spatial datasets through geometry correction, coordinate system adjustments and consistent styling to support analytical outputs.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">Research Assistant (GIS Analyst)<span class="bar">|</span><span class="org">Curtin University</span></div>
+        <div class="job-meta">May 2024 – Sep 2024&nbsp; | &nbsp;Perth, WA&nbsp; | &nbsp;Remote</div>
+    </div>
+    <ul>
+        <li>Delivered geospatial analytics, predictive modelling and scenario planning enhancing the Envision Tomorrow Australia (ET-Oz) sustainable planning model using <b>ArcGIS Pro and ArcGIS Online</b>.</li>
+        <li>Customised spatial datasets for Australian urban contexts; harmonised diverse datasets to improve model representation and analytical reliability.</li>
+        <li>Collaborated across research and planning contexts to ensure spatial data accuracy, consistency and actionable insights from complex datasets.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">GIS Analyst<span class="bar">|</span><span class="org">Parks Victoria</span></div>
+        <div class="job-meta">May 2022 – May 2024&nbsp; | &nbsp;Melbourne, VIC&nbsp; | &nbsp;Hybrid</div>
+    </div>
+    <ul>
+        <li><b>Designed and deployed integrated field-to-back-office workflows using ArcGIS Online, ArcGIS Enterprise, Field Maps and Survey123</b> — supporting damage assessments across Victorian flood- and fire-affected regions, with offline sync and real-time leadership dashboards.</li>
+        <li>Built and governed a dedicated <b>GIS database for disaster recovery</b> — incorporating field updates, validation and integrity controls across affected regions.</li>
+        <li>Generated <b>ArcGIS Dashboards</b> and analytical reports — improving stakeholder communication and operational coordination across recovery, planning and operations functions.</li>
+        <li>Led geospatial delivery for emergency response and recovery programs — including spatial routing, impact mapping and resource allocation supporting multi-disciplinary recovery teams.</li>
+        <li>Managed complex spatial data workflows using <b>FME, ArcGIS Pro and ArcGIS Enterprise</b> — maintaining accurate GIS databases critical for rapid emergency response and logistical planning.</li>
+        <li>Managed user access, secure data sharing and field tool deployment — ensuring recovery teams had reliable access to the right mapping and analysis tools.</li>
+        <li><b>Trained recovery team members on Esri field collection tools (Field Maps, Survey123)</b> — building organisational capability in mobile GIS and standardised spatial data capture.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">Spatial Data Analyst<span class="bar">|</span><span class="org">HUMAYA Automation</span></div>
+        <div class="job-meta">Mar 2022 – May 2022&nbsp; | &nbsp;Melbourne, VIC&nbsp; | &nbsp;Remote</div>
+    </div>
+    <ul>
+        <li>Designed spatial databases (Esri geodatabases, SQL Server) supporting infrastructure placement, risk assessment and operational decision-making.</li>
+        <li>Conducted spatial analysis to identify strategic infrastructure locations and landslide risk zones — enabling proactive planning and mitigation.</li>
+        <li>Integrated geospatial datasets with IoT solutions for smart metering, precision agriculture, and logistics monitoring, tracking and analysis.</li>
+        <li>Maintained GIS, 3D and GPS datasets for corporate databases; liaised with staff to scope spatial data capture needs and recommend appropriate hardware and workflows.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">GIS Analyst<span class="bar">|</span><span class="org">Avale Enterprises</span></div>
+        <div class="job-meta">May 2021 – Feb 2022&nbsp; | &nbsp;Melbourne, VIC&nbsp; | &nbsp;Remote</div>
+    </div>
+    <ul>
+        <li>Improved spatial dataset accuracy through routing optimisation, geometry correction and data validation using <b>ArcGIS Pro and MapInfo</b>.</li>
+        <li>Produced high-quality cartographic outputs and spatial visualisations using optimised symbology and <b>Portal for ArcGIS</b> — improving user experience and decision-making.</li>
+        <li>Restructured geospatial databases and <b>ArcGIS Online administrative workflows</b> — improving accessibility, compliance and operational consistency.</li>
+        <li>Validated spatial data quality and improved visualisation standards to support clearer interpretation and decision-making.</li>
+    </ul>
+</div>
+
+<div class="job">
+    <div class="job-head">
+        <div class="job-title">Site Supervisor / Construction Site Manager<span class="bar">|</span><span class="org">SSS Steel Structures &amp; Construction</span></div>
+        <div class="job-meta">Oct 2016 – Apr 2021&nbsp; | &nbsp;Guilan Province, Iran&nbsp; | &nbsp;On-site</div>
+    </div>
+    <ul>
+        <li>Held site supervision and construction site management responsibilities across civil and steel structure projects — coordinating personnel, subcontractors, materials, schedules, inspections and quality assurance processes.</li>
+        <li>Worked as technical advisor across construction sites — supporting contract documentation, regulatory compliance, stakeholder coordination, resource planning and project delivery within scope and timeline.</li>
+    </ul>
+</div>
+
+<h2>Education</h2>
+<div class="edu"><span class="deg">Master of Spatial Engineering</span><span class="sep">|</span>University of Melbourne<span class="sep">|</span>Feb 2022 – Dec 2024<br>
+    <span class="cap">Capstone: Digital Twin with IoT for real-time indoor and outdoor environmental monitoring (LoRaWAN, MQTT, four-layer architecture)</span></div>
+<div class="edu"><span class="deg">Master of Petroleum Engineering</span><span class="sep">|</span>Azad University, Central Tehran Branch<span class="sep">|</span>2017 – 2020</div>
+<div class="edu"><span class="deg">Bachelor of Civil Engineering</span><span class="sep">|</span>Azad University, Bandar-e-Anzali Branch<span class="sep">|</span>2013 – 2017</div>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+    <p><span class="k">Esri &amp; ArcGIS Stack:</span> ArcGIS Pro, ArcGIS Enterprise, ArcGIS Server, ArcGIS Online, Portal for ArcGIS, Experience Builder, ArcGIS Dashboards, Survey123, Field Maps, Workforce, Web AppBuilder, Geocortex/VertiGIS, Arcade, ArcGIS API for Python; sharing, roles and security</p>
+    <p><span class="k">Asset &amp; Works Management Integration:</span> Confirm, Assetic, Content Manager, POZI Connect, SynergySoft, MapInfo Pro, MBS Premium, Victorian Edit System (VES)</p>
+    <p><span class="k">Automation, ETL &amp; Databases:</span> FME Form Advanced, FME Flow, Python, SQL, PostgreSQL/PostGIS, SQL Server/ArcSDE, Oracle, n8n, GeoPandas, Shapely; schema governance, metadata management, QA/QC frameworks</p>
+    <p><span class="k">Solution Development:</span> JavaScript/TypeScript, HTML, CSS, React, FastAPI, Flask, REST/GeoJSON APIs, Docker/Compose, GitLab CI/CD, GitHub Actions, Linux, Nginx, automated testing, technical documentation</p>
+    <p><span class="k">Cloud, AI &amp; Integration:</span> Google Cloud Platform, Cloudflare, MQTT/IoT dashboards, LLM integration and MCP tool servers</p>
+    <p><span class="k">Spatial Data Science (supporting):</span> Google Earth Engine, Sentinel-2/Landsat, supervised/unsupervised classification, change detection, remote sensing</p>
+</div>
+
+<h2>Certifications</h2>
+<p><b>79+ verified credentials</b> across Esri GIS, FME, cloud, AI/ML and project management. Highlights: <b>FME Form Advanced</b> (Safe Software) · <b>Esri Spatial Data Science</b> · <b>ArcGIS API for Python series</b> (Esri) · <b>Google Project Management Professional</b> · <b>ITIL Foundation</b> · <b>Generative AI Leader</b> (Google). Full list available via portfolio.</p>
+
+</body>
+</html>

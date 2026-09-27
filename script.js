@@ -143,485 +143,255 @@ const projectData = {
         codeAvailable: true,
         demoLink: 'https://geollm.idigitaltwin.org/TEST-UMAMI/'
     },
-    veniceBiennale: {
-        title: 'Song of the Cricket - Venice Biennale 2025',
-        category: 'Research & Conservation | International Collaboration',
-        tags: ['Earth Observation', 'AI Habitat Modeling', 'ArcGIS StoryMaps', 'Digital Twin', 'Land Use Analysis', 'Species Conservation'],
-        challenge: `The endangered Zeuneriana marmorata cricket species faces extinction in the Venice Lagoon due to habitat loss and environmental change. The project required mapping historical land-use changes, analyzing vegetation dynamics, and developing an AI-based habitat suitability model to guide species translocation efforts. This interdisciplinary challenge brought together ecologists, designers, engineers, and geospatial scientists in an international collaboration.`,
+    terrascout: {
+        title: 'Terrascout - Geospatial Data Scoping Platform',
+        category: 'GeoAI Platform | Live',
+        tags: ['FastAPI', 'Python 3.13', 'React 19', 'TypeScript', 'PostGIS', 'pgvector', 'FastMCP', 'Typer CLI', 'STAC', 'Redis', 'Docker'],
+        challenge: `Choosing the right satellite, aerial or LiDAR data for a project takes specialist knowledge: which sensor can actually detect the target, at what resolution, how often it revisits, what cloud cover to expect and what it will cost. Sending every request straight to a language model would be slow, expensive and impossible to audit.`,
         solution: `
             <ul>
-                <li>Led geospatial analysis mapping historical land-use change and vegetation dynamics across Venice Lagoon using multi-temporal satellite imagery</li>
-                <li>Developed AI-based habitat suitability modeling to identify optimal translocation sites for endangered cricket species</li>
-                <li>Integrated Earth observation data with ecological field surveys to validate habitat quality indicators</li>
-                <li>Created interactive ArcGIS StoryMap documenting the project's scientific approach, findings, and conservation strategy</li>
-                <li>Designed spatial analysis workflows supporting floating ecological infrastructure placement</li>
-                <li>Established foundation for future adaptive Digital Twin system monitoring habitat changes in real-time</li>
-                <li>Collaborated with University of Melbourne (CSDILA), Arup, and international partners across Italy and Australia</li>
+                <li><strong>Tiered brief parsing:</strong> rules and a gazetteer extract location, objective, resolution and timeframe first; embeddings handle fuzzier matches; the LLM is called only when confidence falls below a configurable threshold.</li>
+                <li><strong>Weighted fit score</strong> ranks each sensor on resolution, cost, coverage, temporal fit and quality, with feasibility checked against published detection thresholds.</li>
+                <li><strong>AI agents</strong> draft deliverables — methodology, procurement, QA and regulatory checks — on top of the scoped result.</li>
+                <li><strong>One engine, four interfaces:</strong> web app, a CLI published on PyPI, an MCP server for AI assistants, and a REST API.</li>
+                <li>GIS Copilot chat with a live map, a 3D data catalogue (CesiumJS), team workspaces and role-based access.</li>
             </ul>
         `,
-        results: `
+        decisions: `
             <ul>
-                <li><strong>Featured at Venice Biennale 2025</strong> showcasing innovative intersection of technology, ecology, and design</li>
-                <li>Identified <strong>priority translocation zones</strong> based on multi-criteria habitat suitability analysis</li>
-                <li>Created comprehensive <strong>historical land-use change analysis</strong> spanning multiple decades</li>
-                <li>Established <strong>international research collaboration</strong> between Australian and European institutions</li>
-                <li>Developed replicable methodology for <strong>AI-driven species conservation</strong> applicable to other endangered species</li>
-                <li>Foundation work for <strong>adaptive Digital Twin system</strong> for ongoing ecosystem monitoring</li>
+                <li><strong>Deterministic first:</strong> the LLM enhances the parse only when rules and embeddings are unsure, keeping cost low and decisions traceable.</li>
+                <li><strong>Every agent has a deterministic fallback:</strong> named LLM failure modes (bad JSON, missing fields, provider outage) fall back to a rule-based result, labelled with how it was produced.</li>
+                <li><strong>Multi-provider LLM failover</strong> through OpenAI-compatible clients, with users' own API keys encrypted at rest.</li>
+                <li><strong>Natural-language-to-PostGIS with guard rails:</strong> SELECT-only validation, a keyword deny-list and a forced row limit.</li>
+                <li><strong>Tested and gated deploys:</strong> backend, CLI and end-to-end test suites in CI; deploys are health-checked before going live.</li>
             </ul>
         `,
-        architecture: `Multi-temporal satellite imagery analysis, AI-based habitat suitability modeling,
-                       ArcGIS Pro for spatial analysis, ArcGIS StoryMaps for communication,
-                       Earth observation data integration, Field survey data fusion, Cloud-based geospatial processing.`,
-        codeAvailable: false,
-        demoLink: 'https://storymaps.arcgis.com/stories/bb06dd4eb5164d7eb9fc0dc7ddf1e16c'
-    },
-    digitalTwinIoT: {
-        title: 'Digital Twin with IoT for Real-time Indoor Environmental Monitoring',
-        category: 'Digital Twin | IoT | Smart Buildings',
-        tags: ['Digital Twin', 'IoT', 'LoRaWAN', 'MQTT', 'Real-time Monitoring', 'CesiumJS', 'React', 'Environmental Sensors'],
-        challenge: `University of Melbourne's D-Lab needed a comprehensive system to monitor and visualize indoor environmental conditions in real-time for climate control optimization and energy efficiency. The challenge involved integrating diverse IoT sensors, establishing reliable data transmission over LoRaWAN, overcoming data protocol compatibility issues, and creating spatially accurate interactive dashboards for proactive environmental management.`,
-        solution: `
-            <ul>
-                <li>Developed four-layer Digital Twin architecture: sensing layer (IoT sensors), network layer (LoRaWAN), data processing layer (MQTT real-time sync), application layer (interactive dashboards)</li>
-                <li>Deployed environmental sensor network tracking CO₂, temperature, humidity, and air quality across D-Lab facility</li>
-                <li>Implemented LoRaWAN connectivity for low-power, long-range sensor communication</li>
-                <li>Built MQTT-based real-time data synchronization pipeline ensuring sub-second latency</li>
-                <li>Created interactive 3D visualization dashboard using CesiumJS and React for spatially accurate environmental monitoring</li>
-                <li>Overcame data protocol challenges through custom middleware ensuring reliable sensor-to-platform communication</li>
-                <li>Designed system architecture supporting future expansion to outdoor applications (flood, fire detection)</li>
-                <li>Integrated climate control optimization algorithms based on real-time sensor data</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li><strong>Stable real-time monitoring</strong> across entire D-Lab facility with 99.5% uptime</li>
-                <li><strong>Enhanced climate control</strong> enabling data-driven HVAC optimization</li>
-                <li><strong>Energy use optimization</strong> through intelligent environmental monitoring</li>
-                <li><strong>Proactive environmental management</strong> with predictive alerts for temperature/air quality anomalies</li>
-                <li><strong>Scalable architecture</strong> proven reliable for future expansion to outdoor monitoring</li>
-                <li>Completed as <strong>Master's capstone project</strong> at University of Melbourne</li>
-                <li>Foundation for future ML integration for predictive insights and AR/VR immersive interaction</li>
-            </ul>
-        `,
-        architecture: `Four-layer Digital Twin architecture: IoT sensor network (CO₂, temperature, humidity sensors),
-                       LoRaWAN network infrastructure, MQTT real-time data pipeline, React + CesiumJS visualization layer,
-                       PostgreSQL time-series database, Custom middleware for protocol translation.`,
-        codeAvailable: true,
-        demoLink: 'https://drive.google.com/file/d/189wQVBo0v57z9PZNVuZiXQuXRUWfj0RG/view?usp=sharing'
-    },
-    project1: {
-        title: 'Municipal Property Data Automation System',
-        category: 'Automation | Data Engineering',
-        tags: ['Python', 'FME', 'PostgreSQL', 'ArcGIS Enterprise', 'n8n'],
-        challenge: `Local government required bi-weekly processing of 50,000+ property records from state cadastral system. 
-                   Manual validation was taking 8+ hours per cycle with frequent data quality issues causing delays and errors 
-                   in property addressing systems.`,
-        solution: `
-            <ul>
-                <li>Engineered automated ETL pipeline using FME and Python for data extraction and transformation</li>
-                <li>Implemented comprehensive data quality checks and validation rules to catch errors before database updates</li>
-                <li>Created automated M1/M2 form generation and submission workflow to Victorian Edit System (VES)</li>
-                <li>Built monitoring dashboard for real-time tracking of data processing status and error logging</li>
-                <li>Integrated with Victorian Edit System (VES) API for seamless form submission</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li><strong>90% reduction</strong> in processing time - from 8 hours to 45 minutes per cycle</li>
-                <li>Improved data accuracy by implementing validation checkpoints that catch 95% of errors before submission</li>
-                <li>Eliminated manual form submission errors completely</li>
-                <li>Enabled real-time tracking of data updates across the organization</li>
-            </ul>
-        `,
-        architecture: `System consists of: (1) FME Server workflow for data extraction, (2) Python validation engine, 
-                       (3) PostgreSQL spatial database, (4) n8n automation for notifications and scheduling, 
-                       (5) Custom monitoring dashboard built with React.`,
-        codeAvailable: true
-    },
-    project2: {
-        title: 'Enterprise Geospatial Dashboard Platform',
-        category: 'Web Application | Visualization',
-        tags: ['React', 'OpenLayers', 'Python FastAPI', 'PostGIS', 'Docker'],
-        challenge: `Research organization needed interactive platform to visualize environmental monitoring data across 
-                   200+ sensor locations with real-time updates and historical trend analysis. Existing tools were slow, 
-                   not mobile-friendly, and couldn't handle concurrent users.`,
-        solution: `
-            <ul>
-                <li>Built full-stack web application with React frontend for responsive, interactive user experience</li>
-                <li>Implemented OpenLayers for advanced mapping with custom controls, measurement tools, and layer management</li>
-                <li>Designed RESTful API using Python FastAPI serving GeoJSON features from PostGIS database</li>
-                <li>Created responsive dashboard with real-time data visualization and historical trend charts</li>
-                <li>Dockerized entire application with Docker Compose for consistent deployment</li>
-                <li>Implemented CI/CD pipeline via GitLab for automated testing and deployment</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li>Platform successfully serving <strong>50+ concurrent users</strong> across research teams</li>
-                <li><strong>Sub-second query response times</strong> for spatial analyses even with large datasets</li>
-                <li>Mobile-responsive design enabling field data access on tablets and smartphones</li>
-                <li>Deployed on Google Cloud Platform with <strong>99.9% uptime</strong> over 6 months</li>
-            </ul>
-        `,
-        architecture: `React SPA with TypeScript, OpenLayers for mapping, Python FastAPI backend, 
-                       PostGIS database for spatial queries, Docker containerization, GitLab CI/CD pipeline.`,
-        codeAvailable: true
-    },
-    project3: {
-        title: 'Disaster Recovery Field Data Collection System',
-        category: 'Enterprise GIS | Mobile Solutions',
-        tags: ['ArcGIS Field Maps', 'Survey123', 'ArcGIS Online', 'Power BI'],
-        challenge: `State agency needed rapid deployment of field data collection system for disaster recovery operations 
-                   across flood and fire-affected regions. System had to work offline, sync when connected, and provide 
-                   real-time dashboards for decision-makers.`,
-        solution: `
-            <ul>
-                <li>Designed integrated field data collection workflows using ArcGIS Field Maps and Survey123</li>
-                <li>Configured custom Survey123 forms for standardized asset damage assessments with photo capture</li>
-                <li>Implemented offline-capable Field Maps with real-time sync when connectivity available</li>
-                <li>Created Power BI dashboards for leadership with real-time damage assessment metrics</li>
-                <li>Trained 30+ field staff on mobile GIS tools through hands-on workshops</li>
-                <li>Set up ArcGIS Online organization with proper permissions and data management</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li>Collected <strong>10,000+ damage assessments</strong> in first 3 months of operation</li>
-                <li>Reduced reporting lag from <strong>days to hours</strong> with real-time data sync</li>
-                <li>Enabled evidence-based resource allocation saving an estimated $2M in recovery operations</li>
-                <li>Improved inter-agency coordination with shared situational awareness dashboards</li>
-            </ul>
-        `,
-        architecture: `ArcGIS Online as backend, Field Maps for mobile data collection, Survey123 for structured forms, 
-                       Power BI for dashboards, ArcGIS Enterprise for advanced analytics.`,
-        codeAvailable: false
-    },
-    project4: {
-        title: 'AI-Powered Spatial Query Platform',
-        category: 'Machine Learning | Automation',
-        tags: ['Python', 'n8n', 'PostGIS', 'OpenAI API', 'React'],
-        challenge: `Research team required natural language interface to query complex geospatial database without requiring 
-                   SQL expertise. Non-technical researchers were dependent on GIS team for even basic queries, creating 
-                   bottlenecks and delays.`,
-        solution: `
-            <ul>
-                <li>Developed multi-agent AI system for spatial query interpretation using OpenAI API</li>
-                <li>Integrated n8n workflow automation with Python backends for query processing</li>
-                <li>Created React frontend with conversational interface for natural language queries</li>
-                <li>Implemented PostGIS spatial queries generated from natural language input</li>
-                <li>Built context-aware response system that remembers previous queries</li>
-                <li>Added query validation and error handling to prevent incorrect spatial operations</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li><strong>70% reduction</strong> in support requests to GIS team</li>
-                <li>Non-technical researchers can now query spatial database independently</li>
-                <li>Enabled ad-hoc spatial analysis without coding knowledge</li>
-                <li>Processing <strong>200+ queries per week</strong> with 90% accuracy rate</li>
-            </ul>
-        `,
-        architecture: `React frontend, n8n workflow orchestration, Python backend with OpenAI integration, 
-                       PostGIS database for spatial queries, Redis for session management.`,
-        codeAvailable: true
-    },
-    project5: {
-        title: 'Cloud-Based Asset Management Integration',
-        category: 'Data Engineering | Cloud Infrastructure',
-        tags: ['GCP', 'Docker', 'PostgreSQL', 'Python', 'GitLab CI/CD'],
-        challenge: `Municipal asset management system required integration with spatial database, automated reporting, 
-                   and secure cloud hosting. Legacy on-premise solution was expensive, difficult to maintain, and lacked 
-                   scalability for future growth.`,
-        solution: `
-            <ul>
-                <li>Architected cloud-based data pipeline on Google Cloud Platform (GCP)</li>
-                <li>Dockerized microservices architecture for asset data processing and API endpoints</li>
-                <li>Implemented automated data synchronization workflows between asset system and GIS database</li>
-                <li>Built secure API endpoints with OAuth authentication for external integrations</li>
-                <li>Created versioned releases via GitLab CI/CD with automated testing</li>
-                <li>Set up monitoring and logging using GCP Cloud Operations</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li>Real-time asset data synchronization between systems</li>
-                <li><strong>40% reduction</strong> in infrastructure costs vs on-premise solution</li>
-                <li>Automated daily reports and notifications for asset managers</li>
-                <li>Scalable architecture supporting future growth without major rework</li>
-            </ul>
-        `,
-        architecture: `Docker containers on GCP Cloud Run, PostgreSQL Cloud SQL database, Cloud Functions for 
-                       event triggers, GitLab CI/CD pipeline, Cloud Storage for backups.`,
-        codeAvailable: true
-    },
-    project6: {
-        title: 'Interactive 3D Urban Digital Twin',
-        category: 'Web Application | 3D Visualization',
-        tags: ['Cesium', 'React', 'TypeScript', 'IoT', 'MQTT'],
-        challenge: `University research project required 3D visualization platform for indoor/outdoor environmental
-                   monitoring with real-time sensor integration. Traditional 2D mapping was insufficient for understanding
-                   vertical air quality gradients in urban canyons.`,
-        solution: `
-            <ul>
-                <li>Built React + TypeScript application with Cesium for 3D rendering and visualization</li>
-                <li>Integrated IoT sensor data via MQTT protocol for real-time environmental monitoring</li>
-                <li>Implemented real-time data streaming and 3D visualization with color-coded air quality indicators</li>
-                <li>Created custom 3D building models and campus mapping from LiDAR data</li>
-                <li>Designed responsive UI for multi-device access (desktop, tablet, mobile)</li>
-                <li>Added temporal playback feature for historical data analysis</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li>Live monitoring of <strong>50+ environmental sensors</strong> (temperature, humidity, PM2.5, CO2)</li>
-                <li>Interactive 3D campus exploration with sensor data overlay</li>
-                <li>Historical data playback and trend analysis capabilities</li>
-                <li>Presented at <strong>Venice Biennale</strong> and multiple academic conferences</li>
-            </ul>
-        `,
-        architecture: `React with TypeScript, Cesium for 3D rendering, MQTT broker for IoT data,
-                       Node.js backend for data processing, MongoDB for time-series data storage.`,
-        codeAvailable: true
+        architecture: `Async FastAPI backend, PostgreSQL + PostGIS + pgvector (Supabase), SQLAlchemy 2 / GeoAlchemy2 with Alembic migrations,
+                       FastMCP server and MCP client, Typer + Rich CLI on PyPI, React 19 + TypeScript + Vite + Tailwind, CesiumJS / Leaflet / deck.gl,
+                       Redis rate limiting, Docker Compose behind nginx and Cloudflare, GitHub Actions CI/CD.`,
+        demoLink: 'https://terrascout.app',
+        demoLabel: 'Visit terrascout.app',
+        extraLink: 'https://pypi.org/project/terrascout/',
+        extraLabel: 'Terrascout CLI on PyPI',
+        privateCode: true
     },
     urbanmind: {
         title: 'UrbanMind - Urban Scenario Planning Toolkit',
-        category: 'Urban Planning | GIS Analysis',
-        tags: ['QGIS', 'Python', 'React 18', 'FastAPI', 'PostGIS', 'MapLibre', 'TypeScript', 'deck.gl', 'AI', 'Plan Melbourne'],
-        challenge: `Urban planners in Australia lacked open-source tools that combined scenario planning with fiscal impact analysis, climate resilience modelling, and property valuation. Existing tools were either too expensive, not calibrated for Australian standards, or required extensive GIS expertise. The challenge was to create a comprehensive planning toolkit accessible to both GIS professionals and planning officers — integrating 36+ real data sources and 23 analysis models into a single platform.`,
+        category: 'Urban Planning | Live',
+        tags: ['QGIS Plugin', 'Python', 'FastAPI', 'PostGIS', 'React', 'TypeScript', 'MapLibre', 'deck.gl', 'PyTorch', 'Supabase'],
+        challenge: `Planners need to test "what if" development scenarios against transport, housing, fiscal, heat and biodiversity outcomes — but those analyses live in separate tools, rely on dozens of government data sources, and physics-based heat simulation is far too slow to run interactively.`,
         solution: `
             <ul>
-                <li>Developed <strong>23 analysis models</strong> across 3 tiers: 12 core (Land Use Mix, Transport Impact, Fiscal Impact, Green Infrastructure, Housing Balance, Location Efficiency, Development Feasibility, Redevelopment Timing, Seven D Model, Embodied Carbon, Biodiversity, Urban Heat), 3 composite (20-min Neighbourhood, CBA, Social Equity), and 8 climate/government models (Flood Risk, Climate Projections, Building Stock, Energy Hardship, Cool Rooms, UHI Impact, Retrofit vs Rebuild, Asset Priority)</li>
-                <li>Built dual-interface system: <strong>QGIS Plugin</strong> for desktop GIS professionals and <strong>Web Platform</strong> for browser-based collaboration with dark glassmorphism UI, 3D building extrusions (deck.gl), and animated landing page</li>
-                <li>Integrated <strong>36+ real data sources</strong>: ABS Census 2021 (14 dataflows), VicMap, PTV GTFS (30K+ stops), Microsoft Building Footprints (5M+ buildings), Overture Maps (2.35B+ buildings), Heritage Victoria, Atlas of Living Australia, NatureKit, OSMnx walkability, and more</li>
-                <li>Built <strong>AI-powered features</strong>: streaming chat, analysis insights for all 23 models, AI-enhanced PDF reports, natural language scenario creation, policy compliance checker (VPP & Plan Melbourne), SAM image segmentation, and AI Proposal Engine</li>
-                <li>Implemented <strong>Smart City API</strong> (Phase 7) with API key management, webhook subscriptions, and developer portal</li>
-                <li>Created split-panel scenario comparison (swipe, side-by-side, 2x2 grid), command palette (Cmd+K), keyboard shortcuts, and Knowledge Hub with 42 sections</li>
-                <li>Deployed with Docker on university infrastructure (64 vCPU, 251GB RAM), Cloudflare Tunnel for HTTPS, and GitHub Actions CI/CD</li>
+                <li><strong>Scenario painting:</strong> apply development types to parcels on a map; population, dwellings, jobs and density are calculated instantly.</li>
+                <li><strong>Planning models</strong> for transport, fiscal impact, green infrastructure, housing, walkability, carbon, biodiversity and urban heat, parameterised to Plan Melbourne, Austroads and Victorian planning provisions.</li>
+                <li><strong>Government data integration:</strong> ABS Census, Vicmap, PTV GTFS, building footprints and more, with a spatial cache for slow upstream APIs.</li>
+                <li><strong>Urban heat surrogate:</strong> a U-Net trained on SOLWEIG simulation outputs gives near-instant heat estimates for greening and cool-roof scenarios.</li>
+                <li><strong>Spatial AI agent</strong> that calls analysis tools to answer questions, with per-user memory.</li>
             </ul>
         `,
-        results: `
+        decisions: `
             <ul>
-                <li><strong>Live at <a href="https://urbanmind.terrascout.app" target="_blank" style="color: var(--primary-color);">urbanmind.terrascout.app</a></strong> — fully deployed and accessible</li>
-                <li><strong>23 analysis models</strong> covering urban planning, climate resilience, and government strategy</li>
-                <li><strong>36+ real data integrations</strong> including ABS Census, VicMap, PTV GTFS, Microsoft/Overture building footprints</li>
-                <li><strong>7 completed development phases</strong> spanning foundation through Smart City API</li>
-                <li><strong>First Australian open-source tool</strong> combining Envision Tomorrow methodology with fiscal impact, biodiversity, embodied carbon, and urban heat modelling</li>
-                <li>Calibrated for <strong>Plan Melbourne standards</strong>, Victorian Planning Provisions, and Austroads guidelines</li>
-                <li>Supabase Auth with email/password, Google, and GitHub login</li>
+                <li><strong>Physics → surrogate:</strong> train on the slow, trusted simulation, then serve the fast model — accuracy anchored to physics, speed suitable for interaction.</li>
+                <li><strong>One model library, two clients:</strong> the same analysis code powers the QGIS plugin and the web platform, so results never drift between tools.</li>
+                <li><strong>Safe query DSL for the agent</strong> instead of free-form SQL, with the most thorough test coverage in the codebase.</li>
+                <li><strong>Production behind NAT with no open ports:</strong> Cloudflare Tunnel inbound, a self-hosted CI runner for deploys, and a written recovery runbook.</li>
+                <li>Local-first LLM with fast fail-over to hosted providers.</li>
             </ul>
         `,
-        architecture: `QGIS Plugin: Python, PyQt, NumPy. Web Platform: FastAPI + SQLAlchemy 2.0 + GeoAlchemy2 + PostGIS backend,
-                       React 18 + TypeScript + MapLibre GL JS + deck.gl frontend, Zustand state management (14 stores),
-                       Multi-provider AI (OpenRouter, Groq, Ollama), MongoDB Atlas for AI/unstructured data,
-                       Supabase Auth, Docker + Cloudflare Tunnel, GitHub Actions CI/CD, 64 vCPU university server.`,
-        codeAvailable: true,
-        demoLink: 'https://urbanmind.terrascout.app'
-    },
-    terrascout: {
-        title: 'Terrascout - Geospatial Data Scoping & Feasibility Platform',
-        category: 'GeoAI Platform | SaaS',
-        tags: ['FastAPI', 'React 19', 'PostGIS', 'MCP Server', 'CLI', 'Typer', 'STAC', 'Supabase', 'Docker', 'AI Agents'],
-        challenge: `Selecting the right satellite imagery or spatial dataset for a project is a manual, error-prone process. Geospatial consultants spend days to weeks evaluating dozens of providers, comparing resolutions, checking revisit frequencies, assessing cloud cover, and verifying that sensors can actually detect what the project requires — all before a single image is ordered.`,
-        solution: `
-            <ul>
-                <li>Built an <strong>intelligent scoping engine</strong> with brief parsing (Tier 1: regex/keyword, Tier 2: LLM fallback), progressive matching (spatial → resolution → spectral → temporal), and weighted scoring across 5 dimensions</li>
-                <li>Created <strong>knowledge base</strong> covering 12 providers, 14 sensors, 100+ spectral bands, 8 use cases, and detection thresholds with peer-reviewed DOI references</li>
-                <li>Developed <strong>5 AI agents</strong>: Methodology Writer, Procurement Drafter, QA Reviewer, Regulatory Checker, Report Assistant</li>
-                <li>Built <strong>6 MCP tools</strong> (via FastMCP 3.1) for Claude/Cursor/AI assistant integration: scope_geospatial_data, get_feasibility, get_cloud_cover, preview_satellite_data, search_providers, generate_scope_report</li>
-                <li>Shipped <strong>Terrascout CLI</strong> (Typer + Rich) with 7 command groups and 20 commands — pip-installable, talks to the HTTP API</li>
-                <li>Built interactive frontend with dark-theme glass-morphism UI, Leaflet map for AOI drawing, Framer Motion transitions, comparison mode with radar charts, and PDF report generation</li>
-                <li>Implemented enterprise features: Supabase JWT auth, project workspaces, pricing tiers (Free/Pro/BYOK), Fernet-encrypted BYOK API keys, change alerts (SendGrid), admin dashboard, APScheduler background automation</li>
-                <li>Core principle: <strong>80% deterministic logic</strong> (PostGIS + structured lookups), LLM only invoked when confidence &lt; 0.7 — keeping token costs near zero</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li><strong>Live at <a href="https://terrascout.app" target="_blank" style="color: var(--primary-color);">terrascout.app</a></strong> — fully deployed on Oracle Cloud (Always Free tier)</li>
-                <li><strong>217 tests</strong> across 22 test files (190 backend + 27 CLI)</li>
-                <li><strong>6 MCP tools</strong> enabling AI assistants to call geospatial scoping functions directly</li>
-                <li><strong>5 AI agents</strong> transforming scope results into actionable deliverables (methodology, procurement, QA, compliance, reports)</li>
-                <li><strong>12 providers, 14 sensors, 100+ spectral bands</strong> in the knowledge base</li>
-                <li>Full CLI with <strong>20 commands</strong> for terminal-based workflows</li>
-                <li>GitHub Actions CI/CD with automated test → deploy via SSH</li>
-            </ul>
-        `,
-        architecture: `FastAPI (async, Python 3.13) backend with 40+ endpoints, PostgreSQL + PostGIS (Supabase) with 17 tables,
-                       SQLAlchemy 2.0 + GeoAlchemy2, Supabase JWT auth, Groq + OpenRouter for LLM,
-                       FastMCP 3.1 (hybrid HTTP + stdio, 6 tools), Typer + Rich CLI,
-                       React 19 + TypeScript + Vite 7 + Tailwind CSS v4 frontend, Leaflet + Recharts + Framer Motion,
-                       Docker Compose (backend + nginx + Redis), Oracle Cloud hosting, GitHub Actions CI/CD.`,
-        codeAvailable: true,
-        demoLink: 'https://terrascout.app'
+        architecture: `QGIS plugin (Python, PyQt). Web: FastAPI + SQLAlchemy 2 + GeoAlchemy2 + PostGIS with Alembic, React 18 + TypeScript + MapLibre + deck.gl + Zustand,
+                       PyTorch U-Net heat surrogate, Supabase Auth, multi-provider LLMs (Ollama, OpenRouter, Groq), Docker + nginx, Cloudflare Tunnel, GitHub Actions.`,
+        demoLink: 'https://urbanmind.terrascout.app',
+        demoLabel: 'Visit urbanmind.terrascout.app',
+        privateCode: true
     },
     geospark: {
-        title: 'GeoSpark - The Open-Source Geospatial Intelligence Protocol & Engine',
-        category: 'Open Source | GeoAI Protocol',
-        tags: ['Python', 'MCP Server', 'Benchmarks', 'Docker', 'PostGIS', 'Spatial Reasoning', 'CLI', 'Open Source'],
-        challenge: `Current LLMs fail at spatial reasoning — mislabeling topological relationships ~80% of the time and showing 42–80% performance drops on complex spatial tasks. Ask any LLM "Is the Louvre inside the 7th arrondissement of Paris?" and it will confidently guess wrong. LLMs have no geometric engine, no coordinate system awareness, and no way to verify spatial claims. They hallucinate distances, confuse containment with proximity, and silently swap lat/lon.`,
+        title: 'GeoSpark - Spatial Reasoning for Language Models',
+        category: 'Open Source | Research',
+        tags: ['Python', 'MCP', 'Shapely', 'pyproj', 'FastAPI', 'Pydantic', 'Ollama', 'Docker', 'Apache 2.0'],
+        challenge: `Language models have no geometry engine. Asked for a distance or whether one place lies inside another, they answer from pattern-matching — confidently and often wrong — and different models disagree widely on the same question.`,
         solution: `
             <ul>
-                <li>Designed the <strong>GeoSpark Protocol (GSP)</strong> — a standardized JSON protocol for spatial queries, analogous to MCP but for geospatial intelligence</li>
-                <li>Built a <strong>Spatial Reasoning Engine</strong> with topology, geodesic distance, CRS transforms, buffering, area calculations, centroid computation, and nearest-neighbor — all geometrically correct</li>
-                <li>Created <strong>GeoSpark Bench</strong> — 535 benchmark questions across 5 suites (GeoDistance, GeoReason, GeoTopo, GeoChange, GeoMultimodal) proving LLMs fail 70%+ on spatial tasks</li>
-                <li>Implemented <strong>MCP Server</strong> enabling Claude, ChatGPT, or any MCP-compatible AI assistant to gain spatial reasoning capabilities</li>
-                <li>Developed <strong>pluggable tool system</strong>: geocoding, satellite imagery (STAC), terrain/elevation, routing (OSRM), spectral indices, change detection</li>
-                <li>Built <strong>GeoSpark Flows</strong> — DAG-based workflow automation with conditional routing and pre-built templates</li>
-                <li>Created <strong>Spatial Knowledge Graph</strong> with entity-relation graphs, BFS traversal, auto-relate, and natural language queries</li>
-                <li>Designed <strong>plugin ecosystem</strong> with manifest-based discovery, lifecycle hooks, and dependency management</li>
-                <li>Published on <strong>PyPI</strong> as <code>geospark-ai</code> — <code>pip install geospark-ai</code></li>
+                <li><strong>GeoSpark Protocol (GSP):</strong> a typed JSON protocol for spatial operations — topology, geodesic measurement, CRS transforms, geocoding, terrain, routing and spectral indices.</li>
+                <li><strong>MCP server, REST API, CLI and Python library</strong>, so any tool-capable model or application can call the same engine.</li>
+                <li><strong>GeoSpark Bench:</strong> a 535-question benchmark across distance, topology, reasoning, change and multimodal suites, run on 9 models under bare, chain-of-thought and tool-augmented conditions.</li>
+                <li>Published on PyPI as <code>geospark-ai</code>; manuscript under peer review.</li>
             </ul>
         `,
-        results: `
+        decisions: `
             <ul>
-                <li><strong>Published on PyPI</strong> — installable via <code>pip install geospark-ai</code></li>
-                <li><strong>Live API</strong> at <a href="https://geospark.terrascout.app/docs" target="_blank" style="color: var(--primary-color);">geospark.terrascout.app</a> with 11 endpoints and Swagger docs</li>
-                <li><strong>535 benchmark questions</strong> across 5 suites — LLMs score 0% on geodesic distance (GeoSpark brings it to 75%)</li>
-                <li><strong>446 tests</strong> passing across 4 completed development phases</li>
-                <li><strong>Zero-cost stack</strong> option: OpenRouter free models + Supabase free tier for full spatial AI at $0/month</li>
-                <li>MCP Server enabling any AI assistant to gain ground-truth spatial reasoning</li>
-                <li>Open source under <strong>Apache 2.0</strong> license</li>
+                <li><strong>Compute, don't guess:</strong> the model decides <em>what</em> to ask; deterministic engines (geodesic distance, Shapely predicates) produce the answer, leaving an auditable tool trace.</li>
+                <li><strong>Honest evaluation:</strong> confidence intervals on every score, per-predicate breakdowns that expose "yes-bias", and negative results reported — including cases where prompting or tools made a model worse.</li>
+                <li><strong>Local-first:</strong> runs on open-weight models through Ollama, with hosted providers as fallback.</li>
+                <li><strong>Production hygiene:</strong> rate limiting, audit logging, non-root multi-stage Docker images and CI across Python 3.10–3.12.</li>
             </ul>
         `,
-        architecture: `Python library with GeoSpark Protocol (GSP) layer, Spatial Reasoning Engine (Shapely, pyproj, geopy),
-                       Pluggable tools (geocoder, STAC satellite, terrain, OSRM routing, change detection),
-                       GeoSpark Flows (DAG runner), Spatial Knowledge Graph (BFS, NL queries),
-                       Plugin system (community ecosystem), MCP Server integration,
-                       FastAPI REST API, Docker + Docker Compose (PostGIS), CLI (Typer), CI/CD with GitHub Actions.`,
-        codeAvailable: true,
-        demoLink: 'https://github.com/Maz2580/geospark'
+        architecture: `Python package (hatchling, PyPI) with GSP schema (Pydantic v2), spatial engine (Shapely 2, pyproj), pluggable tools (Nominatim, OSRM, STAC, elevation with vertical datums),
+                       MCP stdio server, FastAPI REST API, benchmark runner and scorer, Docker + PostGIS + Redis, GitHub Actions CI.`,
+        repoLink: 'https://github.com/Maz2580/geospark',
+        extraLink: 'https://pypi.org/project/geospark-ai/',
+        extraLabel: 'geospark-ai on PyPI'
+    },
+    m1Pipeline: {
+        title: 'Vicmap M1 Validation Pipeline',
+        category: 'Council Automation | Open Source',
+        tags: ['Python', 'Flask', 'FME', 'Pozi Connect', 'SQL Server', 'ArcSDE', 'OpenAI / Anthropic', 'IMAP'],
+        challenge: `Every fortnight a Victorian council must review proposed property changes (M1s) before they update the state cadastre. Each row was checked by hand against the council's rates system and spatial layers — slow, repetitive, and easy to get wrong when the same few edge cases recur.`,
+        solution: `
+            <ul>
+                <li><strong>End-to-end automation:</strong> watches the inbox for the Vicmap delivery, downloads and extracts it, runs the FME reload workspaces and Pozi Connect tasks, then validates every generated M1 row.</li>
+                <li><strong>Rules before the model:</strong> spatial and database rules check each row against the rates system and Vicmap layers; only ambiguous rows go to a language model, with the rule findings as context.</li>
+                <li><strong>Advisory output:</strong> KEEP / REJECT with a confidence score and a reason for every row, in a web dashboard with live logs.</li>
+                <li>Built for Greater Shepparton Council, then released as an open-source pipeline any Victorian council can configure for its own LGA.</li>
+            </ul>
+        `,
+        decisions: `
+            <ul>
+                <li><strong>Read-only by design:</strong> production database access allows SELECT only and opens connections read-only, so automation can never write to council data.</li>
+                <li><strong>Strict-schema LLM output</strong> with separate system and user prompts, plus graceful fallback for providers without strict mode.</li>
+                <li><strong>Provider abstraction</strong> across six LLM backends with fail-over, so councils can use local or low-cost models.</li>
+                <li><strong>Self-audited:</strong> a published security audit, with critical and high findings (zip-slip, shell injection, missing auth) fixed before release; CI on Windows and Linux.</li>
+                <li><strong>Fails loudly on config:</strong> no default council code, after learning how a silent wrong default can go unnoticed.</li>
+            </ul>
+        `,
+        architecture: `Five-phase pipeline: IMAP email monitor → download/extract → FME workspaces → Pozi Connect → rule engine + LLM validator.
+                       Three Flask services (app, validation API, preview API) with bearer-token auth and SSE log streaming; pyodbc to SQL Server / ArcSDE; GitHub Actions CI.`,
+        repoLink: 'https://github.com/Maz2580/vicmap-m1-ai-pipeline'
+    },
+    changeDetection: {
+        title: 'AI Building Change Detection',
+        category: 'Remote Sensing | Research Prototype',
+        tags: ['Python', 'OpenCV', 'Rasterio', 'GeoPandas', 'DINOv2', 'DINOv3', 'ONNX', 'Vision LLM'],
+        challenge: `Finding unpermitted or unrecorded building work means comparing aerial imagery from two dates. Simple pixel differencing floods reviewers with false alarms from shadows, vegetation and misalignment, while real new buildings slip through.`,
+        solution: `
+            <ul>
+                <li><strong>Registration and change scoring:</strong> aligns the two dates, then scores colour and edge change, deferring likely shadow regions to a separate output.</li>
+                <li><strong>Zero-shot vision models:</strong> DINOv2 patch similarity for semantic change and a DINOv3 building-footprint model run on each date.</li>
+                <li><strong>Footprint-led corroboration:</strong> the footprint model supplies the geometry, and change channels only confirm that something changed there — every candidate keeps a support tier.</li>
+                <li><strong>Polygon regularisation</strong> snaps outlines to each building's dominant orientation, and an HTML review page shows before/after chips for each candidate.</li>
+                <li>Optional vision-language model gives an advisory label per candidate (new building, extension, solar panels…).</li>
+            </ul>
+        `,
+        decisions: `
+            <ul>
+                <li><strong>Candidates for human review, not automatic verdicts</strong> — the tool narrows the search; people confirm.</li>
+                <li><strong>Diagnose before tuning:</strong> a resolution-ladder experiment ruled out image resolution and exposed a preprocessing bug in the footprint model; fixing it transformed detection.</li>
+                <li><strong>LLM treated as untrusted:</strong> allow-listed labels, clamped confidence, and a test for prompt injection.</li>
+                <li><strong>Measured, not assumed:</strong> each change is checked against a small human-labelled benchmark, with rejected approaches documented.</li>
+            </ul>
+        `,
+        architecture: `Local CLI pipeline: imagery ingestion (tile API or local GeoTIFFs, optional DSM) → ECC registration → change scoring → DINOv2 / DINOv3 channels →
+                       fusion and corroboration → regularisation → GeoJSON, raster masks, JSON run report and static HTML review page.`,
+        repoLink: 'https://github.com/Maz2580/AI-Geospatial-Change-Detection'
+    },
+    disasterRecovery: {
+        title: 'Disaster Recovery Field Data Collection',
+        category: 'Enterprise GIS | Parks Victoria',
+        tags: ['ArcGIS Field Maps', 'Survey123', 'ArcGIS Online', 'Dashboards', 'Power BI'],
+        challenge: `After floods and bushfires, crews needed to assess damage to park assets in areas with little or no mobile coverage. Paper forms and ad-hoc spreadsheets meant inconsistent data and slow reporting to the people deciding where recovery effort should go.`,
+        solution: `
+            <ul>
+                <li>Designed standardised Survey123 damage-assessment forms with photo capture.</li>
+                <li>Configured offline-capable Field Maps that sync when crews reconnect.</li>
+                <li>Built dashboards giving recovery leadership a current view of assessed damage.</li>
+                <li>Set up ArcGIS Online groups and permissions, and trained field staff on the tools.</li>
+            </ul>
+        `,
+        decisions: `
+            <ul>
+                <li><strong>Offline first:</strong> designed for the field conditions crews actually faced, not for the office.</li>
+                <li><strong>One schema for every crew</strong> so assessments are comparable across regions from day one.</li>
+                <li><strong>Training alongside rollout</strong> — adoption by field staff mattered as much as the configuration.</li>
+            </ul>
+        `,
+        architecture: `ArcGIS Online, Survey123 forms, Field Maps with offline areas, ArcGIS Dashboards and Power BI for reporting.`
+    },
+    cmConnection: {
+        title: 'Records-to-GIS Capital Works Link',
+        category: 'System Integration | Council',
+        tags: ['Python', 'Content Manager SDK', 'FME', 'ArcSDE', 'CustomTkinter'],
+        challenge: `Capital works documents live in the council's records system (Content Manager), while the works themselves live as GIS layers. Linking the two meant searching records by hand and copying references between systems.`,
+        solution: `
+            <ul>
+                <li>Search and bulk-download tool for Content Manager, with a GUI, a command-line mode and a batch mode.</li>
+                <li>FME pipeline: project export → extract record numbers from free text → download documents → read the spreadsheets → join to capital works layers by asset ID.</li>
+                <li>Fuzzy matching of record titles to capital works layers, gated by financial year and a confidence threshold.</li>
+            </ul>
+        `,
+        decisions: `
+            <ul>
+                <li><strong>Precise extraction:</strong> record-number patterns are separated from look-alike financial years, avoiding false matches.</li>
+                <li><strong>Bridging a 32-bit SDK:</strong> FME's 64-bit Python hands off to a separate 32-bit environment to call the records SDK.</li>
+                <li><strong>Read-only</strong> access to both the records system and the spatial database.</li>
+            </ul>
+        `,
+        architecture: `Python (Content Manager COM SDK in a 32-bit environment), FME PythonCallers, ArcSDE spatial layers, CustomTkinter GUI.`,
+        repoLink: 'https://github.com/Maz2580/CM_connection'
+    },
+    veniceBiennale: {
+        title: 'Song of the Cricket - Venice Lagoon Habitat Analysis',
+        category: 'Remote Sensing | Research Collaboration',
+        tags: ['Google Earth Engine', 'Landsat 5/7/8', 'NDVI / SAVI / NDMI / NDPI', 'Random Forest', 'K-Means', 'ArcGIS StoryMaps'],
+        challenge: `A habitat restoration project for an endangered cricket species in the Venice Lagoon needed to understand how land cover and vegetation had changed over decades, to inform where habitat could be restored.`,
+        solution: `
+            <ul>
+                <li>Built Landsat 5/7/8 composites for the lagoon from 1985 to 2020 in Google Earth Engine.</li>
+                <li>Computed vegetation and moisture indices (NDVI, SAVI, NDMI, NDPI) with time series and exports.</li>
+                <li>Ran supervised (Random Forest) and unsupervised (K-Means) land-cover classification, change detection and terrain analysis.</li>
+                <li>Contributed to the project's ArcGIS StoryMap.</li>
+            </ul>
+        `,
+        decisions: `
+            <ul>
+                <li><strong>Consistent long record:</strong> Landsat's multi-decade archive chosen over newer sensors to cover the full historical period.</li>
+                <li><strong>Honest accuracy:</strong> classification accuracy reported with a note that class imbalance likely inflates it.</li>
+            </ul>
+        `,
+        architecture: `Google Earth Engine (Python API) in Colab, geemap, Landsat Collection 2 Level-2, Random Forest and K-Means classifiers, Google Drive exports, ArcGIS StoryMaps.`,
+        demoLink: 'https://storymaps.arcgis.com/stories/bb06dd4eb5164d7eb9fc0dc7ddf1e16c',
+        demoLabel: 'View the StoryMap',
+        repoLink: 'https://github.com/Maz2580/Venice_Data_Analysis'
     },
     ksaGrf17: {
         title: 'KSA-GRF17 WebODM Plugin',
         category: 'Drone Processing | Geodesy',
-        tags: ['WebODM', 'Python', 'Django', 'React', 'EXIF', 'PROJ', 'Docker', 'REST API'],
-        challenge: `Drone image processing in Saudi Arabia requires the KSA-GRF17 (Geodetic Reference Frame 2017) coordinate system, which uses a 7-parameter Helmert transformation from ITRF2014. Manually configuring the correct UTM zone and PROJ string for each processing task is error-prone and requires specialized geodetic knowledge that most drone operators don't have.`,
+        tags: ['WebODM', 'Python', 'Django', 'React', 'EXIF', 'PROJ', 'Docker'],
+        challenge: `Drone mapping in Saudi Arabia requires the KSA-GRF17 reference frame, with a 7-parameter Helmert transformation and the correct UTM zone. Setting this by hand for every processing task is error-prone and needs geodetic knowledge most drone operators don't have.`,
         solution: `
             <ul>
-                <li>Built a <strong>zero-configuration WebODM plugin</strong> that automatically reads GPS coordinates from drone image EXIF data</li>
-                <li>Implemented <strong>automatic UTM zone detection</strong> covering all 5 KSA zones (36N–40N, EPSG 9356–9360)</li>
-                <li>Auto-injects the correct <strong>KSA-GRF17 PROJ string</strong> with the 7-parameter Helmert transformation (EPSG:9383)</li>
-                <li>Added <strong>KSA boundary check</strong> — plugin only activates for images within Saudi Arabia</li>
-                <li>Created <strong>React UI panel</strong> showing detected zone and CRS info during task creation</li>
-                <li>Built <strong>REST API endpoints</strong> for programmatic zone detection and preset retrieval</li>
-                <li>Fully self-contained — <strong>no external network calls</strong>, completely auditable</li>
-                <li>Provided comprehensive documentation including installation guide and complete KSA-GRF17 reference</li>
+                <li>Reads GPS coordinates from drone image EXIF data and detects the correct zone across all five KSA UTM zones (36N–40N).</li>
+                <li>Injects the matching KSA-GRF17 PROJ definition automatically when a processing task is created.</li>
+                <li>Boundary check so the plugin only acts on imagery inside Saudi Arabia; UI panel and REST endpoints for zone detection.</li>
             </ul>
         `,
-        results: `
+        decisions: `
             <ul>
-                <li><strong>Zero configuration</strong> for end users — just upload drone images and process</li>
-                <li><strong>5 UTM zones</strong> fully supported with correct TOWGS84 parameters</li>
-                <li><strong>Automatic detection</strong> eliminates manual CRS errors in drone processing</li>
-                <li>Works with standard WebODM Docker installation — simple container copy to install</li>
-                <li>Ready-to-install ZIP package in the <code>dist/</code> folder</li>
-                <li>REST API for integration with external tools and automated pipelines</li>
+                <li><strong>Zero configuration</strong> for operators — the geodesy is handled for them.</li>
+                <li><strong>No external network calls:</strong> fully self-contained and auditable for secure environments.</li>
             </ul>
         `,
-        architecture: `Django plugin architecture (WebODM core), Python backend with exifread for GPS extraction,
-                       Django signals for auto-injection at task creation, PROJ string generation for KSA-GRF17,
-                       React JSX UI panel, REST API endpoints, Docker deployment (webapp + worker containers).`,
-        codeAvailable: true,
-        demoLink: 'https://github.com/Maz2580/ksa-grf17-webodm-plugin'
+        architecture: `WebODM (Django) plugin with signal hooks at task creation, exifread for GPS extraction, PROJ string generation, React UI panel, REST API, Docker install.`,
+        repoLink: 'https://github.com/Maz2580/ksa-grf17-webodm-plugin'
     },
-    catastropheiq: {
-        title: 'CatastropheIQ - Multi-Agent Insurance Claims Platform',
-        category: 'Insurance Tech | AI Automation',
-        tags: ['FastAPI', 'MongoDB', 'React', '3D Globe', 'Satellite Analysis', 'Multi-Agent AI', 'Real-time'],
-        challenge: `Insurance companies face significant delays in processing disaster-related claims due to manual verification processes. After hurricanes, wildfires, or floods, adjusters must physically assess damage, cross-reference with policy data, and validate claims - a process that can take weeks while policyholders wait for assistance. The challenge was to automate this pipeline using AI and satellite imagery.`,
+    digitalTwinIoT: {
+        title: 'IoT Environmental Monitoring',
+        category: 'IoT | Master\'s Capstone',
+        tags: ['IoT Sensors', 'MQTT', 'FastAPI', 'WebSocket', 'React', 'Plotly'],
+        challenge: `Indoor environmental conditions (CO₂, temperature, humidity) were measured by sensors but not visible in one place in real time, making it hard to act on poor air quality or comfort issues.`,
         solution: `
             <ul>
-                <li>Architected <strong>3 autonomous AI agents</strong> working in coordination:
-                    <ul>
-                        <li><strong>Geo Sentinel</strong>: Real-time disaster detection from NWS alerts + satellite imagery analysis for damage assessment</li>
-                        <li><strong>Claims Verifier</strong>: Auto-approval pipeline combining social media evidence with satellite damage scores</li>
-                        <li><strong>Revenue Engine</strong>: Automated client outreach, demo scheduling, and trial activation</li>
-                    </ul>
-                </li>
-                <li>Built real-time disaster mapping with 3D Globe visualization showing affected areas and damage radius</li>
-                <li>Implemented satellite analysis module calculating area affected, building damage count, and estimated loss</li>
-                <li>Created social intelligence layer analyzing geo-tagged posts, damage keywords, and sentiment</li>
-                <li>Developed auto-approval logic: claims with 3+ social evidence posts AND 70%+ satellite damage score get instant approval</li>
-                <li>Built revenue dashboard tracking demos sent, trials activated, and conversion rates</li>
+                <li><strong>Capstone:</strong> designed a layered sensing → network → processing → application architecture, streaming sensor readings over MQTT into live dashboards.</li>
+                <li><strong>Later rebuild:</strong> a reusable sensor module — MQTT over TLS into FastAPI, history and statistics endpoints, and live WebSocket streaming to a React / Plotly front end.</li>
             </ul>
         `,
-        results: `
+        decisions: `
             <ul>
-                <li><strong>3-agent autonomous system</strong> handling end-to-end disaster response workflow</li>
-                <li><strong>Satellite + social evidence fusion</strong> for automated claim verification</li>
-                <li>Real-time processing with <strong>sub-minute detection to claim generation</strong></li>
-                <li>Scalable architecture supporting multiple concurrent disaster events</li>
-                <li>Revenue automation achieving <strong>23.5% demo-to-trial conversion rate</strong></li>
-                <li>Full-stack implementation: FastAPI backend, React frontend, MongoDB for persistence</li>
+                <li><strong>Publish/subscribe (MQTT)</strong> decouples sensors from the dashboard, so devices can be added without changing the application.</li>
+                <li><strong>Push, not poll:</strong> WebSocket streaming keeps dashboards current without hammering the API.</li>
             </ul>
         `,
-        architecture: `FastAPI backend with async processing, MongoDB for disaster events and claims storage,
-                       React frontend with 3D Globe (likely Cesium or Globe.gl), Real-time WebSocket updates,
-                       Satellite imagery integration, Social media API integration, Automated notification system.`,
-        codeAvailable: true
-    },
-    sustainabilityDashboard: {
-        title: 'Sustainability Dashboard - University of Melbourne',
-        category: 'Data Visualization | Sustainability',
-        tags: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Role-based Access', 'Dashboard Builder'],
-        challenge: `The University of Melbourne needed a comprehensive dashboard to track progress toward Sustainability Plan 2030 targets across academic, operational, and community areas. The existing reporting was fragmented across spreadsheets and static reports, making it difficult for stakeholders to understand progress and identify areas needing attention.`,
-        solution: `
-            <ul>
-                <li>Built interactive dashboard with <strong>10+ widget types</strong>: KPI Grids, Chart Grids (Bar, Line, Pie, Area), Rich Text, Indicators with trends, Embedded Content (iframes), Tables with CSV upload, Lists, Gauges, Details blocks</li>
-                <li>Implemented <strong>role-based access control</strong>: Admin (full control + user management), Editor (dashboard editing), Viewer (read-only)</li>
-                <li>Created <strong>visual dashboard editor</strong> allowing authorized users to add, remove, reorder, and configure widgets without coding</li>
-                <li>Designed categorized metrics structure covering Teaching & Research, Operations, and Community areas</li>
-                <li>Built admin panel for managing access requests and editor permissions</li>
-                <li>Implemented responsive design adapting to desktop, tablet, and mobile devices</li>
-                <li>Architected for future <strong>Google Gemini API integration</strong> for AI-driven insights and natural language querying</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li><strong>10+ customizable widget types</strong> for flexible data presentation</li>
-                <li><strong>Visual dashboard editor</strong> enabling non-technical users to customize views</li>
-                <li><strong>Role-based access</strong> ensuring appropriate permissions across stakeholder groups</li>
-                <li>Responsive design serving users across all device types</li>
-                <li>Foundation for <strong>AI-powered insights</strong> via Gemini API integration</li>
-                <li>Scalable architecture supporting future database integration</li>
-            </ul>
-        `,
-        architecture: `React with TypeScript for type-safe development, Tailwind CSS for responsive styling,
-                       Recharts for data visualization, Papaparse for CSV processing, localStorage for persistence,
-                       Planned: Google Gemini API for AI insights, Backend database integration.`,
-        codeAvailable: true
-    },
-    mcpNexus: {
-        title: 'MCP Nexus Manager - Model Context Protocol Platform',
-        category: 'AI Infrastructure | Developer Tools',
-        tags: ['React 19', 'TypeScript', 'Vite', 'MCP Protocol', 'Gemini AI', 'Visual Workflows', 'GeoAI'],
-        challenge: `The emerging Model Context Protocol (MCP) standard enables AI models to interact with external tools and data sources, but managing multiple MCP servers, monitoring their health, and building workflows requires significant technical expertise. GIS and remote sensing professionals needed a user-friendly interface to leverage MCP servers for spatial analysis without deep protocol knowledge.`,
-        solution: `
-            <ul>
-                <li>Built <strong>full-stack MCP server management interface</strong> supporting stdio, SSE, and WebSocket transports</li>
-                <li>Implemented <strong>real-time health monitoring</strong> with latency tracking, uptime monitoring, and automatic reconnection</li>
-                <li>Created <strong>visual drag-and-drop workflow builder</strong> with node-based execution for chaining MCP tool calls</li>
-                <li>Developed <strong>GeoAI analysis module</strong> with object detection, segmentation, and change detection capabilities</li>
-                <li>Built <strong>custom tool builder</strong> allowing users to create MCP tools using Python, SQL, or AI models</li>
-                <li>Integrated <strong>Gemini AI assistant</strong> for natural language query planning and execution</li>
-                <li>Created <strong>server discovery catalog</strong> with 30+ pre-configured MCP servers across categories: File & Data, Search & Web, GIS & Spatial, Developer Tools, AI & ML</li>
-                <li>Implemented health dashboard with system metrics, network traffic visualization, and performance monitoring</li>
-            </ul>
-        `,
-        results: `
-            <ul>
-                <li><strong>30+ pre-configured MCP servers</strong> ready for instant deployment</li>
-                <li><strong>Visual workflow builder</strong> eliminating need for code-based MCP orchestration</li>
-                <li><strong>GeoAI capabilities</strong> accessible through intuitive UI</li>
-                <li><strong>Gemini-powered</strong> natural language interface for query planning</li>
-                <li>Real-time health monitoring ensuring <strong>reliable server connectivity</strong></li>
-                <li>Custom tool creation enabling <strong>extensible MCP ecosystem</strong></li>
-                <li>Later integrated into <strong>UMAMI platform</strong> as advanced MCP server management layer</li>
-            </ul>
-        `,
-        architecture: `React 19 + TypeScript frontend, Vite for fast development, Gemini API for AI features,
-                       MCP client implementation (stdio, SSE, WebSocket), Health monitoring service,
-                       Visual workflow engine, Tailwind CSS + Lucide icons for UI.`,
-        codeAvailable: true
+        architecture: `IoT sensors → MQTT broker (TLS) → FastAPI ingestion with SQLAlchemy → REST + WebSocket → React front end with Plotly charts.`,
+        demoLink: 'https://drive.google.com/file/d/189wQVBo0v57z9PZNVuZiXQuXRUWfj0RG/view?usp=sharing',
+        demoLabel: 'Watch the capstone demo'
     }
 };
 
@@ -645,13 +415,13 @@ function openProjectModal(projectId) {
             </div>
             
             <div class="project-modal-section">
-                <h3><i class="fas fa-lightbulb"></i> Solution</h3>
+                <h3><i class="fas fa-lightbulb"></i> Approach</h3>
                 ${project.solution}
             </div>
             
             <div class="project-modal-section">
-                <h3><i class="fas fa-chart-line"></i> Results & Impact</h3>
-                ${project.results}
+                <h3><i class="fas ${project.decisions ? 'fa-scale-balanced' : 'fa-chart-line'}"></i> ${project.decisions ? 'Key Design Decisions' : 'Results & Impact'}</h3>
+                ${project.decisions || project.results}
             </div>
             
             <div class="project-modal-section">
@@ -659,12 +429,20 @@ function openProjectModal(projectId) {
                 <p>${project.architecture}</p>
             </div>
             
-            ${project.codeAvailable || project.demoLink ? `
+            ${project.demoLink || project.repoLink || project.extraLink || project.privateCode || project.codeAvailable ? `
                 <div class="project-modal-footer">
                     ${project.demoLink ? `
-                        <p><i class="fas fa-external-link-alt"></i> <a href="${project.demoLink}" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: underline;">View Project Demo/Documentation</a></p>
+                        <p><i class="fas fa-external-link-alt"></i> <a href="${project.demoLink}" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: underline;">${project.demoLabel || 'View Project Demo/Documentation'}</a></p>
                     ` : ''}
-                    ${project.codeAvailable ? `
+                    ${project.repoLink ? `
+                        <p><i class="fab fa-github"></i> <a href="${project.repoLink}" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: underline;">View source on GitHub</a></p>
+                    ` : ''}
+                    ${project.extraLink ? `
+                        <p><i class="fas fa-box-open"></i> <a href="${project.extraLink}" target="_blank" rel="noopener" style="color: var(--primary-color); text-decoration: underline;">${project.extraLabel}</a></p>
+                    ` : ''}
+                    ${project.privateCode ? `
+                        <p><i class="fas fa-lock"></i> Private repository — happy to walk through the code and architecture on request</p>
+                    ` : project.codeAvailable ? `
                         <p><i class="fas fa-code"></i> Sanitized code samples and architecture diagrams available upon request</p>
                     ` : ''}
                 </div>

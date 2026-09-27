@@ -1967,6 +1967,16 @@ button {
     white-space: nowrap;
 }
 
+.result-step {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.result-step:last-child {
+    margin-bottom: 0;
+}
+
 .metric-label {
     font-size: 0.65rem;
     color: var(--text-secondary);
@@ -3168,20 +3178,19 @@ body.light-theme .form-group select option:checked {
 }
 
 .exp-achievements li {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
+    position: relative;
     color: var(--text-secondary);
     font-size: var(--font-size-sm);
     line-height: 1.7;
-    padding-left: var(--spacing-sm);
+    padding-left: calc(var(--spacing-sm) + 1.5rem);
 }
 
-.exp-achievements li i {
+.exp-achievements li > i {
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 0.3em;
     color: var(--accent-color);
     font-size: 1rem;
-    margin-top: 3px;
-    flex-shrink: 0;
 }
 
 .exp-achievements li strong {
@@ -3641,4 +3650,52 @@ body.light-theme .form-group select option:checked {
     letter-spacing: 0.5px;
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
     z-index: 10;
+}
+
+/* ===== Small-screen overflow fixes ===== */
+@media (max-width: 480px) {
+    .orbit-4 {
+        display: none;
+    }
+
+    .cert-summary {
+        max-width: 100%;
+        flex-wrap: wrap;
+        white-space: normal;
+    }
+}
+
+/* Keep decorative orbit animation and link rows inside the viewport */
+.hero,
+.about {
+    overflow-x: clip;
+}
+
+.project-meta {
+    flex-wrap: wrap;
+    row-gap: var(--spacing-xs);
+}
+
+@media (max-width: 480px) {
+    .exp-period {
+        max-width: 100%;
+        white-space: normal;
+    }
+}
+
+/* Open-source package cards (replace self-rated skill bars) */
+a.tech-item {
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: var(--transition-base);
+}
+
+a.tech-item:hover {
+    border-color: var(--primary-color);
+}
+
+.tech-item small {
+    color: var(--text-secondary);
+    font-weight: 400;
 }
