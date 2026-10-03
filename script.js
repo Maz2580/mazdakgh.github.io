@@ -109,39 +109,41 @@ const modalBody = document.getElementById('modal-body');
 // Project data
 const projectData = {
     umami: {
-        title: 'UMAMI v2.7.0 - University of Melbourne AI for Mapping & Insights',
-        category: 'GeoAI Platform | Enterprise Solution',
-        tags: ['GeoAI', 'MCP Protocol', 'PostGIS', 'GPT-4', 'Claude', 'Gemini', 'CesiumJS', 'Google Earth Engine', 'React 19', 'IoT', 'RAG'],
-        challenge: `Research institutions and sustainability planners needed an intuitive way to query complex geospatial databases without SQL expertise. Traditional GIS tools required specialized training, creating bottlenecks when non-technical users needed spatial insights. The challenge was to build an enterprise-grade platform that could handle natural language queries while maintaining accuracy, security, and performance at scale.`,
+        title: 'UMAMI - Urban Digital Twin & GeoAI Platform',
+        category: 'Digital Twin Platform | University of Melbourne',
+        tags: ['FastAPI', 'React 19', 'TypeScript', 'CesiumJS', 'PostGIS', 'TimescaleDB', 'pgvector', 'PyTorch', 'ONNX', 'Google Earth Engine', 'MCP', 'Ollama', 'Docker', 'GitLab CI/CD'],
+        challenge: `Planners, councils and researchers need to ask "what if?" of a city — what happens to heat if we add trees, to flooding if rainfall changes, to biodiversity if we build a corridor — but the answers sit in specialist simulations, separate datasets and GIS tools that only experts can drive. Physics models like SOLWEIG and HEC-RAS take hours per run, and most users cannot write spatial SQL.`,
         solution: `
             <ul>
-                <li>Architected <strong>6-agent swarm intelligence system</strong> with Ant Colony Optimization (Spatial Analyst, Data Validator, GIS Troubleshooter, Innovation Specialist, Performance Optimizer, Quality Assurance)</li>
-                <li>Built <strong>MCP Server Management</strong> layer with 11+ pre-configured servers (GIS-MCP with 89 functions, PostGIS, GitHub, GDAL, OSM, Geocode, Weather)</li>
-                <li>Developed <strong>MCP Flows</strong> - visual workflow editor with 100+ node types for drag-and-drop geospatial pipeline creation</li>
-                <li>Implemented multi-LLM strategy: OpenAI GPT-4, Anthropic Claude, Google Gemini, Groq with agents critiquing each other's outputs</li>
-                <li>Built <strong>IoT Sensor Dashboard</strong> with real-time MQTT environmental monitoring and WebSocket streaming</li>
-                <li>Created <strong>RAG Service</strong> with vector embeddings for semantic search over geospatial documentation</li>
-                <li>Integrated Google Earth Engine for NDVI, NDWI, elevation, land cover, and surface temperature analysis with AI-generated code</li>
-                <li>Developed CesiumJS-based 3D visualization with pipeline clearance analysis, elevation profiles, and 3D building models</li>
-                <li>Implemented full production stack: JWT authentication, role-based access control, personal API key management, admin dashboard</li>
+                <li><strong>Natural-language spatial analysis:</strong> plain-English questions over PostGIS and authoritative data, answered on a CesiumJS 3D globe through multi-agent text-to-SQL pipelines with schema grounding, critique and self-correction.</li>
+                <li><strong>Urban Heat:</strong> a multi-task U-Net trained on SOLWEIG simulations predicts thermal comfort (UTCI) at 1 m across Melbourne — scenario and design editors, Cool Routes, hotspots and a fine-tuned advisor model, served on CPU via ONNX.</li>
+                <li><strong>Flood prediction:</strong> U-Net surrogates of a calibrated HEC-RAS 2D model, from terrain-only to rainfall-driven inputs, with time-step progression on the globe, point queries and impact on buildings and roads.</li>
+                <li><strong>Connected Corridors:</strong> green-corridor planning — 3D placement of planting elements, a 5 m surface grid from Earth Engine Dynamic World, key outcomes with confidence and evidence tiers, a benefit-per-dollar optimiser and a 0–30-year view.</li>
+                <li><strong>AI change detection:</strong> fine-tuned object detectors find unpermitted construction between two aerial-imagery epochs, evaluated against human-confirmed labels.</li>
+                <li><strong>CadastreAI:</strong> natural-language access to a unified 2D + 3D Victorian cadastre — millions of parcels, properties and easements plus 3D buildings and strata.</li>
+                <li><strong>Smart Auditor:</strong> master-plan compliance checking against Victorian planning rule packs with what-if analysis.</li>
+                <li><strong>ABS AI-readiness study:</strong> a benchmark for the Australian Bureau of Statistics measuring how well LLMs answer statistical questions, and how much a tool layer improves them.</li>
+                <li><strong>Live World:</strong> live fires, earthquakes, satellite passes and wind on the globe, with a tool-using "Ask" assistant.</li>
+                <li><strong>Also:</strong> MCP Flows visual workflow editor and MCP server management, IoT sensor and room-occupancy twin, Earth Engine console, 3D pipeline clash detection, projects and PDF reporting.</li>
             </ul>
         `,
-        results: `
+        decisions: `
             <ul>
-                <li>Currently deployed at <strong><a href="https://geollm.idigitaltwin.org/UMAMI" target="_blank">geollm.idigitaltwin.org/UMAMI</a></strong> supporting sustainability planners and research teams</li>
-                <li>Processing <strong>200+ natural language queries weekly</strong> with 90% accuracy rate</li>
-                <li><strong>70% reduction in support requests</strong> to GIS team from non-technical users</li>
-                <li><strong>11+ MCP servers</strong> with 89 geospatial functions available for AI tool use</li>
-                <li>Secured funding from <strong>Melbourne Climate Futures (Climate Research Accelerator)</strong> for scaling to precinct and city level</li>
-                <li>Expanding to government and industry partners across Victoria</li>
+                <li><strong>Physics → surrogate:</strong> train on trusted simulations (SOLWEIG, HEC-RAS), then serve fast models — answers in seconds instead of hours.</li>
+                <li><strong>Evaluation over vanity metrics:</strong> whole-domain evaluation exposed weaknesses that patch-level scores hid, and they were reported rather than buried; detector changes need an A/B scorecard before release.</li>
+                <li><strong>Explainable by design:</strong> a deterministic benefit-per-dollar optimiser instead of a black box, and every outcome carries a confidence band and evidence tier.</li>
+                <li><strong>Right model for each role:</strong> per-role LLM routing chosen from measured A/B tests, plus self-hosted models with complexity gating to keep costs and data in-house.</li>
+                <li><strong>Efficient serving:</strong> ONNX CPU inference, cloud-optimised raster stitching, pre-rendered tiles and input hashing so only changed areas are recomputed.</li>
+                <li><strong>Privacy by construction:</strong> read-only camera relay, in-memory frames and anonymised occupancy counts in the IoT twin.</li>
+                <li><strong>Built to last:</strong> 1,400+ commits, ~2,000 automated tests, JWT auth with role-based access, Dockerised services and GitLab CI/CD deployment.</li>
             </ul>
         `,
-        architecture: `6-agent swarm with Ant Colony Optimization, MCP Server layer (11+ servers), MCP Flows visual workflow editor,
-                       n8n external pipeline, FastAPI backends, PostgreSQL/PostGIS + MongoDB, Multiple LLM providers (OpenAI, Claude, Gemini, Groq),
-                       React 19 frontend, CesiumJS 3D visualization, Google Earth Engine API, MQTT IoT integration, RAG with vector embeddings,
-                       JWT authentication, Docker + GitLab CI/CD.`,
-        codeAvailable: true,
-        demoLink: 'https://geollm.idigitaltwin.org/TEST-UMAMI/'
+        architecture: `FastAPI (Python 3.11) with ~57 routers, React 19 + TypeScript + Vite + CesiumJS front end, PostgreSQL/PostGIS, TimescaleDB and pgvector,
+                       GeoServer and cloud-optimised GeoTIFFs, PyTorch U-Net surrogates served via ONNX, Google Earth Engine, multi-provider LLMs (OpenAI, Anthropic, Gemini)
+                       plus self-hosted Ollama models, MCP servers, MQTT/WebSocket IoT, Redis, Docker and GitLab CI/CD on university cloud infrastructure.`,
+        demoLink: 'https://geollm.idigitaltwin.org/UMAMI/',
+        demoLabel: 'Visit the UMAMI platform',
+        privateCode: true
     },
     terrascout: {
         title: 'Terrascout - Geospatial Data Scoping Platform',
@@ -479,11 +481,13 @@ const budgetInput = document.getElementById('budget');
 const budgetDisplay = document.getElementById('budget-display');
 const formMessage = document.getElementById('form-message');
 
-// Update budget display
-budgetInput.addEventListener('input', (e) => {
-    const value = parseInt(e.target.value);
-    budgetDisplay.textContent = value.toLocaleString();
-});
+// Update budget display (the budget field is optional — the current form has none)
+if (budgetInput && budgetDisplay) {
+    budgetInput.addEventListener('input', (e) => {
+        const value = parseInt(e.target.value);
+        budgetDisplay.textContent = value.toLocaleString();
+    });
+}
 
 // Form submission with Formspree
 contactForm.addEventListener('submit', async (e) => {
@@ -559,12 +563,14 @@ document.querySelectorAll('.project-card, .skill-card, .service-card').forEach(e
 });
 
 // ===== TYPING EFFECT FOR HERO (Optional) =====
+// Disabled: it flattens the title's gradient markup. Set to true to enable.
+const ENABLE_HERO_TYPING = false;
 const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
+if (heroTitle && ENABLE_HERO_TYPING) {
     const text = heroTitle.textContent;
     heroTitle.textContent = '';
     heroTitle.style.opacity = '1';
-    
+
     let index = 0;
     function typeWriter() {
         if (index < text.length) {
@@ -573,9 +579,8 @@ if (heroTitle) {
             setTimeout(typeWriter, 50);
         }
     }
-    
-    // Uncomment to enable typing effect
-    // setTimeout(typeWriter, 500);
+
+    setTimeout(typeWriter, 500);
 }
 
 // ===== SKILLS CARD HOVER EFFECT =====
@@ -1002,3 +1007,76 @@ function initCollapsibleSections() {
 document.addEventListener('DOMContentLoaded', () => {
     initCollapsibleSections();
 });
+
+// ===== How I Optimise carousel =====
+(function initOptimiseCarousel() {
+    const track = document.getElementById('optimise-track');
+    const dotsWrap = document.getElementById('optimise-dots');
+    if (!track || !dotsWrap) return;
+
+    const slides = Array.from(track.querySelectorAll('.result-card'));
+    const prev = track.parentElement.querySelector('.carousel-prev');
+    const next = track.parentElement.querySelector('.carousel-next');
+
+    const dots = slides.map((slide, i) => {
+        const title = slide.querySelector('.result-headline')?.textContent.trim() || `Project ${i + 1}`;
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot';
+        dot.textContent = slide.dataset.short || title;
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('title', title);
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+        return dot;
+    });
+
+    // Slide positions relative to the track (accounts for the gap between slides)
+    function slideLeft(i) {
+        return slides[i].offsetLeft - slides[0].offsetLeft;
+    }
+
+    function currentIndex() {
+        let best = 0;
+        slides.forEach((_, i) => {
+            if (Math.abs(slideLeft(i) - track.scrollLeft) < Math.abs(slideLeft(best) - track.scrollLeft)) best = i;
+        });
+        return best;
+    }
+
+    function goTo(i) {
+        const index = Math.max(0, Math.min(slides.length - 1, i));
+        track.scrollTo({ left: slideLeft(index) });
+    }
+
+    let lastIndex = -1;
+    function update() {
+        const index = currentIndex();
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+            dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        // Keep the active tab visible when the tab row scrolls (phones)
+        if (index !== lastIndex && dotsWrap.scrollWidth > dotsWrap.clientWidth) {
+            const dot = dots[index];
+            dotsWrap.scrollTo({ left: dot.offsetLeft - (dotsWrap.clientWidth - dot.offsetWidth) / 2 });
+        }
+        lastIndex = index;
+        // Fit the gallery to the slide being shown, so short slides leave no gap
+        track.style.height = slides[index].offsetHeight + 'px';
+        if (prev) prev.disabled = index === 0;
+        if (next) next.disabled = index === slides.length - 1;
+    }
+
+    prev?.addEventListener('click', () => goTo(currentIndex() - 1));
+    next?.addEventListener('click', () => goTo(currentIndex() + 1));
+    track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(currentIndex() - 1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); goTo(currentIndex() + 1); }
+    });
+
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update); // re-measure once web fonts have loaded
+    update();
+})();

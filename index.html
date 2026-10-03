@@ -30,7 +30,7 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=20260927h">
+    <link rel="stylesheet" href="styles.css?v=20261003k">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -154,124 +154,161 @@
                 </p>
             </div>
 
-            <div class="results-grid">
-                <div class="result-card">
+            <div class="optimise-carousel" aria-roledescription="carousel" aria-label="How I optimise — case studies">
+            <div class="results-grid carousel-track" id="optimise-track" tabindex="0">
+                <div class="result-card" data-short="Works Management">
                     <div class="result-metric">
                         <span class="metric-number"><i class="fas fa-hard-hat"></i></span>
-                        <span class="metric-label">In Progress</span>
+                        <span class="metric-label">Verify, then change</span>
                     </div>
                     <div class="result-content">
-                        <h3 class="result-headline">Works Management on ArcGIS</h3>
+                        <h3 class="result-headline">Taking over a live council works platform</h3>
                         <p class="result-description">
-                            <span class="result-step"><strong>Bottleneck:</strong> works requests, crew scheduling and field
-                            updates handled across separate processes, with no single view of what's happening where.</span>
-                            <span class="result-step"><strong>Approach:</strong> geospatial apps across the works lifecycle —
-                            proactive work assigned against assets, crew scheduling, field capture, contractor request
-                            dashboards and a map view of all works.</span>
-                            <span class="result-step"><strong>Safeguard:</strong> requirements gathered with the business,
-                            features tested with users before release, and documented with training for staff.</span>
+                            <span class="result-step"><strong>Problem</strong> Capital projects, customer requests and
+                            proactive maintenance programs all generate field work — on a live platform whose documentation
+                            no longer matched how the system actually behaved.</span>
+                            <span class="result-step"><strong>What I did</strong> Took ownership of the council's production
+                            works-management platform (ArcGIS Enterprise, Experience Builder, Field Maps, Survey123, Arcade
+                            attribute rules and cloud integrations). Mapped its real behaviour from the live services, restored
+                            broken production forms, and built workload and adoption dashboards plus overdue alerts for field crews.</span>
+                            <span class="result-step"><strong>Safeguard</strong> Every change proven in staging first —
+                            dry-run by default, guards that refuse production, backups and rollback before each write — with
+                            impact measured on real data before new rules are designed.</span>
                         </p>
-                        <span class="result-client">City of Tea Tree Gully · South Australia</span>
+                        <span class="result-client"><b>Works Management</b> · City of Tea Tree Gully</span>
                     </div>
                 </div>
 
-                <div class="result-card">
+                <div class="result-card" data-short="UMAMI">
+                    <div class="result-metric">
+                        <span class="metric-number"><i class="fas fa-earth-oceania"></i></span>
+                        <span class="metric-label">Hours to seconds</span>
+                    </div>
+                    <div class="result-content">
+                        <h3 class="result-headline">Hours of simulation, answered in seconds</h3>
+                        <p class="result-description">
+                            <span class="result-step"><strong>Problem</strong> "What if?" questions about heat, flooding,
+                            corridors or new development needed physics simulations that take hours, separate datasets and
+                            GIS experts to drive them.</span>
+                            <span class="result-step"><strong>What I did</strong> One 3D platform with plain-language spatial
+                            queries, neural surrogates trained on SOLWEIG and HEC-RAS for near-instant heat and flood
+                            scenarios, green-corridor planning, AI change detection and a natural-language cadastre.</span>
+                            <span class="result-step"><strong>Safeguard</strong> Surrogates judged on whole-domain evaluation,
+                            outcomes shown with confidence and evidence tiers, and an explainable optimiser instead of a black box.</span>
+                        </p>
+                        <span class="result-client"><b>UMAMI</b> · University of Melbourne · <a href="https://geollm.idigitaltwin.org/UMAMI/" target="_blank" rel="noopener">Live platform</a></span>
+                    </div>
+                </div>
+
+                <div class="result-card" data-short="M1 Pipeline">
                     <div class="result-metric">
                         <span class="metric-number"><i class="fas fa-list-check"></i></span>
-                        <span class="metric-label">Rules First</span>
+                        <span class="metric-label">Rules first</span>
                     </div>
                     <div class="result-content">
-                        <h3 class="result-headline">Council Property-Update Validation</h3>
+                        <h3 class="result-headline">Council property updates, checked without the manual grind</h3>
                         <p class="result-description">
-                            <span class="result-step"><strong>Bottleneck:</strong> every fortnight, each proposed property
+                            <span class="result-step"><strong>Problem</strong> Every fortnight, each proposed property
                             change was checked by hand against the rates system and the state cadastre.</span>
-                            <span class="result-step"><strong>Approach:</strong> automated the chain end-to-end — email
+                            <span class="result-step"><strong>What I did</strong> Automated the chain end-to-end — email
                             ingestion, FME reload, M1 generation, validation. Spatial and database rules settle the clear
                             cases; only ambiguous rows reach a language model, with strict-schema output.</span>
-                            <span class="result-step"><strong>Safeguard:</strong> read-only database access by design;
+                            <span class="result-step"><strong>Safeguard</strong> Read-only database access by design;
                             every row gets KEEP/REJECT with a reason and confidence — a person makes the final call.</span>
                         </p>
-                        <span class="result-client">Greater Shepparton Council · open-sourced as <a href="https://github.com/Maz2580/vicmap-m1-ai-pipeline" target="_blank" style="color: var(--primary-color);">vicmap-m1-ai-pipeline</a></span>
+                        <span class="result-client"><b>Vicmap M1 Pipeline</b> · Greater Shepparton Council · <a href="https://github.com/Maz2580/vicmap-m1-ai-pipeline" target="_blank" rel="noopener">Source</a></span>
                     </div>
                 </div>
 
-                <div class="result-card">
-                    <div class="result-metric">
-                        <span class="metric-number"><i class="fas fa-mobile-screen"></i></span>
-                        <span class="metric-label">Offline First</span>
-                    </div>
-                    <div class="result-content">
-                        <h3 class="result-headline">Disaster Recovery Field Collection</h3>
-                        <p class="result-description">
-                            <span class="result-step"><strong>Bottleneck:</strong> damage assessments in flood- and
-                            fire-affected areas with no mobile coverage, reported back inconsistently and late.</span>
-                            <span class="result-step"><strong>Approach:</strong> standardised Field Maps and Survey123 forms
-                            that work offline and sync on reconnect, feeding dashboards for recovery leadership.</span>
-                            <span class="result-step"><strong>Safeguard:</strong> one form schema for every crew, so data is
-                            comparable across regions from day one.</span>
-                        </p>
-                        <span class="result-client">Parks Victoria · Emergency Response</span>
-                    </div>
-                </div>
-
-                <div class="result-card">
+                <div class="result-card" data-short="Terrascout">
                     <div class="result-metric">
                         <span class="metric-number"><i class="fas fa-gauge-high"></i></span>
-                        <span class="metric-label">Confidence Gated</span>
+                        <span class="metric-label">Confidence-gated</span>
                     </div>
                     <div class="result-content">
-                        <h3 class="result-headline">Geospatial Data Scoping</h3>
+                        <h3 class="result-headline">The right satellite data from a plain-English brief</h3>
                         <p class="result-description">
-                            <span class="result-step"><strong>Bottleneck:</strong> choosing the right satellite, aerial or
+                            <span class="result-step"><strong>Problem</strong> Choosing the right satellite, aerial or
                             LiDAR data for a project takes specialist knowledge — and sending every request to an LLM is
                             slow, costly and hard to audit.</span>
-                            <span class="result-step"><strong>Approach:</strong> tiered parsing — rules and gazetteers first,
+                            <span class="result-step"><strong>What I did</strong> Tiered parsing — rules and gazetteers first,
                             then embeddings, and the LLM only when confidence falls below a threshold. Sensors ranked by a
                             weighted fit score.</span>
-                            <span class="result-step"><strong>Safeguard:</strong> every AI agent has a deterministic
+                            <span class="result-step"><strong>Safeguard</strong> Every AI agent has a deterministic
                             fallback, and its output is labelled with how it was produced.</span>
                         </p>
-                        <span class="result-client">Terrascout · <a href="https://terrascout.app" target="_blank" style="color: var(--primary-color);">terrascout.app</a> · web, CLI, MCP &amp; API</span>
+                        <span class="result-client"><b>Terrascout</b> · <a href="https://terrascout.app" target="_blank" rel="noopener">terrascout.app</a></span>
                     </div>
                 </div>
 
-                <div class="result-card">
+                <div class="result-card" data-short="GeoSpark">
                     <div class="result-metric">
                         <span class="metric-number"><i class="fas fa-ruler-combined"></i></span>
-                        <span class="metric-label">Compute, Don't Guess</span>
+                        <span class="metric-label">Compute, don't guess</span>
                     </div>
                     <div class="result-content">
-                        <h3 class="result-headline">Spatial Reasoning for Language Models</h3>
+                        <h3 class="result-headline">Language models that compute geometry instead of guessing</h3>
                         <p class="result-description">
-                            <span class="result-step"><strong>Bottleneck:</strong> language models guess at distances and
+                            <span class="result-step"><strong>Problem</strong> Language models guess at distances and
                             spatial relationships — confidently, and often wrong.</span>
-                            <span class="result-step"><strong>Approach:</strong> a protocol and MCP tools that route spatial
+                            <span class="result-step"><strong>What I did</strong> A protocol and MCP tools that route spatial
                             questions to real geodesic and topology engines, plus a 535-question benchmark comparing
                             models with and without tools.</span>
-                            <span class="result-step"><strong>Safeguard:</strong> results reported honestly — including where
+                            <span class="result-step"><strong>Safeguard</strong> Results reported honestly — including where
                             tools or prompting made a model worse.</span>
                         </p>
-                        <span class="result-client">GeoSpark · Open Source · <a href="https://github.com/Maz2580/geospark" target="_blank" style="color: var(--primary-color);">pip install geospark-ai</a></span>
+                        <span class="result-client"><b>GeoSpark</b> · Open source · <a href="https://github.com/Maz2580/geospark" target="_blank" rel="noopener">Source</a></span>
                     </div>
                 </div>
 
-                <div class="result-card">
+                <div class="result-card" data-short="UrbanMind">
                     <div class="result-metric">
                         <span class="metric-number"><i class="fas fa-temperature-half"></i></span>
-                        <span class="metric-label">Fast Surrogate</span>
+                        <span class="metric-label">Fast surrogate</span>
                     </div>
                     <div class="result-content">
-                        <h3 class="result-headline">Urban Scenario Planning</h3>
+                        <h3 class="result-headline">Heat and planning scenarios planners can test live</h3>
                         <p class="result-description">
-                            <span class="result-step"><strong>Bottleneck:</strong> planners test "what if" scenarios, but
+                            <span class="result-step"><strong>Problem</strong> Planners test "what if" scenarios, but
                             physics-based heat simulation is too slow to run interactively.</span>
-                            <span class="result-step"><strong>Approach:</strong> a U-Net surrogate trained on simulation
+                            <span class="result-step"><strong>What I did</strong> A U-Net surrogate trained on simulation
                             outputs for near-instant heat estimates, alongside planning models parameterised to Plan
                             Melbourne and Australian standards.</span>
-                            <span class="result-step"><strong>Safeguard:</strong> one model library behind both the QGIS
+                            <span class="result-step"><strong>Safeguard</strong> One model library behind both the QGIS
                             plugin and the web platform, so results never drift between tools.</span>
                         </p>
-                        <span class="result-client">UrbanMind · <a href="https://urbanmind.terrascout.app" target="_blank" style="color: var(--primary-color);">urbanmind.terrascout.app</a></span>
+                        <span class="result-client"><b>UrbanMind</b> · <a href="https://urbanmind.terrascout.app" target="_blank" rel="noopener">urbanmind.terrascout.app</a></span>
+                    </div>
+                </div>
+
+                <div class="result-card" data-short="Parks Victoria">
+                    <div class="result-metric">
+                        <span class="metric-number"><i class="fas fa-mobile-screen"></i></span>
+                        <span class="metric-label">Offline first</span>
+                    </div>
+                    <div class="result-content">
+                        <h3 class="result-headline">Damage assessment where there's no signal</h3>
+                        <p class="result-description">
+                            <span class="result-step"><strong>Problem</strong> Damage assessments in flood- and
+                            fire-affected areas with no mobile coverage, reported back inconsistently and late.</span>
+                            <span class="result-step"><strong>What I did</strong> Standardised Field Maps and Survey123 forms
+                            that work offline and sync on reconnect, feeding dashboards for recovery leadership.</span>
+                            <span class="result-step"><strong>Safeguard</strong> One form schema for every crew, so data is
+                            comparable across regions from day one.</span>
+                        </p>
+                        <span class="result-client"><b>Field data collection</b> · Parks Victoria</span>
+                    </div>
+                </div>
+            </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dots" id="optimise-dots" role="tablist" aria-label="Choose a project"></div>
+                    <div class="carousel-arrows">
+                        <button class="carousel-btn carousel-prev" type="button" aria-label="Previous project">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn carousel-next" type="button" aria-label="Next project">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -336,7 +373,7 @@
                     <div class="project-badge">Featured Project</div>
                     <div class="project-image">
                         <div class="project-placeholder">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-earth-oceania"></i>
                         </div>
                         <div class="project-overlay">
                             <button class="btn btn-small" onclick="openProjectModal('umami')">View Details</button>
@@ -344,21 +381,25 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">GeoAI</span>
-                            <span class="tag">MCP Protocol</span>
+                            <span class="tag">Digital Twin</span>
+                            <span class="tag">CesiumJS 3D</span>
                             <span class="tag">PostGIS</span>
+                            <span class="tag">PyTorch Surrogates</span>
                             <span class="tag">Multi-LLM</span>
-                            <span class="tag">CesiumJS</span>
-                            <span class="tag">IoT</span>
+                            <span class="tag">MCP</span>
                         </div>
-                        <h3 class="project-title">UMAMI v2.7.0 - AI for Mapping & Insights</h3>
+                        <h3 class="project-title">UMAMI - Urban Digital Twin &amp; GeoAI Platform</h3>
                         <p class="project-description">
-                            Enterprise GeoAI platform with 6-agent swarm intelligence, 11+ MCP servers,
-                            visual workflow editor, IoT dashboard, and RAG-powered semantic search.
+                            University of Melbourne platform that combines plain-language spatial queries with
+                            physics-trained models on a 3D globe: urban heat and flood what-if scenarios, green-corridor
+                            planning, AI change detection, natural-language cadastre, planning-compliance auditing,
+                            live hazard layers and IoT sensing.
                         </p>
                         <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> GeoAI Platform</span>
-                            <span class="project-impact"><i class="fas fa-globe"></i> <a href="https://geollm.idigitaltwin.org/TEST-UMAMI/" target="_blank" style="color: inherit;">Live Demo</a></span>
+                            <span class="project-category"><i class="fas fa-tag"></i> Digital Twin Platform</span>
+                            <span class="project-impact">
+                                <a href="https://geollm.idigitaltwin.org/UMAMI/" target="_blank" rel="noopener" style="color: inherit;"><i class="fas fa-globe"></i> Live Platform</a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -3179,7 +3220,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20260927b"></script>
+    <script src="script.js?v=20261003l"></script>
 </body>
 
 </html>
