@@ -356,3 +356,46 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
     .hero-figure { justify-self: start; max-width: 340px; }
     .hero-legend { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 32px; }
 }
+
+/* ---------- About ---------- */
+.about { overflow-x: clip; }
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+.about-story { text-align: left; }
+
+.about-story p {
+    max-width: 65ch;
+    margin: 0 0 16px;
+    color: #c3cfdf;
+    line-height: 1.7;
+}
+
+.about-story p:last-child { margin-bottom: 0; }
+
+.about-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 8px 24px 24px;
+    text-align: left;
+}
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .about-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .about-panel { padding: 4px 20px 20px; }
+    .legend-rows .legend-item { grid-template-columns: 96px minmax(0, 1fr); }
+}
