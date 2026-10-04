@@ -583,17 +583,6 @@ if (heroTitle && ENABLE_HERO_TYPING) {
     setTimeout(typeWriter, 500);
 }
 
-// ===== SKILLS CARD HOVER EFFECT =====
-document.querySelectorAll('.skill-tag').forEach(tag => {
-    tag.addEventListener('mouseenter', () => {
-        tag.style.transform = 'scale(1.1)';
-    });
-    
-    tag.addEventListener('mouseleave', () => {
-        tag.style.transform = 'scale(1)';
-    });
-});
-
 // ===== ANIMATED COUNTER FOR METRICS =====
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
@@ -719,51 +708,68 @@ function isInViewport(element) {
 // ===== CERTIFICATE FILTERING =====
 function initCertificateFilters() {
     const filterButtons = document.querySelectorAll('.cert-filter-btn');
-    const certificateCards = document.querySelectorAll('.cert-card');
+    const certificateCards = Array.from(document.querySelectorAll('.cert-card'));
     const shownCountElement = document.getElementById('shown-count');
+    const totalCountElement = document.getElementById('total-count');
+    const toggle = document.getElementById('cert-toggle');
+    const FOLDED_LIMIT = 9;
 
     if (!filterButtons.length || !certificateCards.length) {
         return; // Exit if elements don't exist
     }
 
-    // Filter certificates by category
-    function filterCertificates(category) {
-        let visibleCount = 0;
+    let category = 'all';
+    let expanded = false;
 
-        certificateCards.forEach(card => {
-            const cardCategories = card.getAttribute('data-category').split(' ');
+    const matches = (card, cat) =>
+        cat === 'all' || card.getAttribute('data-category').split(' ').includes(cat);
 
-            if (category === 'all' || cardCategories.includes(category)) {
-                card.classList.remove('hidden');
-                visibleCount++;
-            } else {
-                card.classList.add('hidden');
-            }
-        });
+    // Keep the counts on the filter buttons in step with the real cards
+    filterButtons.forEach(button => {
+        const cat = button.getAttribute('data-category');
+        const countEl = button.querySelector('.cert-count');
+        if (countEl) countEl.textContent = `(${certificateCards.filter(c => matches(c, cat)).length})`;
+    });
+    if (totalCountElement) totalCountElement.textContent = certificateCards.length;
 
-        // Update the shown count
-        if (shownCountElement) {
-            shownCountElement.textContent = visibleCount;
+    // Folded: "All" shows the featured credentials, a category shows its first few
+    function render() {
+        const inCategory = certificateCards.filter(card => matches(card, category));
+        let visible = inCategory;
+        if (!expanded) {
+            const featured = inCategory.filter(card => card.dataset.featured === 'true');
+            visible = category === 'all' && featured.length ? featured : inCategory.slice(0, FOLDED_LIMIT);
+        }
+        certificateCards.forEach(card => card.classList.toggle('hidden', !visible.includes(card)));
+
+        if (shownCountElement) shownCountElement.textContent = visible.length;
+        if (toggle) {
+            const canExpand = inCategory.length > visible.length || expanded;
+            toggle.hidden = !canExpand;
+            toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            toggle.textContent = expanded ? 'Show fewer' : `Show all ${inCategory.length} certificates`;
         }
     }
 
-    // Add click event listeners to filter buttons
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-
-            // Add active class to clicked button
             button.classList.add('active');
-
-            // Get category and filter
-            const category = button.getAttribute('data-category');
-            filterCertificates(category);
+            category = button.getAttribute('data-category');
+            expanded = false;
+            render();
         });
     });
 
-    // Initialize with all certificates visible
-    filterCertificates('all');
+    toggle?.addEventListener('click', () => {
+        const wasExpanded = expanded;
+        expanded = !expanded;
+        render();
+        // When folding back, return the reader to the top of the section
+        if (wasExpanded) document.getElementById('certifications')?.scrollIntoView({ block: 'start' });
+    });
+
+    render();
 }
 
 // Initialize certificate filters when DOM is ready
