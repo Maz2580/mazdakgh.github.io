@@ -613,3 +613,55 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 
 /* The legacy highlight rule painted the first bullet icon red; keep every bullet the same */
 .experience-card.highlight-card .exp-achievements li:first-child i { color: var(--accent); }
+
+/* ---------- Skills ---------- */
+.skills .skills-grid { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.skills .skill-card + .skill-card { border-top-color: var(--line); }
+.skills .skill-title { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--text); }
+.skills .skill-icon { color: var(--accent); }
+.skills .skill-tag { color: var(--text); background: transparent; border-color: var(--line); }
+
+/* ---------- Certifications ---------- */
+.cert-filters { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 8px; margin: 0 0 24px; }
+.cert-count { color: var(--muted); font-weight: 400; }
+
+.certificates-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+
+.cert-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: none;
+}
+
+.cert-card:hover { transform: none; border-color: var(--accent); box-shadow: none; }
+.cert-provider { color: var(--muted); font-size: var(--fs-small); }
+.cert-provider i { color: var(--accent); }
+.cert-title { font-family: var(--font-body); font-size: 16px; font-weight: 600; line-height: 1.4; color: var(--text); }
+.cert-link { color: var(--accent); font-size: var(--fs-small); }
+
+.cert-actions { align-items: flex-start; padding-top: 24px; }
+.cert-summary { background: none; border: none; padding: 0; color: var(--muted); }
+
+/* Certificate links: quiet text links instead of filled buttons */
+.cert-link,
+.cert-link:hover {
+    background: none;
+    border: none;
+    padding: 0;
+    justify-content: flex-start;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    box-shadow: none;
+    transform: none;
+}
+
+.cert-link.placeholder-link {
+    color: var(--muted);
+    text-decoration: none;
+    background: none;
+    border: none;
+}
