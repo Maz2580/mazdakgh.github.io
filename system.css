@@ -562,7 +562,8 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
     padding: 4px 10px;
 }
 
-.exp-description { color: var(--muted); max-width: 65ch; }
+/* Full card width so its justified right edge matches the bullets below */
+.exp-description { color: var(--muted); max-width: none; }
 .exp-achievements li { font-size: 15px; color: var(--muted); }
 .exp-achievements li strong { color: var(--text); }
 .exp-achievements li > i { color: var(--accent); }
@@ -762,4 +763,17 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 @media (max-width: 768px) {
     .contact-content { grid-template-columns: minmax(0, 1fr); gap: 32px; }
     .footer-content, .footer-bottom { align-items: flex-start; text-align: left; }
+}
+
+/* ---------- Justified paragraphs ----------
+   Card paragraphs get straight left and right edges; titles, tags and labels stay left-aligned.
+   Hyphenation (needs lang="en" on <html>) keeps the word spacing even in narrow cards. */
+.project-description,
+.result-description,
+.exp-description,
+.exp-achievements li,
+.availability-text {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
 }
