@@ -200,3 +200,55 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
         scroll-behavior: auto !important;
     }
 }
+
+/* ---------- Navigation ---------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 21, 38, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: none;
+}
+
+.navbar.scrolled { box-shadow: none; }
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px var(--gutter);
+}
+
+.nav-brand {
+    font-family: var(--font-head);
+    font-weight: 650;
+    font-size: 20px;
+    color: var(--text);
+}
+
+.nav-brand i { color: var(--accent); font-size: 18px; }
+
+.nav-menu { gap: 28px; }
+
+.nav-link { font-size: 15px; font-weight: 500; color: var(--muted); }
+.nav-link:hover, .nav-link.active { color: var(--text); }
+.nav-link::after { background: var(--accent); height: 2px; }
+
+@media (max-width: 768px) {
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        align-items: flex-start;
+        padding: 16px var(--gutter);
+    }
+}
