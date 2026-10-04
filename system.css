@@ -399,3 +399,40 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
     .about-panel { padding: 4px 20px 20px; }
     .legend-rows .legend-item { grid-template-columns: 96px minmax(0, 1fr); }
 }
+
+/* ---------- How I optimise ---------- */
+.carousel-track .result-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.carousel-track .result-card:hover { background: var(--surface); }
+.carousel-track .metric-label { color: var(--accent); }
+.carousel-track .result-step strong { font-family: var(--font-body); }
+.carousel-track .result-description { border-left-color: var(--line); }
+.carousel-track .result-step::before { background: var(--surface); border-color: var(--accent); }
+
+.carousel-dot.active { border-color: var(--accent); background: rgba(60, 198, 232, 0.14); }
+
+.clients-section {
+    text-align: left;
+    padding-top: 48px;
+    margin-top: 48px;
+    border-top: 1px solid var(--line);
+}
+
+.clients-label {
+    text-align: left;
+    font-size: var(--fs-small);
+    color: var(--muted);
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 0 0 12px;
+}
+
+.clients-logos { justify-content: flex-start; gap: 8px 28px; }
+
+.client-logo { background: none; border: none; padding: 0; border-radius: 0; }
+.client-logo:hover { border: none; }
+.client-logo span { color: var(--text); font-size: 15px; font-weight: 500; }
