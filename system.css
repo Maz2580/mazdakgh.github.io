@@ -468,6 +468,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 }
 
 .project-card:hover { border-color: var(--accent); box-shadow: none; }
+/* Keyboard users reach the overlay's buttons, so show the overlay while one has focus */
+.project-card:focus-within .project-overlay { opacity: 1; }
 
 .project-image { height: 120px; background: var(--ink); border-bottom: 1px solid var(--line); }
 .project-placeholder { font-size: 2.25rem; color: var(--accent); opacity: 0.85; }
@@ -536,6 +538,7 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
     background: var(--accent);
     border: 3px solid var(--surface);
     box-shadow: 0 0 0 1px var(--line);
+    animation: none;
 }
 
 .experience-card.is-current::before { background: var(--now); }
@@ -564,8 +567,9 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 .exp-achievements li strong { color: var(--text); }
 .exp-achievements li > i { color: var(--accent); }
 
+/* Sits on the card's top border, so it needs the card colour behind its text */
 .exp-badge {
-    background: transparent;
+    background: var(--surface);
     border: 1px solid var(--line);
     color: var(--text);
     box-shadow: none;
@@ -606,8 +610,9 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 
 @media (max-width: 768px) {
     .experience-card { padding: 20px 20px 20px 48px; }
-    .experience-timeline::before { left: 23px; }
-    .experience-card::before, .experience-card.highlight-card::before { left: 17px; }
+    /* Legacy phone rules hid the rail and dots; keep them so the current role stays marked */
+    .experience-timeline::before { display: block; left: 23px; }
+    .experience-card::before, .experience-card.highlight-card::before { display: block; left: 17px; }
     .experience-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -636,6 +641,23 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 }
 
 .cert-card:hover { transform: none; border-color: var(--accent); box-shadow: none; }
+
+/* Featured cards share the system card; their badge is a plain tag above the provider */
+.cert-card.featured-cert { border: 1px solid var(--line); background: var(--surface); }
+.cert-card.featured-cert:hover { border-color: var(--accent); }
+.cert-badge {
+    position: static;
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 2px 8px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    box-shadow: none;
+}
 .cert-provider { color: var(--muted); font-size: var(--fs-small); }
 .cert-provider i { color: var(--accent); }
 .cert-title { font-family: var(--font-body); font-size: 16px; font-weight: 600; line-height: 1.4; color: var(--text); }
