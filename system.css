@@ -505,3 +505,111 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
     .project-image { height: 88px; }
     .project-content { padding: 20px; }
 }
+
+/* ---------- Experience ---------- */
+.experience-timeline { gap: 16px; padding-left: 0; margin-bottom: 0; }
+
+.experience-timeline::before {
+    left: 27px;
+    width: 2px;
+    background: var(--line);
+}
+
+.experience-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px 24px 24px 56px;
+    box-shadow: none;
+}
+
+.experience-card:hover { border-color: var(--line); box-shadow: none; }
+.experience-card:hover::before { transform: none; }
+
+.experience-card::before,
+.experience-card.highlight-card::before {
+    left: 21px;
+    top: 30px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--line);
+}
+
+.experience-card.is-current::before { background: var(--now); }
+
+.experience-card.highlight-card {
+    background: var(--surface);
+    border-color: var(--line);
+    box-shadow: none;
+}
+
+.exp-title { color: var(--text); margin: 0 0 4px; }
+.exp-company { color: var(--text); font-size: 15px; font-weight: 500; }
+.exp-company i { color: var(--muted); }
+
+.exp-period {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-size: var(--fs-small);
+    border-radius: 6px;
+    padding: 4px 10px;
+}
+
+.exp-description { color: var(--muted); max-width: 65ch; }
+.exp-achievements li { font-size: 15px; color: var(--muted); }
+.exp-achievements li strong { color: var(--text); }
+.exp-achievements li > i { color: var(--accent); }
+
+.exp-badge {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+    box-shadow: none;
+}
+
+.experience-card.is-current .exp-badge { border-color: var(--now); color: var(--now); }
+
+.timeline-group-title {
+    padding-left: 0;
+    margin: 24px 0 0;
+    font-family: var(--font-body);
+    font-size: 15px;
+}
+
+.experience-summary {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    padding: 24px 0 0;
+    margin-top: 48px;
+}
+
+.summary-stat { background: none; border: none; padding: 0; text-align: left; align-items: flex-start; }
+.summary-icon { display: none; }
+
+.summary-number {
+    font-family: var(--font-head);
+    font-size: var(--fs-h3);
+    color: var(--text);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+}
+
+.summary-label { color: var(--muted); font-size: var(--fs-small); }
+
+@media (max-width: 768px) {
+    .experience-card { padding: 20px 20px 20px 48px; }
+    .experience-timeline::before { left: 23px; }
+    .experience-card::before, .experience-card.highlight-card::before { left: 17px; }
+    .experience-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* The legacy highlight rule painted the first bullet icon red; keep every bullet the same */
+.experience-card.highlight-card .exp-achievements li:first-child i { color: var(--accent); }
