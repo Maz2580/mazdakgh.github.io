@@ -31,7 +31,7 @@
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
     <link rel="stylesheet" href="styles.css?v=20261004f">
-    <link rel="stylesheet" href="system.css?v=20261004-2b">
+    <link rel="stylesheet" href="system.css?v=20261004-3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,650&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -65,82 +65,61 @@
         </div>
     </nav>
 
-    <!-- Hero Section - IMPROVED -->
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <!-- Trust indicators -->
-                <div class="hero-trust-badges">
-                    <span class="trust-badge"><i class="fas fa-city"></i> City of Tea Tree Gully</span>
-                    <span class="trust-badge"><i class="fas fa-university"></i> University of Melbourne · CSDILA</span>
-                </div>
-
-                <h1 class="hero-title">
-                    GIS Systems Analyst & Developer —
-                    <span class="gradient-text">I Build Geospatial Systems That Make Operations Run Better</span>
-                </h1>
-                <p class="hero-subtitle">
-                    From <strong>ArcGIS works-management and field apps</strong> for local government to
-                    <strong>AI-assisted geospatial platforms</strong> that turn raw spatial data into decisions.
-                    My approach is the same everywhere: find the slow, manual or error-prone step, automate the
-                    deterministic part, and keep people in control of the judgement calls.
+        <div class="container hero-grid">
+            <div class="hero-copy">
+                <p class="hero-role">GIS Systems Analyst &amp; Developer</p>
+                <h1 class="hero-title">I build geospatial systems that make council operations run better.</h1>
+                <p class="hero-lead">
+                    ArcGIS works-management and field apps for local government — and AI-assisted platforms
+                    that turn spatial data into decisions.
                 </p>
-
-                <!-- Highlights with visual badges -->
-                <div class="hero-highlights">
-                    <div class="highlight-badge">
-                        <div class="badge-icon">
-                            <i class="fas fa-hard-hat"></i>
-                        </div>
-                        <div class="badge-content">
-                            <span class="badge-title">Council Works Management</span>
-                            <span class="badge-detail">ArcGIS · Field Maps · Workforce · Dashboards</span>
-                        </div>
-                    </div>
-                    <div class="highlight-badge">
-                        <div class="badge-icon">
-                            <i class="fas fa-landmark"></i>
-                        </div>
-                        <div class="badge-content">
-                            <span class="badge-title">Government GIS</span>
-                            <span class="badge-detail">Parks Victoria · Mansfield · Shepparton · Tea Tree Gully</span>
-                        </div>
-                    </div>
-                    <div class="highlight-badge">
-                        <div class="badge-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="badge-content">
-                            <span class="badge-title">Live Platforms</span>
-                            <span class="badge-detail">Terrascout · UrbanMind</span>
-                        </div>
-                    </div>
-                    <div class="highlight-badge">
-                        <div class="badge-icon">
-                            <i class="fas fa-box-open"></i>
-                        </div>
-                        <div class="badge-content">
-                            <span class="badge-title">Open Source</span>
-                            <span class="badge-detail">GeoSpark on PyPI · Vicmap M1 pipeline</span>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">Explore Projects</a>
-                    <a href="#experience" class="btn btn-secondary">My Experience</a>
+                    <a href="#projects" class="btn btn-primary">See my work</a>
+                    <a href="Mazdak_Ghasemi_Resume.pdf" class="btn btn-secondary" download="Mazdak_Ghasemi_Resume.pdf">Download resume</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-image-container">
-                    <img src="my_image.jpg" alt="Mazdak Ghasemi - GIS Systems Analyst & Developer" class="hero-image">
-                    <div class="hero-image-border"></div>
-                </div>
-            </div>
+
+            <figure class="hero-figure">
+                <svg class="hero-route" viewBox="0 0 220 250" role="img"
+                     aria-label="Career route: Mansfield, Shepparton and Melbourne in Victoria, now Adelaide">
+                    <g class="contours">
+                        <path d="M10 120 C30 40 150 10 205 60 C235 100 220 200 160 230 C90 255 20 210 10 120Z"/>
+                        <path d="M30 120 C45 60 145 35 190 75 C210 105 200 185 150 205 C95 225 40 190 30 120Z"/>
+                        <path d="M55 122 C66 80 140 62 172 92 C186 112 178 165 140 180 C100 196 62 168 55 122Z"/>
+                    </g>
+                    <g class="route">
+                        <path class="route-line" d="M18 228 L60 210 L120 196 L188 168 L205 140"/>
+                        <circle class="pin" cx="120" cy="196" r="3.2"/>
+                        <circle class="pin" cx="188" cy="168" r="3.2"/>
+                        <circle class="pin" cx="205" cy="140" r="3.2"/>
+                        <circle class="pin pin-now" cx="18" cy="228" r="4.6"/>
+                        <text class="pin-label" x="98" y="214">Melbourne</text>
+                        <text class="pin-label" x="160" y="186">Shepparton</text>
+                        <text class="pin-label" x="218" y="129" text-anchor="end">Mansfield</text>
+                        <text class="pin-label pin-label-now" x="4" y="245">Adelaide · now</text>
+                    </g>
+                </svg>
+                <img class="hero-portrait" src="my_image.jpg" alt="Mazdak Ghasemi" width="400" height="500">
+            </figure>
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <i class="fas fa-arrow-down"></i>
+
+        <div class="container">
+            <dl class="hero-legend legend">
+                <div class="legend-item">
+                    <dt>Now</dt>
+                    <dd><span class="now-dot" aria-hidden="true"></span>Works management on ArcGIS, City of Tea Tree Gully</dd>
+                </div>
+                <div class="legend-item">
+                    <dt>Also</dt>
+                    <dd>Data Engineer, CSDILA, University of Melbourne</dd>
+                </div>
+                <div class="legend-item">
+                    <dt>Built</dt>
+                    <dd>UMAMI · Terrascout · GeoSpark · UrbanMind</dd>
+                </div>
+            </dl>
         </div>
     </section>
 
@@ -3215,7 +3194,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20261004d"></script>
+    <script src="script.js?v=20261004-3"></script>
 </body>
 
 </html>

@@ -562,27 +562,6 @@ document.querySelectorAll('.project-card, .skill-card, .service-card').forEach(e
     observer.observe(el);
 });
 
-// ===== TYPING EFFECT FOR HERO (Optional) =====
-// Disabled: it flattens the title's gradient markup. Set to true to enable.
-const ENABLE_HERO_TYPING = false;
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle && ENABLE_HERO_TYPING) {
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    heroTitle.style.opacity = '1';
-
-    let index = 0;
-    function typeWriter() {
-        if (index < text.length) {
-            heroTitle.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeWriter, 50);
-        }
-    }
-
-    setTimeout(typeWriter, 500);
-}
-
 // ===== ANIMATED COUNTER FOR METRICS =====
 function animateCounter(element, target, duration = 2000) {
     let start = 0;

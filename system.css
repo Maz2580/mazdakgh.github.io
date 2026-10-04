@@ -252,3 +252,107 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
         padding: 16px var(--gutter);
     }
 }
+
+/* ---------- Hero ---------- */
+.hero {
+    display: block;
+    min-height: 0;
+    padding: 72px 0 0;
+    background: var(--ink);
+    text-align: left;
+    overflow-x: clip;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-role {
+    font-size: var(--fs-lead);
+    color: var(--muted);
+    margin: 0 0 12px;
+}
+
+.hero-title {
+    font-family: var(--font-head);
+    font-weight: 650;
+    font-size: var(--fs-display);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    max-width: 20ch;
+    margin: 0 0 16px;
+}
+
+.hero-lead {
+    font-size: var(--fs-lead);
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 52ch;
+    margin: 0 0 28px;
+}
+
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; }
+
+.hero-figure {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 220 / 250;
+    justify-self: end;
+}
+
+.hero-route { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.hero-route .contours path { fill: none; stroke: var(--accent); stroke-opacity: 0.16; }
+.hero-route .route-line { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 4 4; }
+.hero-route .pin { fill: var(--accent); }
+.hero-route .pin-now { fill: var(--now); }
+.hero-route .pin-label { fill: var(--text); font: 500 8px var(--font-body); }
+.hero-route .pin-label-now { fill: var(--now); font-weight: 600; }
+
+.hero-route .route { animation: route-draw 1.6s ease-out 0.3s both; }
+
+@keyframes route-draw {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-route .route { animation: none; }
+}
+
+.hero-portrait {
+    position: absolute;
+    left: 22%;
+    top: 4%;
+    width: 58%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.hero-legend {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 56px 0 0;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .hero { padding-top: 40px; }
+    .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .hero-figure { justify-self: start; max-width: 340px; }
+    .hero-legend { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-top: 32px; }
+}
