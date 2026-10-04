@@ -470,6 +470,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .project-card:hover { border-color: var(--accent); box-shadow: none; }
 /* Keyboard users reach the overlay's buttons, so show the overlay while one has focus */
 .project-card:focus-within .project-overlay { opacity: 1; }
+.project-overlay .btn { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.project-overlay .btn:hover { background: #63d4ef; border-color: #63d4ef; }
 
 .project-image { height: 120px; background: var(--ink); border-bottom: 1px solid var(--line); }
 .project-placeholder { font-size: 2.25rem; color: var(--accent); opacity: 0.85; }
@@ -511,11 +513,8 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 /* ---------- Experience ---------- */
 .experience-timeline { gap: 16px; padding-left: 0; margin-bottom: 0; }
 
-.experience-timeline::before {
-    left: 27px;
-    width: 2px;
-    background: var(--line);
-}
+/* No connecting rail: in the gaps between cards it read as a stray line */
+.experience-timeline::before { display: none; }
 
 .experience-card {
     background: var(--surface);
@@ -541,7 +540,8 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
     animation: none;
 }
 
-.experience-card.is-current::before { background: var(--now); }
+/* Moved down past the Current Role label so the dot lines up with the title */
+.experience-card.is-current::before { background: var(--now); top: 69px; }
 
 .experience-card.highlight-card {
     background: var(--surface);
@@ -567,9 +567,15 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 .exp-achievements li strong { color: var(--text); }
 .exp-achievements li > i { color: var(--accent); }
 
-/* Sits on the card's top border, so it needs the card colour behind its text */
+/* A small label above the role title */
 .exp-badge {
-    background: var(--surface);
+    position: static;
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: var(--fs-small);
+    background: transparent;
     border: 1px solid var(--line);
     color: var(--text);
     box-shadow: none;
@@ -611,8 +617,9 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
 @media (max-width: 768px) {
     .experience-card { padding: 20px 20px 20px 48px; }
     /* Legacy phone rules hid the rail and dots; keep them so the current role stays marked */
-    .experience-timeline::before { display: block; left: 23px; }
+    .experience-timeline::before { display: none; }
     .experience-card::before, .experience-card.highlight-card::before { display: block; left: 17px; }
+    .experience-card.is-current::before { top: 81px; }
     .experience-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
