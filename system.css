@@ -436,3 +436,72 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .client-logo { background: none; border: none; padding: 0; border-radius: 0; }
 .client-logo:hover { border: none; }
 .client-logo span { color: var(--text); font-size: 15px; font-weight: 500; }
+
+/* ---------- Projects ---------- */
+.project-filters { justify-content: flex-start; margin: 0 0 24px; }
+
+.filter-btn, .cert-filter-btn {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px;
+    box-shadow: none;
+}
+
+.filter-btn:hover, .filter-btn.active, .cert-filter-btn:hover, .cert-filter-btn.active {
+    color: var(--text);
+    border-color: var(--accent);
+    background: rgba(60, 198, 232, 0.12);
+}
+
+.projects-grid { gap: 24px; }
+
+.project-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.project-card:hover { border-color: var(--accent); box-shadow: none; }
+
+.project-image { height: 120px; background: var(--ink); border-bottom: 1px solid var(--line); }
+.project-placeholder { font-size: 2.25rem; color: var(--accent); opacity: 0.85; }
+
+.project-badge {
+    background: var(--ink);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 4px 8px;
+    box-shadow: none;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.project-content { padding: 24px; }
+.project-title { margin: 12px 0 8px; color: var(--text); }
+.project-description { color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+.project-meta {
+    font-size: var(--fs-small);
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    margin-top: 16px;
+}
+
+.projects-packages { margin-top: 64px; }
+.subsection-lead { color: var(--muted); margin: 0 0 24px; }
+.github-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+a.tech-item { border-color: var(--line); background: var(--surface); }
+
+@media (max-width: 768px) {
+    .project-image { height: 88px; }
+    .project-content { padding: 20px; }
+}
