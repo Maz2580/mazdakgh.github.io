@@ -4,8 +4,7 @@ Professional portfolio showcasing AI-powered geospatial platforms, open-source t
 
 ## Live Site
 
-- **Vercel**: [https://mazdakghgithubio.vercel.app](https://mazdakghgithubio.vercel.app)
-- **GitHub Pages**: [https://maz2580.github.io/mazdakgh.github.io/](https://maz2580.github.io/mazdakgh.github.io/)
+**[www.mazdakghasemi.com](https://www.mazdakghasemi.com)** — hosted on Vercel
 
 ## Overview
 
