@@ -111,36 +111,39 @@ const projectData = {
     umami: {
         title: 'UMAMI - Urban Digital Twin & GeoAI Platform',
         category: 'Digital Twin Platform | University of Melbourne',
-        tags: ['FastAPI', 'React 19', 'TypeScript', 'CesiumJS', 'PostGIS', 'TimescaleDB', 'pgvector', 'PyTorch', 'ONNX', 'Google Earth Engine', 'MCP', 'Ollama', 'Docker', 'GitLab CI/CD'],
-        challenge: `Planners, councils and researchers need to ask "what if?" of a city — what happens to heat if we add trees, to flooding if rainfall changes, to biodiversity if we build a corridor — but the answers sit in specialist simulations, separate datasets and GIS tools that only experts can drive. Physics models like SOLWEIG and HEC-RAS take hours per run, and most users cannot write spatial SQL.`,
+        tags: ['FastAPI', 'React 19', 'TypeScript', 'CesiumJS', 'PostGIS', 'pgvector', 'Redis', 'GeoServer', 'PyTorch', 'ONNX', 'Google Earth Engine', 'OpenRouteService', 'MCP', 'Multi-LLM', 'MQTT', 'Docker', 'Prometheus / Grafana', 'GitLab CI/CD'],
+        challenge: `Planners, councils and researchers need to ask "what if?" of a city — what happens to heat if we add trees, to flooding if rainfall changes, to a parcel if a boundary moves, to people if a fire starts upwind — but the answers sit in specialist simulations, millions of cadastral records, live feeds and GIS tools that only experts can drive. Physics models like SOLWEIG and HEC-RAS take hours per run, and most users cannot write spatial SQL.`,
         solution: `
+            <p>I design, build and run UMAMI, from architecture to production. It is one platform on a CesiumJS 3D globe, organised into studios:</p>
             <ul>
-                <li><strong>Natural-language spatial analysis:</strong> plain-English questions over PostGIS and authoritative data, answered on a CesiumJS 3D globe through multi-agent text-to-SQL pipelines with schema grounding, critique and self-correction.</li>
-                <li><strong>Urban Heat:</strong> a multi-task U-Net trained on SOLWEIG simulations predicts thermal comfort (UTCI) at 1 m across Melbourne — scenario and design editors, Cool Routes, hotspots and a fine-tuned advisor model, served on CPU via ONNX.</li>
-                <li><strong>Flood prediction:</strong> U-Net surrogates of a calibrated HEC-RAS 2D model, from terrain-only to rainfall-driven inputs, with time-step progression on the globe, point queries and impact on buildings and roads.</li>
-                <li><strong>Connected Corridors:</strong> green-corridor planning — 3D placement of planting elements, a 5 m surface grid from Earth Engine Dynamic World, key outcomes with confidence and evidence tiers, a benefit-per-dollar optimiser and a 0–30-year view.</li>
-                <li><strong>AI change detection:</strong> fine-tuned object detectors find unpermitted construction between two aerial-imagery epochs, evaluated against human-confirmed labels.</li>
-                <li><strong>CadastreAI:</strong> natural-language access to a unified 2D + 3D Victorian cadastre — millions of parcels, properties and easements plus 3D buildings and strata.</li>
-                <li><strong>Smart Auditor:</strong> master-plan compliance checking against Victorian planning rule packs with what-if analysis.</li>
-                <li><strong>ABS AI-readiness study:</strong> a benchmark for the Australian Bureau of Statistics measuring how well LLMs answer statistical questions, and how much a tool layer improves them.</li>
-                <li><strong>Live World:</strong> live fires, earthquakes, satellite passes and wind on the globe, with a tool-using "Ask" assistant.</li>
-                <li><strong>Also:</strong> MCP Flows visual workflow editor and MCP server management, IoT sensor and room-occupancy twin, Earth Engine console, 3D pipeline clash detection, projects and PDF reporting.</li>
+                <li><strong>CadastreAI:</strong> plain-English questions over a statewide Victorian cadastre — 4.29 million parcels and 4.21 million addresses, plus easements, 3D buildings and strata — answered by a multi-agent pipeline (explorer, critic, code and execution roles) with schema grounding and self-correction.</li>
+                <li><strong>Natural-language spatial analysis:</strong> domain sub-agents for database, spatial, heat, flood, corridor and Earth Engine questions, so one chat box reaches every dataset in the platform.</li>
+                <li><strong>Urban Heat:</strong> eight generations of U-Net surrogate trained on SOLWEIG simulations; the current model reads 23 input layers and predicts thermal comfort at 1 m across Melbourne — scenario and design editors, Cool Routes and hotspots, served on CPU via ONNX.</li>
+                <li><strong>Flood prediction:</strong> U-Net surrogates of a calibrated HEC-RAS 2D model, from terrain-only to rainfall-driven whole-map prediction, with time-step playback and impact on buildings and roads.</li>
+                <li><strong>Live World:</strong> real-time hazard intelligence — bushfire hotspots (NASA FIRMS, DEA Hotspots), global disasters (GDACS), flood forecasts (GloFAS), air quality (CAMS), 662 Victorian river gauges, transit, satellite passes and fresh imagery — with an "Ask" assistant that uses 17 tools to answer questions about exposure, change and history.</li>
+                <li><strong>Change &amp; encroachment detection:</strong> fine-tuned D-FINE and SegFormer building detectors, a SAM model as teacher and vision-language verification find unpermitted construction between aerial-imagery epochs, evaluated against human-confirmed labels.</li>
+                <li><strong>Smart Auditor:</strong> master-plan compliance against Victorian planning rule packs, with what-if analysis, public-transport access, carbon, liveability and microclimate checks.</li>
+                <li><strong>Connected Corridors:</strong> green-corridor planning — 3D placement of planting elements, a 5 m surface grid from Earth Engine Dynamic World, outcomes with confidence and evidence tiers, a benefit-per-dollar optimiser and a 0–30-year view.</li>
+                <li><strong>ABS AI-readiness study:</strong> a typed tool layer over live Australian Bureau of Statistics APIs, measuring how much tools improve language models' answers to statistical questions.</li>
+                <li><strong>MCP Flows:</strong> a visual workflow editor, a vector geoprocessing engine exposed as an MCP server, routing on a Victorian road network (OpenRouteService) and user-uploaded layers.</li>
+                <li><strong>IoT twin:</strong> MQTT sensor streams, ventilation and CO₂ analysis, and privacy-preserving room occupancy.</li>
             </ul>
         `,
         decisions: `
             <ul>
                 <li><strong>Physics → surrogate:</strong> train on trusted simulations (SOLWEIG, HEC-RAS), then serve fast models — answers in seconds instead of hours.</li>
-                <li><strong>Evaluation over vanity metrics:</strong> whole-domain evaluation exposed weaknesses that patch-level scores hid, and they were reported rather than buried; detector changes need an A/B scorecard before release.</li>
-                <li><strong>Explainable by design:</strong> a deterministic benefit-per-dollar optimiser instead of a black box, and every outcome carries a confidence band and evidence tier.</li>
-                <li><strong>Right model for each role:</strong> per-role LLM routing chosen from measured A/B tests, plus self-hosted models with complexity gating to keep costs and data in-house.</li>
-                <li><strong>Efficient serving:</strong> ONNX CPU inference, cloud-optimised raster stitching, pre-rendered tiles and input hashing so only changed areas are recomputed.</li>
+                <li><strong>Refuse rather than guess:</strong> the heat model checks the fingerprint of every input at serve time and refuses data it was not trained on instead of filling gaps; a frozen-baseline regression suite catches silent drift.</li>
+                <li><strong>Evaluation over vanity metrics:</strong> surrogates are judged on whole-domain and withheld scenarios across several training seeds, with reproduction gates before release; detector changes need an A/B scorecard.</li>
+                <li><strong>Right model for each role:</strong> per-role LLM routing chosen from measured A/B tests on accuracy and latency, plus self-hosted models to keep costs and data in-house.</li>
+                <li><strong>Secure by default:</strong> generated SQL is validated before it runs, outbound requests pass an SSRF guard, workflow code runs in an isolated process, and stored API keys are encrypted.</li>
+                <li><strong>Operated like a product:</strong> Prometheus, Grafana and ELK monitoring, cached briefs that return in milliseconds once warm, Dockerised services and GitLab CI/CD deployment.</li>
                 <li><strong>Privacy by construction:</strong> read-only camera relay, in-memory frames and anonymised occupancy counts in the IoT twin.</li>
-                <li><strong>Built to last:</strong> 1,400+ commits, ~2,000 automated tests, JWT auth with role-based access, Dockerised services and GitLab CI/CD deployment.</li>
             </ul>
         `,
-        architecture: `FastAPI (Python 3.11) with ~57 routers, React 19 + TypeScript + Vite + CesiumJS front end, PostgreSQL/PostGIS, TimescaleDB and pgvector,
-                       GeoServer and cloud-optimised GeoTIFFs, PyTorch U-Net surrogates served via ONNX, Google Earth Engine, multi-provider LLMs (OpenAI, Anthropic, Gemini)
-                       plus self-hosted Ollama models, MCP servers, MQTT/WebSocket IoT, Redis, Docker and GitLab CI/CD on university cloud infrastructure.`,
+        architecture: `FastAPI (Python) back end, React 19 + TypeScript + Vite + CesiumJS front end, PostgreSQL/PostGIS with pgvector, Redis,
+                       GeoServer and cloud-optimised GeoTIFFs, PyTorch models served via ONNX, Google Earth Engine, OpenRouteService,
+                       multi-provider LLMs (OpenAI, Anthropic, Gemini, OpenRouter, Groq) plus self-hosted Ollama models, MCP servers, MQTT/WebSocket IoT,
+                       Docker Compose with nginx, MinIO, Prometheus, Grafana and ELK, and GitLab CI/CD on university cloud infrastructure.`,
         demoLink: 'https://geollm.idigitaltwin.org/UMAMI/',
         demoLabel: 'Visit the UMAMI platform',
         privateCode: true
@@ -148,29 +151,32 @@ const projectData = {
     terrascout: {
         title: 'Terrascout - Geospatial Data Scoping Platform',
         category: 'GeoAI Platform | Live',
-        tags: ['FastAPI', 'Python 3.13', 'React 19', 'TypeScript', 'PostGIS', 'pgvector', 'FastMCP', 'Typer CLI', 'STAC', 'Redis', 'Docker'],
-        challenge: `Choosing the right satellite, aerial or LiDAR data for a project takes specialist knowledge: which sensor can actually detect the target, at what resolution, how often it revisits, what cloud cover to expect and what it will cost. Sending every request straight to a language model would be slow, expensive and impossible to audit.`,
+        tags: ['FastAPI', 'Python 3.13', 'React 19', 'TypeScript', 'PostGIS', 'pgvector', 'Supabase', 'FastMCP', 'Typer CLI', 'STAC / EODAG', 'Earth Engine', 'Redis', 'Playwright', 'Docker'],
+        challenge: `Choosing the right satellite, aerial, LiDAR or radar data for a project takes specialist knowledge: which sensor can actually detect the target, at what resolution, how often it revisits, what cloud cover to expect and what it will cost. Sending every request straight to a language model would be slow, expensive and impossible to audit.`,
         solution: `
             <ul>
-                <li><strong>Tiered brief parsing:</strong> rules and a gazetteer extract location, objective, resolution and timeframe first; embeddings handle fuzzier matches; the LLM is called only when confidence falls below a configurable threshold.</li>
-                <li><strong>Weighted fit score</strong> ranks each sensor on resolution, cost, coverage, temporal fit and quality, with feasibility checked against published detection thresholds.</li>
-                <li><strong>AI agents</strong> draft deliverables — methodology, procurement, QA and regulatory checks — on top of the scoped result.</li>
-                <li><strong>One engine, four interfaces:</strong> web app, a CLI published on PyPI, an MCP server for AI assistants, and a REST API.</li>
-                <li>GIS Copilot chat with a live map, a 3D data catalogue (CesiumJS), team workspaces and role-based access.</li>
+                <li><strong>Tiered brief parsing:</strong> rules and a gazetteer extract location, objective, resolution and timeframe first; vector matching handles fuzzier cases; the LLM is called only when confidence stays below a threshold.</li>
+                <li><strong>Curated sensor knowledge base:</strong> 24 providers and 32 sensors — commercial (Airbus, Maxar, Planet, Nearmap), open (Sentinel, Landsat, SRTM, ALOS-PALSAR) and Australian state imagery and survey agencies — plus EODAG and AURIN catalogues.</li>
+                <li><strong>Weighted fit score</strong> ranks each source on resolution, cost, coverage, temporal fit and quality, with feasibility, cloud-cover and cost checks against published thresholds.</li>
+                <li><strong>LLM re-ranker that can't make things worse:</strong> optional, with a 3-second deadline, caching and a fall-back to the deterministic ranking on any failure.</li>
+                <li><strong>Discover map:</strong> 27 live layers from sources such as Digital Earth Australia, Copernicus DEM, NASA FIRMS, GBIF, Atlas of Living Australia, Open-Meteo, USGS and GDACS.</li>
+                <li><strong>GIS Copilot and agents:</strong> a chat with a live map, plus AI agents that draft deliverables — PDF report, methodology, procurement, QA and regulatory checks — and reusable workflow templates.</li>
+                <li><strong>One engine, four interfaces:</strong> web app, a 46-command CLI published on PyPI, a 7-tool MCP server for AI assistants, and a REST API — with team workspaces and role-based access.</li>
             </ul>
         `,
         decisions: `
             <ul>
-                <li><strong>Deterministic first:</strong> the LLM enhances the parse only when rules and embeddings are unsure, keeping cost low and decisions traceable.</li>
+                <li><strong>Deterministic first:</strong> the LLM refines the parse or re-ranks only when rules are unsure, keeping cost low and decisions traceable.</li>
                 <li><strong>Every agent has a deterministic fallback:</strong> named LLM failure modes (bad JSON, missing fields, provider outage) fall back to a rule-based result, labelled with how it was produced.</li>
-                <li><strong>Multi-provider LLM failover</strong> through OpenAI-compatible clients, with users' own API keys encrypted at rest.</li>
-                <li><strong>Natural-language-to-PostGIS with guard rails:</strong> SELECT-only validation, a keyword deny-list and a forced row limit.</li>
-                <li><strong>Tested and gated deploys:</strong> backend, CLI and end-to-end test suites in CI; deploys are health-checked before going live.</li>
+                <li><strong>Seven-provider LLM failover,</strong> self-hosted model first, through OpenAI-compatible clients — with users' own API keys encrypted at rest.</li>
+                <li><strong>Sandboxed natural-language-to-PostGIS:</strong> generated SQL is parsed into a syntax tree, limited to a single SELECT over allow-listed tables and functions, and run read-only with time and row limits.</li>
+                <li><strong>Hardened for the public web:</strong> SSRF protection, row-level security on every table, per-visitor rate limits and an admin console with an event log.</li>
+                <li><strong>Tested deploys:</strong> automated backend tests, type-checking and builds in CI, Playwright end-to-end tests, and deploys that wait for a healthy service before the CDN cache is purged.</li>
             </ul>
         `,
-        architecture: `Async FastAPI backend, PostgreSQL + PostGIS + pgvector (Supabase), SQLAlchemy 2 / GeoAlchemy2 with Alembic migrations,
-                       FastMCP server and MCP client, Typer + Rich CLI on PyPI, React 19 + TypeScript + Vite + Tailwind, CesiumJS / Leaflet / deck.gl,
-                       Redis rate limiting, Docker Compose behind nginx and Cloudflare, GitHub Actions CI/CD.`,
+        architecture: `Async FastAPI backend, PostgreSQL + PostGIS + pgvector (Supabase, row-level security), SQLAlchemy 2 / GeoAlchemy2 with Alembic migrations,
+                       FastMCP server and MCP client, Typer + Rich CLI on PyPI, Gemini embeddings, Earth Engine, React 19 + TypeScript + Vite + Tailwind,
+                       GeoLibre, Leaflet, deck.gl and CesiumJS maps, Redis, Sentry, Docker Compose behind nginx and Cloudflare, GitHub Actions CI/CD.`,
         demoLink: 'https://terrascout.app',
         demoLabel: 'Visit terrascout.app',
         extraLink: 'https://pypi.org/project/terrascout/',
@@ -178,57 +184,62 @@ const projectData = {
         privateCode: true
     },
     urbanmind: {
-        title: 'UrbanMind - Urban Scenario Planning Toolkit',
+        title: 'UrbanMind - Urban Scenario Planning Platform',
         category: 'Urban Planning | Live',
-        tags: ['QGIS Plugin', 'Python', 'FastAPI', 'PostGIS', 'React', 'TypeScript', 'MapLibre', 'deck.gl', 'PyTorch', 'Supabase'],
-        challenge: `Planners need to test "what if" development scenarios against transport, housing, fiscal, heat and biodiversity outcomes — but those analyses live in separate tools, rely on dozens of government data sources, and physics-based heat simulation is far too slow to run interactively.`,
+        tags: ['FastAPI', 'PostGIS', 'React', 'TypeScript', 'MapLibre', 'deck.gl', 'web-ifc', 'PyTorch', 'MCP', 'Supabase', 'Docker'],
+        challenge: `Planners need to know whether a development complies with the planning scheme and what it does to transport, housing, council finances, heat and biodiversity — but those checks and analyses live in separate tools, rely on dozens of government data sources, and physics-based heat simulation is far too slow to run interactively.`,
         solution: `
             <ul>
-                <li><strong>Scenario painting:</strong> apply development types to parcels on a map; population, dwellings, jobs and density are calculated instantly.</li>
-                <li><strong>Planning models</strong> for transport, fiscal impact, green infrastructure, housing, walkability, carbon, biodiversity and urban heat, parameterised to Plan Melbourne, Austroads and Victorian planning provisions.</li>
-                <li><strong>Government data integration:</strong> ABS Census, Vicmap, PTV GTFS, building footprints and more, with a spatial cache for slow upstream APIs.</li>
-                <li><strong>Urban heat surrogate:</strong> a U-Net trained on SOLWEIG simulation outputs gives near-instant heat estimates for greening and cool-roof scenarios.</li>
-                <li><strong>Spatial AI agent</strong> that calls analysis tools to answer questions, with per-user memory.</li>
+                <li><strong>Build → Check → Analyse:</strong> draw sites and place typed buildings, or import real designs (IFC, DXF, glTF, OBJ, GeoJSON) — with SketchUp and Blender connectors.</li>
+                <li><strong>The Check:</strong> automated planning assessment against Clause 55 (ResCode), Clause 52.06 car parking, overlay schedules and approval routes (VicSmart or a full permit), with a shareable report.</li>
+                <li><strong>25 analysis models:</strong> transport, fiscal impact, housing, 20-minute neighbourhood, embodied carbon, biodiversity, urban heat, flood risk, net-zero precinct, retrofit vs rebuild and more. Eleven have been rebuilt on 79 cited Victorian and Australian sources, and every result shows its sources and model version.</li>
+                <li><strong>Government data:</strong> around 25 providers — ABS, Vicmap, the Planning Schemes API, Heritage Council, EPA Victoria, Melbourne Water, PTV GTFS, Overture Maps, Atlas of Living Australia and more.</li>
+                <li><strong>Urban heat surrogate:</strong> a U-Net trained on simulation outputs gives near-instant heat estimates for greening and cool-roof scenarios.</li>
+                <li><strong>AI spatial agent</strong> with 27 tools that can run every model, with per-user memory — and an MCP server so assistants like Claude can drive UrbanMind directly.</li>
+                <li>Precinct audit, a Smart City API with keys and webhooks, and multi-tenant workspaces.</li>
             </ul>
         `,
         decisions: `
             <ul>
+                <li><strong>Cite every number:</strong> rebuilt models take their constants from published sources — Plan Melbourne, the Victoria Planning Provisions, ABS SEIFA, NCC 7-star, Infrastructure Australia — and show them next to the result.</li>
                 <li><strong>Physics → surrogate:</strong> train on the slow, trusted simulation, then serve the fast model — accuracy anchored to physics, speed suitable for interaction.</li>
-                <li><strong>One model library, two clients:</strong> the same analysis code powers the QGIS plugin and the web platform, so results never drift between tools.</li>
-                <li><strong>Safe query DSL for the agent</strong> instead of free-form SQL, with the most thorough test coverage in the codebase.</li>
-                <li><strong>Production behind NAT with no open ports:</strong> Cloudflare Tunnel inbound, a self-hosted CI runner for deploys, and a written recovery runbook.</li>
+                <li><strong>Cache slow government APIs:</strong> a PostGIS layer cache with spatial indexes and weekly refresh made map layers 75–430× faster, taking planning constraints from 15–30 s to under a second.</li>
+                <li><strong>Fail visibly:</strong> a circuit breaker on each data source and a data-quality badge on every result, so users know when an input was missing.</li>
+                <li><strong>Production behind NAT with no open ports:</strong> Cloudflare Tunnel inbound, a self-hosted CI runner with health and smoke checks after each deploy, and a written recovery runbook.</li>
                 <li>Local-first LLM with fast fail-over to hosted providers.</li>
             </ul>
         `,
-        architecture: `QGIS plugin (Python, PyQt). Web: FastAPI + SQLAlchemy 2 + GeoAlchemy2 + PostGIS with Alembic, React 18 + TypeScript + MapLibre + deck.gl + Zustand,
-                       PyTorch U-Net heat surrogate, Supabase Auth, multi-provider LLMs (Ollama, OpenRouter, Groq), Docker + nginx, Cloudflare Tunnel, GitHub Actions.`,
+        architecture: `FastAPI + SQLAlchemy 2 + GeoAlchemy2 + PostGIS (Supabase) with Alembic, React 18 + TypeScript + MapLibre + deck.gl + Zustand + web-ifc,
+                       PyTorch U-Net heat surrogate, LangSAM for detection from imagery, MCP server, self-hosted LLM with OpenRouter fallback,
+                       Docker + nginx, Cloudflare Tunnel, GitHub Actions. Started as a QGIS plugin.`,
         demoLink: 'https://urbanmind.terrascout.app',
         demoLabel: 'Visit urbanmind.terrascout.app',
         privateCode: true
     },
     geospark: {
         title: 'GeoSpark - Spatial Reasoning for Language Models',
-        category: 'Open Source | Research',
-        tags: ['Python', 'MCP', 'Shapely', 'pyproj', 'FastAPI', 'Pydantic', 'Ollama', 'Docker', 'Apache 2.0'],
-        challenge: `Language models have no geometry engine. Asked for a distance or whether one place lies inside another, they answer from pattern-matching — confidently and often wrong — and different models disagree widely on the same question.`,
+        category: 'Open Source | geospark-ai 0.9 on PyPI',
+        tags: ['Python', 'MCP', 'Shapely', 'pyproj', 'FastAPI', 'Pydantic', 'DuckDB', 'Valhalla', 'Ollama', 'Docker', 'Apache 2.0'],
+        challenge: `Language models have no geometry engine. Asked for a distance, a travel time or whether one place lies inside another, they answer from pattern-matching — confidently and often wrong — and different models disagree widely on the same question.`,
         solution: `
             <ul>
-                <li><strong>GeoSpark Protocol (GSP):</strong> a typed JSON protocol for spatial operations — topology, geodesic measurement, CRS transforms, geocoding, terrain, routing and spectral indices.</li>
-                <li><strong>MCP server, REST API, CLI and Python library</strong>, so any tool-capable model or application can call the same engine.</li>
-                <li><strong>GeoSpark Bench:</strong> a 535-question benchmark across distance, topology, reasoning, change and multimodal suites, run on 9 models under bare, chain-of-thought and tool-augmented conditions.</li>
-                <li>Published on PyPI as <code>geospark-ai</code>; manuscript under peer review.</li>
+                <li><strong>GeoSpark Protocol (GSP):</strong> 38 typed spatial operations — topology, geodesic measurement, geometry and joins, geocoding, spectral indices, terrain (elevation, slope, viewshed), routing and isochrones.</li>
+                <li><strong>Hosted MCP server with 18 tools,</strong> listed in the official MCP Registry, plus a REST API, a 45-command CLI and a Python library — so any tool-capable model or application calls the same engine.</li>
+                <li><strong>Agents:</strong> GeoAgent plans multi-step analyses, alongside site-selection and location-report agents and visual flows.</li>
+                <li><strong>Real data, no guessing:</strong> Valhalla isochrones and travel-time matrices, Overture Maps through DuckDB, Copernicus GLO-30 elevation, STAC imagery and live weather, air-quality and fire feeds; bring your own vector data and the CRS is never guessed.</li>
+                <li><strong>GeoSpark Bench:</strong> a new benchmark against current models is in progress.</li>
             </ul>
         `,
         decisions: `
             <ul>
-                <li><strong>Compute, don't guess:</strong> the model decides <em>what</em> to ask; deterministic engines (geodesic distance, Shapely predicates) produce the answer, leaving an auditable tool trace.</li>
-                <li><strong>Honest evaluation:</strong> confidence intervals on every score, per-predicate breakdowns that expose "yes-bias", and negative results reported — including cases where prompting or tools made a model worse.</li>
-                <li><strong>Local-first:</strong> runs on open-weight models through Ollama, with hosted providers as fallback.</li>
-                <li><strong>Production hygiene:</strong> rate limiting, audit logging, non-root multi-stage Docker images and CI across Python 3.10–3.12.</li>
+                <li><strong>Compute, don't guess:</strong> the model decides <em>what</em> to ask; deterministic engines (geodesic distance, Shapely predicates, routing) produce the answer, leaving an auditable tool trace.</li>
+                <li><strong>Verifiable answers:</strong> every result carries its source, licence, units and quality flags, and runs can be recorded and replayed — fingerprints show whether the data or the code changed.</li>
+                <li><strong>Local-first:</strong> runs on open-weight models through Ollama, warmed up at start-up, with OpenRouter as a working fallback.</li>
+                <li><strong>Release engineering:</strong> 1,000+ automated tests, CI across Python 3.10–3.13 with a coverage floor, and PyPI Trusted Publishing with container images on every release.</li>
             </ul>
         `,
-        architecture: `Python package (hatchling, PyPI) with GSP schema (Pydantic v2), spatial engine (Shapely 2, pyproj), pluggable tools (Nominatim, OSRM, STAC, elevation with vertical datums),
-                       MCP stdio server, FastAPI REST API, benchmark runner and scorer, Docker + PostGIS + Redis, GitHub Actions CI.`,
+        architecture: `Python package (hatchling, PyPI) with GSP schema (Pydantic v2), spatial engine (Shapely 2, pyproj), pluggable tools (Nominatim, OSRM, Valhalla, Overture via DuckDB, STAC, Copernicus elevation),
+                       agents and flows, MCP server (stdio and hosted HTTP), FastAPI REST API, Docker + PostGIS + Redis, GitHub Actions CI and release pipeline.`,
         repoLink: 'https://github.com/Maz2580/geospark',
         extraLink: 'https://pypi.org/project/geospark-ai/',
         extraLabel: 'geospark-ai on PyPI'

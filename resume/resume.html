@@ -116,11 +116,11 @@
 </div>
 
 <div class="proj">
-    <div class="proj-head"><span class="name">UMAMI</span> — University of Melbourne · AI-assisted spatial query platform · <a href="https://geollm.idigitaltwin.org/UMAMI/">geollm.idigitaltwin.org/UMAMI</a></div>
-    <p>Lead developer of a platform that lets non-technical staff and researchers ask spatial questions of PostGIS data in plain
-    language, removing the GIS team as a bottleneck for routine queries. Integrates PostGIS, multi-provider LLMs with tool
-    servers (MCP), CesiumJS 3D visualisation and IoT/MQTT sensor dashboards, with JWT authentication and role-based access;
-    containerised and released through GitLab CI/CD.</p>
+    <div class="proj-head"><span class="name">UMAMI</span> — University of Melbourne · Urban digital twin &amp; GeoAI platform · <a href="https://geollm.idigitaltwin.org/UMAMI/">geollm.idigitaltwin.org/UMAMI</a></div>
+    <p>Designed and built a digital twin with ten studios on a CesiumJS 3D globe: a multi-agent cadastre assistant over
+    <b>4.29M Victorian parcels</b>, U-Net heat and flood surrogates of SOLWEIG and HEC-RAS served via ONNX, live hazard
+    intelligence from 10+ feeds with a 17-tool assistant, AI change detection and planning-compliance auditing. FastAPI,
+    React, PostGIS/pgvector, multi-provider LLMs with MCP, Prometheus/Grafana monitoring and GitLab CI/CD.</p>
 </div>
 
 <div class="proj">
@@ -129,22 +129,22 @@
     LiDAR datasets with feasibility checks: FastAPI back end, React/TypeScript front end, PostGIS + pgvector, REST API, a CLI
     published on PyPI and an MCP server for AI assistants. Rules and embeddings run first and the LLM is called only below a
     confidence threshold; every AI agent has a deterministic fallback.
-    <span class="facts">900+ automated tests · 23 providers / 29 sensors · health-gated CI/CD deploys.</span></p>
+    <span class="facts">24 providers / 32 sensors · 46-command CLI · 7-tool MCP server · hardened SQL sandbox.</span></p>
 </div>
 
 <div class="proj">
     <div class="proj-head"><span class="name">UrbanMind</span> — Urban scenario planning platform for Australian practice · <a href="https://urbanmind.terrascout.app">urbanmind.terrascout.app</a></div>
-    <p>Integrated 36+ real datasets (ABS Census, Vicmap, PTV GTFS, building footprints) into 25 planning models — walkability,
-    density, transit access, fiscal impact, urban heat and net-zero scenarios — parameterised to Plan Melbourne and Austroads.
-    A U-Net surrogate trained on heat-simulation outputs gives near-instant results. One model library serves both a
-    <b>QGIS plugin</b> for practitioners and a web platform for teams, deployed behind Cloudflare Tunnel with self-hosted CI.</p>
+    <p>Planning Check against Clause 55, 52.06 car parking and VicSmart routes, plus 25 analysis models — eleven rebuilt on
+    <b>79 cited Victorian and Australian sources</b> — drawing on ~25 government data providers (ABS, Vicmap, PTV GTFS, EPA,
+    Melbourne Water). IFC/DXF design import, SketchUp and Blender connectors, a 27-tool AI agent and MCP server; a PostGIS
+    cache made map layers 75–430× faster. Deployed behind Cloudflare Tunnel with self-hosted CI.</p>
 </div>
 
 <div class="proj">
     <div class="proj-head"><span class="name">GeoSpark</span> — Open-source spatial AI library on PyPI · <a href="https://github.com/Maz2580/geospark">github.com/Maz2580/geospark</a></div>
-    <p>Designed a protocol and MCP tools that expose deterministic geodesic and topology computation (Shapely, pyproj) to any
-    language model, plus a benchmark measuring models with and without tools — reporting negative results as well as gains.
-    <span class="facts">535-question benchmark across 9 models · 779 automated tests · Apache 2.0 · manuscript under peer review.</span></p>
+    <p>Designed a protocol and MCP tools that expose deterministic geodesic, topology, routing and terrain computation to any
+    language model, with agents for multi-step analysis; every answer carries its source and licence, and runs can be replayed.
+    <span class="facts">v0.9 on PyPI · 38 operations · hosted 18-tool MCP server in the MCP Registry · 1,000+ tests · Apache 2.0.</span></p>
 </div>
 
 <h2>Professional Experience</h2>
@@ -169,13 +169,13 @@
         <div class="job-meta">Dec 2024 – Present&nbsp; | &nbsp;Melbourne, VIC&nbsp; | &nbsp;Remote</div>
     </div>
     <ul>
-        <li>Lead delivery of <b>UMAMI</b>, the University's AI-assisted spatial query platform — enabling self-service spatial questions for non-technical staff and researchers.</li>
+        <li>Design and build <b>UMAMI</b>, the University's urban digital twin — multi-agent cadastre assistant over 4.29M parcels, heat and flood surrogates, live hazard intelligence and AI change detection, from architecture to production.</li>
         <li>Architect and automate end-to-end geospatial data workflows using <b>n8n, Python, SQL and PostGIS</b>, reducing manual intervention and improving the reliability of spatial analytics.</li>
         <li><b>Dockerise APIs, schedulers and UIs with Compose; implement versioned, repeatable releases via GitLab CI/CD</b> and container registry; deploy on Google Cloud Platform with secrets in masked CI variables and least-privilege service accounts.</li>
         <li>Design JSON/GeoJSON API contracts and authentication patterns; build Python back ends and React front ends serving spatial features and analytics to research and industry users.</li>
         <li>Develop and govern geospatial metadata, data catalogues and custom schemas for data quality, interoperability and reproducibility.</li>
         <li>Deliver geospatial inputs to projects including Arup, Venice Biennale: Song of the Cricket and UEDLAB — processing satellite and field data (Google Earth Engine, Landsat, Sentinel-2), applying supervised/unsupervised classification (Random Forest, K-Means), and producing change detection, land cover and habitat mapping outputs.</li>
-        <li>Deploy IoT integration via <b>MQTT</b> with dynamic dashboards for real-time geospatial monitoring.</li>
+        <li>Train and serve ML models (U-Net surrogates, fine-tuned building detectors) via ONNX; deploy IoT integration via <b>MQTT</b> with ventilation, CO₂ and privacy-preserving occupancy analysis.</li>
     </ul>
 </div>
 

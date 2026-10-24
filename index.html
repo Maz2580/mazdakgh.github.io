@@ -228,11 +228,13 @@
                             <span class="result-step"><strong>Problem</strong> "What if?" questions about heat, flooding,
                             corridors or new development needed physics simulations that take hours, separate datasets and
                             GIS experts to drive them.</span>
-                            <span class="result-step"><strong>What I did</strong> One 3D platform with plain-language spatial
-                            queries, neural surrogates trained on SOLWEIG and HEC-RAS for near-instant heat and flood
-                            scenarios, green-corridor planning, AI change detection and a natural-language cadastre.</span>
-                            <span class="result-step"><strong>Safeguard</strong> Surrogates judged on whole-domain evaluation,
-                            outcomes shown with confidence and evidence tiers, and an explainable optimiser instead of a black box.</span>
+                            <span class="result-step"><strong>What I did</strong> Designed and built one 3D platform with ten
+                            studios: a multi-agent cadastre assistant over 4.29 million Victorian parcels, neural surrogates
+                            trained on SOLWEIG and HEC-RAS for near-instant heat and flood scenarios, live hazard intelligence,
+                            green-corridor planning, AI change detection and planning-compliance auditing.</span>
+                            <span class="result-step"><strong>Safeguard</strong> Models refuse inputs they weren't trained on,
+                            surrogates must pass withheld-scenario evaluation and reproduction gates before release, and
+                            outcomes carry confidence and evidence tiers.</span>
                         </p>
                         <span class="result-client"><b>UMAMI</b> · University of Melbourne · <a href="https://geollm.idigitaltwin.org/UMAMI/" target="_blank" rel="noopener">Live platform</a></span>
                     </div>
@@ -270,10 +272,10 @@
                             LiDAR data for a project takes specialist knowledge — and sending every request to an LLM is
                             slow, costly and hard to audit.</span>
                             <span class="result-step"><strong>What I did</strong> Tiered parsing — rules and gazetteers first,
-                            then embeddings, and the LLM only when confidence falls below a threshold. Sensors ranked by a
-                            weighted fit score.</span>
-                            <span class="result-step"><strong>Safeguard</strong> Every AI agent has a deterministic
-                            fallback, and its output is labelled with how it was produced.</span>
+                            then vector matching, and the LLM only when confidence falls below a threshold. Sources from 24
+                            providers ranked by a weighted fit score, with an optional LLM re-ranker on top.</span>
+                            <span class="result-step"><strong>Safeguard</strong> The re-ranker has a 3-second deadline and falls
+                            back to the deterministic ranking on any failure; every AI agent's output is labelled with how it was produced.</span>
                         </p>
                         <span class="result-client"><b>Terrascout</b> · <a href="https://terrascout.app" target="_blank" rel="noopener">terrascout.app</a></span>
                     </div>
@@ -289,11 +291,11 @@
                         <p class="result-description">
                             <span class="result-step"><strong>Problem</strong> Language models guess at distances and
                             spatial relationships — confidently, and often wrong.</span>
-                            <span class="result-step"><strong>What I did</strong> A protocol and MCP tools that route spatial
-                            questions to real geodesic and topology engines, plus a 535-question benchmark comparing
-                            models with and without tools.</span>
-                            <span class="result-step"><strong>Safeguard</strong> Results reported honestly — including where
-                            tools or prompting made a model worse.</span>
+                            <span class="result-step"><strong>What I did</strong> A protocol of 38 spatial operations and a
+                            hosted 18-tool MCP server that route questions to real geodesic, topology, routing and terrain
+                            engines, with agents that plan multi-step analyses.</span>
+                            <span class="result-step"><strong>Safeguard</strong> Every answer carries its source, licence and
+                            units, and a run can be replayed to show whether the data or the code changed.</span>
                         </p>
                         <span class="result-client"><b>GeoSpark</b> · Open source · <a href="https://github.com/Maz2580/geospark" target="_blank" rel="noopener">Source</a></span>
                     </div>
@@ -302,18 +304,18 @@
                 <div class="result-card" data-short="UrbanMind">
                     <div class="result-metric">
                         <span class="metric-number"><i class="fas fa-temperature-half"></i></span>
-                        <span class="metric-label">Fast surrogate</span>
+                        <span class="metric-label">Cited sources</span>
                     </div>
                     <div class="result-content">
-                        <h3 class="result-headline">Heat and planning scenarios planners can test live</h3>
+                        <h3 class="result-headline">Development proposals checked and tested in one place</h3>
                         <p class="result-description">
-                            <span class="result-step"><strong>Problem</strong> Planners test "what if" scenarios, but
-                            physics-based heat simulation is too slow to run interactively.</span>
-                            <span class="result-step"><strong>What I did</strong> A U-Net surrogate trained on simulation
-                            outputs for near-instant heat estimates, alongside planning models parameterised to Plan
-                            Melbourne and Australian standards.</span>
-                            <span class="result-step"><strong>Safeguard</strong> One model library behind both the QGIS
-                            plugin and the web platform, so results never drift between tools.</span>
+                            <span class="result-step"><strong>Problem</strong> Compliance checks and impact analyses live
+                            in separate tools, and physics-based heat simulation is too slow to run interactively.</span>
+                            <span class="result-step"><strong>What I did</strong> A planning Check against Clause 55, car
+                            parking and VicSmart routes, 25 analysis models, IFC design import and a U-Net heat surrogate for
+                            near-instant estimates.</span>
+                            <span class="result-step"><strong>Safeguard</strong> Rebuilt models cite their sources — 79 Victorian
+                            and Australian references — and every result records its model version and data quality.</span>
                         </p>
                         <span class="result-client"><b>UrbanMind</b> · <a href="https://urbanmind.terrascout.app" target="_blank" rel="noopener">urbanmind.terrascout.app</a></span>
                     </div>
@@ -421,17 +423,17 @@
                         <div class="project-tags">
                             <span class="tag">Digital Twin</span>
                             <span class="tag">CesiumJS 3D</span>
+                            <span class="tag">Multi-agent LLM</span>
+                            <span class="tag">PyTorch → ONNX</span>
                             <span class="tag">PostGIS</span>
-                            <span class="tag">PyTorch Surrogates</span>
-                            <span class="tag">Multi-LLM</span>
                             <span class="tag">MCP</span>
                         </div>
                         <h3 class="project-title">UMAMI - Urban Digital Twin &amp; GeoAI Platform</h3>
                         <p class="project-description">
-                            University of Melbourne platform that combines plain-language spatial queries with
-                            physics-trained models on a 3D globe: urban heat and flood what-if scenarios, green-corridor
-                            planning, AI change detection, natural-language cadastre, planning-compliance auditing,
-                            live hazard layers and IoT sensing.
+                            A University of Melbourne digital twin I designed and built. Ten studios on a 3D globe:
+                            a multi-agent cadastre assistant over 4.29 million Victorian parcels, heat and flood
+                            surrogates of physics models, live hazard intelligence from 10+ feeds, AI change detection,
+                            planning-compliance auditing, workflows and IoT.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Digital Twin Platform</span>
@@ -457,16 +459,16 @@
                         <div class="project-tags">
                             <span class="tag">FastAPI</span>
                             <span class="tag">React 19</span>
-                            <span class="tag">PostGIS</span>
-                            <span class="tag">pgvector</span>
-                            <span class="tag">MCP</span>
-                            <span class="tag">CLI</span>
+                            <span class="tag">PostGIS + pgvector</span>
+                            <span class="tag">MCP Server</span>
+                            <span class="tag">PyPI CLI</span>
+                            <span class="tag">STAC</span>
                         </div>
                         <h3 class="project-title">Terrascout - Geospatial Data Scoping Platform</h3>
                         <p class="project-description">
-                            Describe a project in plain English and get ranked satellite, aerial and LiDAR datasets with
-                            feasibility checks. Rules and embeddings run first, the LLM is called only below a confidence
-                            threshold, and every AI agent has a deterministic fallback.
+                            Describe a project in plain English and get ranked satellite, aerial, LiDAR and radar sources
+                            from 24 providers, with feasibility, cloud-cover and cost checks. Deterministic first — the LLM
+                            steps in only when rules are unsure — across a web app, a 46-command CLI, an MCP server and an API.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> GeoAI Platform</span>
@@ -491,18 +493,18 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">QGIS Plugin</span>
-                            <span class="tag">React</span>
                             <span class="tag">FastAPI</span>
+                            <span class="tag">React</span>
                             <span class="tag">PostGIS</span>
-                            <span class="tag">PyTorch</span>
                             <span class="tag">deck.gl</span>
+                            <span class="tag">IFC / BIM</span>
+                            <span class="tag">MCP</span>
                         </div>
-                        <h3 class="project-title">UrbanMind - Urban Scenario Planning Toolkit</h3>
+                        <h3 class="project-title">UrbanMind - Urban Scenario Planning Platform</h3>
                         <p class="project-description">
-                            Paint development scenarios onto a map and test them against planning models parameterised to
-                            Plan Melbourne and Australian standards. A U-Net surrogate stands in for slow heat simulation, and
-                            a tool-using AI agent answers spatial questions.
+                            Draw or import a development, check it against Victorian planning rules (Clause 55, car parking,
+                            VicSmart routes) and test it across 25 analysis models — eleven rebuilt on 79 cited Victorian and
+                            Australian sources. Imports IFC designs, connects to SketchUp and Blender, and offers an AI agent and MCP server.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> Urban Planning</span>
@@ -529,14 +531,14 @@
                             <span class="tag">Python</span>
                             <span class="tag">MCP Server</span>
                             <span class="tag">Shapely / pyproj</span>
-                            <span class="tag">Benchmarking</span>
+                            <span class="tag">AI Agents</span>
                             <span class="tag">Docker</span>
                         </div>
                         <h3 class="project-title">GeoSpark - Spatial Reasoning for Language Models</h3>
                         <p class="project-description">
-                            Language models guess at geometry; GeoSpark makes them compute it. A protocol and MCP tools route
-                            spatial questions to real geodesic and topology engines, and a 535-question benchmark compares
-                            9 models with and without tools.
+                            Language models guess at geometry; GeoSpark makes them compute it. A typed protocol of 38 spatial
+                            operations and a hosted 18-tool MCP server, listed in the official MCP Registry, route questions to
+                            real geodesic, topology, routing and terrain engines — and every answer carries its source and licence.
                         </p>
                         <div class="project-meta">
                             <span class="project-category"><i class="fas fa-tag"></i> GeoAI / Open Source</span>
@@ -1077,8 +1079,9 @@
                         <ul class="exp-achievements">
                             <li>
                                 <i class="fas fa-check-circle"></i>
-                                <strong>Develop UMAMI</strong>, the centre's AI-for-mapping platform that lets
-                                non-specialists ask spatial questions in plain language
+                                <strong>Design and build UMAMI</strong>, the centre's urban digital twin — ten studios
+                                spanning a multi-agent cadastre assistant over 4.29 million Victorian parcels, heat and flood
+                                surrogates, live hazard intelligence and AI change detection, from architecture to production
                             </li>
                             <li>
                                 <i class="fas fa-check-circle"></i>
@@ -1092,8 +1095,8 @@
                             </li>
                             <li>
                                 <i class="fas fa-check-circle"></i>
-                                <strong>Containerise and ship</strong> APIs, schedulers and UIs with Docker Compose and
-                                versioned releases through GitLab CI/CD, with secrets kept out of code
+                                <strong>Containerise and operate</strong> APIs, schedulers and UIs with Docker Compose,
+                                GitLab CI/CD and Prometheus, Grafana and ELK monitoring, with secrets kept out of code
                             </li>
                             <li>
                                 <i class="fas fa-check-circle"></i>
@@ -1102,7 +1105,13 @@
                             </li>
                             <li>
                                 <i class="fas fa-check-circle"></i>
-                                <strong>Integrate IoT sensor streams</strong> via MQTT into live monitoring dashboards
+                                <strong>Train and serve ML models</strong> — U-Net heat and flood surrogates of SOLWEIG and
+                                HEC-RAS, and fine-tuned building detectors — on CPU via ONNX, with reproduction and regression gates
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <strong>Integrate IoT sensor streams</strong> via MQTT into live dashboards, ventilation and
+                                CO₂ analysis, and privacy-preserving room occupancy
                             </li>
                         </ul>
                     </div>
@@ -3295,7 +3304,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20261004-3"></script>
+    <script src="script.js?v=20261024-2"></script>
 </body>
 
 </html>

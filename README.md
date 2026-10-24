@@ -10,24 +10,24 @@ Professional portfolio showcasing AI-powered geospatial platforms, open-source t
 
 This portfolio showcases my work across:
 - **AI-Powered Geospatial Platforms**: Terrascout, UrbanMind, UMAMI — 3 live platforms in production
-- **Open-Source Tools**: GeoSpark on PyPI — spatial AI protocol with 535 benchmarks and 446 tests
-- **Spatial Data Engineering**: ETL pipelines, PostGIS, 36+ real data source integrations
+- **Open-Source Tools**: GeoSpark on PyPI — spatial AI protocol (38 operations) and hosted 18-tool MCP server, 1,000+ tests
+- **Spatial Data Engineering**: ETL pipelines, PostGIS, statewide cadastre ingest, dozens of government data integrations
 - **CLI & MCP Tools**: pip-installable CLIs, MCP servers for AI assistant integration
 - **Remote Sensing & GIS**: Satellite data scoping, drone processing, Google Earth Engine
 
 ## Featured Projects
 
 ### Terrascout - Geospatial Data Scoping Platform
-Provider-agnostic satellite, LiDAR, and aerial data scoping platform. 80% deterministic / 20% LLM architecture. Ships as web app, CLI (20 commands), MCP server (6 tools), and REST API. Live at [terrascout.app](https://terrascout.app).
+Provider-agnostic satellite, aerial, LiDAR and radar data scoping across 24 providers. Deterministic first — the LLM steps in only when rules are unsure. Ships as web app, CLI (46 commands), MCP server (7 tools) and REST API. Live at [terrascout.app](https://terrascout.app).
 
-### UrbanMind - Urban Scenario Planning Toolkit
-23 analysis models calibrated to Australian standards, 36+ real data sources (ABS Census, VicMap, PTV GTFS, Microsoft Building Footprints). QGIS plugin + web platform. Live at [urbanmind.terrascout.app](https://urbanmind.terrascout.app).
+### UrbanMind - Urban Scenario Planning Platform
+Planning Check (Clause 55, 52.06 car parking, VicSmart routes) and 25 analysis models, eleven rebuilt on 79 cited Victorian and Australian sources. IFC/DXF import, SketchUp and Blender connectors, AI agent and MCP server. Live at [urbanmind.terrascout.app](https://urbanmind.terrascout.app).
 
 ### GeoSpark - Geospatial Intelligence Protocol & Engine
-Open-source protocol giving AI models ground-truth spatial reasoning. 535 benchmark questions prove LLMs fail 70%+ on spatial tasks. Published on PyPI (`pip install geospark-ai`). Apache 2.0.
+Open-source protocol giving AI models computed, verifiable spatial answers: 38 typed operations, a hosted 18-tool MCP server listed in the MCP Registry, and agents for multi-step analysis. Published on PyPI (`pip install geospark-ai`). Apache 2.0.
 
-### UMAMI - AI for Mapping & Insights
-AI platform enabling natural language queries over spatial databases. Processing 200+ queries weekly with 90% accuracy. In production at University of Melbourne.
+### UMAMI - Urban Digital Twin & GeoAI Platform
+University of Melbourne digital twin I designed and built: a multi-agent cadastre assistant over 4.29M Victorian parcels, heat and flood surrogates of physics models, live hazard intelligence, AI change detection and planning-compliance auditing on a 3D globe.
 
 ### KSA-GRF17 WebODM Plugin
 Zero-configuration WebODM plugin for Saudi Arabia's KSA-GRF17 coordinate system. Auto-detects UTM zone from drone image EXIF GPS data.
