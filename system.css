@@ -3,18 +3,21 @@
 
 /* ---------- Tokens ---------- */
 :root {
-    --ink: #0b1526;
-    --band: #0e1d34;
-    --surface: #12213a;
-    --line: #22365a;
-    --text: #e9eef5;
-    --muted: #93a6c1;
-    --accent: #3cc6e8;
-    --accent-ink: #06111f;
-    --now: #f0b44c;
+    /* Deep ocean palette */
+    --ink: #070d1a;
+    --band: #0b1629;
+    --surface: #0f1d36;
+    --line: #1d2f50;
+    --text: #e8eef6;
+    --muted: #97abc6;
+    --accent: #3cd6f0;
+    --accent-ink: #04202a;
+    --now: #f5b84c;
+    --heat: #ff7a59;
 
     --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
     --font-body: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
     --fs-display: 48px;
     --fs-h2: 34px;
@@ -139,7 +142,7 @@ body > section[id]:not(#home) {
 }
 
 .btn-primary { background: var(--accent); color: var(--accent-ink); border: 1px solid var(--accent); }
-.btn-primary:hover { background: #6fd6ef; border-color: #6fd6ef; color: var(--accent-ink); transform: none; box-shadow: none; }
+.btn-primary:hover { background: #7ae4f5; border-color: #7ae4f5; color: var(--accent-ink); transform: none; box-shadow: none; }
 .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--line); }
 .btn-secondary:hover { border-color: var(--accent); color: var(--accent); background: transparent; transform: none; }
 
@@ -206,7 +209,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(11, 21, 38, 0.92);
+    background: rgba(7, 13, 26, 0.82);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
@@ -459,7 +462,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .filter-btn:hover, .filter-btn.active, .cert-filter-btn:hover, .cert-filter-btn.active {
     color: var(--text);
     border-color: var(--accent);
-    background: rgba(60, 198, 232, 0.12);
+    background: rgba(60, 214, 240, 0.12);
 }
 
 .projects-grid { gap: 24px; }
@@ -845,4 +848,163 @@ a.tech-item { border-color: var(--line); background: var(--surface); }
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
+}
+
+/* ==========================================================================
+   Redesign round 1 (2026-10): living-map hero, stats, bento projects, reveals
+   ========================================================================== */
+
+/* ---------- Hero: animated contour field ---------- */
+.hero { position: relative; isolation: isolate; padding-bottom: 8px; }
+.hero > .container { position: relative; z-index: 1; }
+
+.hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    /* Fade the field out towards the copy and the bottom edge so text stays crisp */
+    -webkit-mask-image: radial-gradient(75% 95% at 80% 42%, #000 30%, transparent 80%);
+            mask-image: radial-gradient(75% 95% at 80% 42%, #000 30%, transparent 80%);
+}
+/* The live contour field replaces the static rings drawn around the portrait */
+.hero-route .contours { display: none; }
+.hero-canvas.is-ready { opacity: 1; }
+
+.hero-coords {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin: 0 0 18px;
+    padding: 4px 10px;
+    border: 1px solid rgba(60, 214, 240, 0.25);
+    border-radius: 999px;
+    background: rgba(7, 13, 26, 0.6);
+    font-variant-numeric: tabular-nums;
+}
+.hero-coords-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--now);
+    box-shadow: 0 0 0 3px rgba(245, 184, 76, 0.18);
+}
+
+.hero-role { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Headline words rise in one after another */
+.hero-title .word { display: inline-block; }
+.js-motion .hero-title .word {
+    opacity: 0;
+    transform: translateY(0.45em);
+    animation: word-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation-delay: calc(0.15s + var(--i) * 0.06s);
+}
+.hero-title .word--accent { color: var(--accent); }
+@keyframes word-in { to { opacity: 1; transform: none; } }
+
+.hero-portrait { box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(60, 214, 240, 0.12); }
+
+@media (max-width: 768px) {
+    .hero-canvas {
+        -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 60%, transparent 95%);
+                mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 60%, transparent 95%);
+        opacity: 0.6;
+    }
+    .hero-canvas.is-ready { opacity: 0.6; }
+}
+
+/* ---------- Projects: bento layout ---------- */
+.projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+}
+.project-card { display: flex; flex-direction: column; position: relative; }
+.project-card .project-content { flex: 1; display: flex; flex-direction: column; }
+.project-card .project-meta { margin-top: auto; }
+
+.project-card--lead {
+    grid-column: 1 / -1;
+    flex-direction: row;
+}
+.project-card--lead .project-image {
+    flex: 0 0 38%;
+    height: auto;
+    min-height: 280px;
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+    background:
+        repeating-radial-gradient(circle at 50% 55%, transparent 0 22px, rgba(60, 214, 240, 0.10) 22px 23px),
+        radial-gradient(circle at 50% 55%, rgba(60, 214, 240, 0.16), transparent 62%),
+        var(--ink);
+}
+.project-card--lead .project-content { flex: 1 1 auto; padding: 32px; }
+.project-card--lead .project-placeholder { font-size: 3.5rem; }
+.project-card--lead .project-title { font-size: 28px; }
+.project-card--lead .project-description { font-size: 16px; max-width: 68ch; }
+
+/* Folded projects */
+.projects-grid:not(.is-expanded):not(.is-filtered) .project-card.is-extra { display: none !important; }
+.js-motion .project-card.reveal { animation: none; }
+.projects-more-wrap { display: flex; justify-content: center; margin-top: 28px; }
+.projects-more i { transition: transform 0.3s ease; }
+.projects-more[aria-expanded="true"] i { transform: rotate(180deg); }
+.projects-more[hidden] { display: none; }
+
+@media (max-width: 1024px) {
+    .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+    .project-card--lead { flex-direction: column; }
+    .project-card--lead .project-image { flex: 0 0 auto; min-height: 0; height: 150px; border-right: none; border-bottom: 1px solid var(--line); }
+    .project-card--lead .project-content { padding: 20px; }
+    .project-card--lead .project-title { font-size: var(--fs-h3); }
+}
+@media (max-width: 680px) {
+    .projects-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Spotlight that follows the pointer */
+@media (hover: hover) and (pointer: fine) {
+    .project-card::after,
+    .result-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(60, 214, 240, 0.10), transparent 45%);
+    }
+    .project-card:hover::after,
+    .result-card:hover::after { opacity: 1; }
+    .result-card { position: relative; }
+}
+.project-card:hover { transform: translateY(-4px); }
+
+/* Mono for small metadata */
+.tag, .exp-tag, .cert-tag, .pub-type, .project-badge { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.01em; }
+.pub-year, .exp-period { font-variant-numeric: tabular-nums; }
+
+/* ---------- Scroll reveals ---------- */
+.js-motion .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: calc(var(--i, 0) * 70ms);
+}
+.js-motion .reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .js-motion .reveal, .js-motion .hero-title .word { opacity: 1; transform: none; animation: none; transition: none; }
+    .hero-canvas { transition: none; }
 }

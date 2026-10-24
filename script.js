@@ -88,13 +88,20 @@ filterButtons.forEach(button => {
         filterButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         
-        // Filter projects
-        projectCards.forEach((card, index) => {
+        // Filter projects. A category view shows every match; "All" goes back to the folded bento view.
+        const grid = document.getElementById('projects-grid');
+        const moreBtn = document.querySelector('.projects-more');
+        if (grid) grid.classList.toggle('is-filtered', filter !== 'all');
+        if (moreBtn) moreBtn.hidden = filter !== 'all';
+
+        let shown = 0;
+        projectCards.forEach(card => {
             const category = card.getAttribute('data-category');
-            
+
             if (filter === 'all' || category === filter) {
-                card.style.display = 'block';
-                card.style.animation = `fadeInUp 0.5s ease-out ${index * 0.1}s both`;
+                card.style.display = '';
+                card.style.animation = `fadeInUp 0.5s ease-out ${shown * 0.06}s both`;
+                shown++;
             } else {
                 card.style.display = 'none';
             }
@@ -565,13 +572,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements
-document.querySelectorAll('.project-card, .skill-card, .service-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(el);
-});
+// Card entrance animations are handled by the scroll-reveal module at the end of this file
 
 // ===== ANIMATED COUNTER FOR METRICS =====
 function animateCounter(element, target, duration = 2000) {
@@ -891,4 +892,211 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', update);
     window.addEventListener('load', update); // re-measure once web fonts have loaded
     update();
+})();
+
+
+// ===== REDESIGN: LIVING-MAP HERO, STATS, BENTO PROJECTS, SCROLL REVEALS =====
+(() => {
+    const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Animated contour field behind the hero (one WebGL canvas, paused off-screen) ----
+    const hero = document.getElementById('home');
+    const canvas = document.querySelector('.hero-canvas');
+    const pointer = { x: 0.72, y: 0.45, tx: 0.72, ty: 0.45 };
+
+    function startContours() {
+        if (!hero || !canvas) return;
+        const gl = canvas.getContext('webgl', { premultipliedAlpha: true, antialias: false, alpha: true });
+        if (!gl) return;
+        const hasDerivatives = !!gl.getExtension('OES_standard_derivatives');
+
+        const vert = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+        const frag = `
+            ${hasDerivatives ? '#extension GL_OES_standard_derivatives : enable' : ''}
+            precision mediump float;
+            uniform vec2 u_res;
+            uniform float u_time;
+            uniform vec2 u_mouse;
+            vec2 hash(vec2 p){ p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3))); return -1.0 + 2.0 * fract(sin(p) * 43758.5453); }
+            float noise(vec2 p){
+                vec2 i = floor(p); vec2 f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);
+                return mix(mix(dot(hash(i), f), dot(hash(i + vec2(1.0, 0.0)), f - vec2(1.0, 0.0)), u.x),
+                           mix(dot(hash(i + vec2(0.0, 1.0)), f - vec2(0.0, 1.0)), dot(hash(i + vec2(1.0, 1.0)), f - vec2(1.0, 1.0)), u.x), u.y);
+            }
+            float fbm(vec2 p){ float v = 0.0; float a = 0.5; for (int i = 0; i < 4; i++) { v += a * noise(p); p = p * 2.03 + 11.7; a *= 0.5; } return v; }
+            void main(){
+                vec2 uv = gl_FragCoord.xy / u_res.y;
+                vec2 m = vec2(u_mouse.x * u_res.x / u_res.y, (1.0 - u_mouse.y));
+                float t = u_time * 0.035;
+                float h = fbm(uv * 1.7 + vec2(t, t * 0.6)) * 0.9 + 0.5;
+                vec2 d = uv - m;
+                h += 0.22 * exp(-dot(d, d) * 9.0);
+                float v = h * 16.0;
+                float f = fract(v);
+                float dist = min(f, 1.0 - f);
+                float w = ${hasDerivatives ? 'fwidth(v) * 1.1' : '0.06'};
+                float line = 1.0 - smoothstep(0.0, w, dist);
+                float major = step(mod(floor(v + 0.5), 5.0), 0.5);
+                vec3 cyan = vec3(0.235, 0.839, 0.941);
+                vec3 amber = vec3(0.961, 0.722, 0.298);
+                vec3 col = mix(cyan, amber, smoothstep(0.78, 1.02, h));
+                float a = line * (0.16 + major * 0.26);
+                gl_FragColor = vec4(col * a, a);
+            }`;
+
+        function compile(type, src) {
+            const sh = gl.createShader(type);
+            gl.shaderSource(sh, src);
+            gl.compileShader(sh);
+            return gl.getShaderParameter(sh, gl.COMPILE_STATUS) ? sh : null;
+        }
+        const vs = compile(gl.VERTEX_SHADER, vert);
+        const fs = compile(gl.FRAGMENT_SHADER, frag);
+        if (!vs || !fs) return;
+        const prog = gl.createProgram();
+        gl.attachShader(prog, vs);
+        gl.attachShader(prog, fs);
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+        gl.useProgram(prog);
+
+        const buf = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+        const loc = gl.getAttribLocation(prog, 'p');
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+        const uRes = gl.getUniformLocation(prog, 'u_res');
+        const uTime = gl.getUniformLocation(prog, 'u_time');
+        const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+        function resize() {
+            const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+            const w = Math.round(canvas.clientWidth * dpr);
+            const h = Math.round(canvas.clientHeight * dpr);
+            if (canvas.width !== w || canvas.height !== h) {
+                canvas.width = w;
+                canvas.height = h;
+                gl.viewport(0, 0, w, h);
+            }
+        }
+
+        const t0 = performance.now() - 20000;
+        let running = false;
+        let last = 0;
+        function draw(now) {
+            resize();
+            pointer.x += (pointer.tx - pointer.x) * 0.06;
+            pointer.y += (pointer.ty - pointer.y) * 0.06;
+            gl.uniform2f(uRes, canvas.width, canvas.height);
+            gl.uniform1f(uTime, (now - t0) / 1000);
+            gl.uniform2f(uMouse, pointer.x, pointer.y);
+            gl.clearColor(0, 0, 0, 0);
+            gl.clear(gl.COLOR_BUFFER_BIT);
+            gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        }
+        function loop(now) {
+            if (!running) return;
+            if (now - last > 33) { draw(now); last = now; } // ~30 fps is plenty for slow drift
+            requestAnimationFrame(loop);
+        }
+        function setRunning(on) {
+            if (reduceMotion) return;
+            if (on && !running) { running = true; requestAnimationFrame(loop); }
+            if (!on) running = false;
+        }
+
+        draw(performance.now());
+        canvas.classList.add('is-ready');
+        if (reduceMotion) {
+            window.addEventListener('resize', () => draw(performance.now()));
+            return;
+        }
+        let visible = true;
+        new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; setRunning(visible && !document.hidden); }).observe(hero);
+        document.addEventListener('visibilitychange', () => setRunning(visible && !document.hidden));
+        setRunning(true);
+    }
+
+    // ---- Coordinate readout that follows the pointer across a box around Adelaide ----
+    const latEl = document.querySelector('[data-coord="lat"]');
+    const lonEl = document.querySelector('[data-coord="lon"]');
+    const box = { north: -34.78, south: -35.06, west: 138.42, east: 138.80 };
+    function showCoords(fx, fy) {
+        if (!latEl || !lonEl) return;
+        const lat = box.north + (box.south - box.north) * fy;
+        const lon = box.west + (box.east - box.west) * fx;
+        latEl.textContent = `${Math.abs(lat).toFixed(3)}° S`;
+        lonEl.textContent = `${lon.toFixed(3)}° E`;
+    }
+    if (hero && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+        hero.addEventListener('pointermove', e => {
+            const r = hero.getBoundingClientRect();
+            const fx = Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1);
+            const fy = Math.min(Math.max((e.clientY - r.top) / r.height, 0), 1);
+            pointer.tx = fx;
+            pointer.ty = fy;
+            showCoords(fx, fy);
+        });
+        hero.addEventListener('pointerleave', () => {
+            pointer.tx = 0.72;
+            pointer.ty = 0.45;
+            latEl.textContent = '34.928° S';
+            lonEl.textContent = '138.600° E';
+        });
+    }
+
+    // Start the shader after first paint so the headline renders first
+    if ('requestIdleCallback' in window) requestIdleCallback(startContours, { timeout: 800 });
+    else setTimeout(startContours, 200);
+
+    // ---- Bento projects: fold the extras behind a button ----
+    const grid = document.getElementById('projects-grid');
+    const moreBtn = document.querySelector('.projects-more');
+    if (grid && moreBtn) {
+        const extras = grid.querySelectorAll('.project-card.is-extra').length;
+        const label = moreBtn.querySelector('.projects-more-label');
+        const setLabel = open => { label.textContent = open ? 'Show fewer projects' : `Show ${extras} more projects`; };
+        setLabel(false);
+        moreBtn.addEventListener('click', () => {
+            const open = grid.classList.toggle('is-expanded');
+            moreBtn.setAttribute('aria-expanded', String(open));
+            setLabel(open);
+            if (!open) document.getElementById('projects').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+        });
+    }
+
+    // ---- Spotlight: cards light up under the pointer ----
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        document.querySelectorAll('.project-card, .result-card').forEach(card => {
+            card.addEventListener('pointermove', e => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+                card.style.setProperty('--my', `${e.clientY - r.top}px`);
+            });
+        });
+    }
+
+    // ---- Scroll reveals (skipped entirely for reduced motion) ----
+    if (!reduceMotion && 'IntersectionObserver' in window && document.documentElement.classList.contains('js-motion')) {
+        const targets = document.querySelectorAll(
+            'section:not(#home) .section-header, .about-grid > *, .project-card, .projects-packages, ' +
+            '.pub-group-title, .pub-item, .research-profiles, .experience-card, .skills .skill-card, .contact-content > *'
+        );
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-in');
+                revealObserver.unobserve(entry.target);
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        const targetSet = new Set(targets);
+        targets.forEach(el => {
+            // Stagger siblings that enter together, capped so long lists don't lag
+            const siblings = Array.from(el.parentElement.children).filter(c => targetSet.has(c));
+            el.style.setProperty('--i', Math.min(siblings.indexOf(el), 5));
+            el.classList.add('reveal');
+            revealObserver.observe(el);
+        });
+    }
 })();
