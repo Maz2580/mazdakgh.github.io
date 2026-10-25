@@ -38,7 +38,9 @@
         }
     </script>
     <link rel="stylesheet" href="styles.css?v=20261004-10">
-    <link rel="stylesheet" href="system.css?v=20261024-5">
+    <link rel="stylesheet" href="system.css?v=20261025-1">
+    <link rel="stylesheet" href="projects.css?v=20261025-4">
+    <link rel="stylesheet" href="sections.css?v=20261025-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,650&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -138,25 +140,32 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">About me</h2>
-                <p class="section-subtitle">Engineer by training, GIS developer by choice.</p>
+                <p class="section-subtitle">Engineer by training, geospatial developer by choice.</p>
             </div>
 
             <div class="about-grid">
                 <div class="about-story">
                     <p>
-                        I started in civil engineering and construction site management, then completed a master's
-                        in petroleum engineering before moving into spatial engineering at the University of Melbourne.
+                        I came to GIS through engineering — civil, then petroleum — and a Master of Spatial Engineering
+                        from the University of Melbourne. That background shapes how I work: start from how the job is
+                        really done on the ground, then design the system around it.
                     </p>
                     <p>
-                        Since then I've worked across government GIS — flood and fire recovery at Parks Victoria,
-                        running the whole GIS function at Mansfield Shire, cadastral and asset automation at
-                        Greater Shepparton — and now the works-management platform at the City of Tea Tree Gully.
+                        Most of my work sits where field operations meet back-office systems. I design and build
+                        works-management and field data collection solutions on the Esri Enterprise platform — ArcGIS
+                        Enterprise, Experience Builder, Field Maps, Survey123 and Dashboards — and connect them to asset,
+                        records and finance systems through APIs, FME, Python and SQL.
                     </p>
                     <p>
-                        Alongside that I build geospatial platforms at CSDILA, University of Melbourne. The thread is
-                        the same everywhere: find the slow or error-prone step, automate what can be made reliable,
-                        and keep people in charge of the judgement calls.
+                        Alongside that I build AI-assisted geospatial platforms — digital twins, data-scoping tools and
+                        spatial reasoning for language models — that turn raw spatial data into decisions. The thread is
+                        the same everywhere:
                     </p>
+                    <ol class="about-principles">
+                        <li><span class="n">01</span>Find the slow or error-prone step.</li>
+                        <li><span class="n">02</span>Automate what can be made reliable.</li>
+                        <li><span class="n">03</span>Keep people in charge of the judgement calls.</li>
+                    </ol>
                 </div>
 
                 <aside class="about-panel" aria-label="At a glance">
@@ -186,6 +195,21 @@
                         <a href="#contact" class="text-link">Get in touch</a>
                     </div>
                 </aside>
+            </div>
+
+            <div class="career-route">
+                <p class="route-label">Route so far</p>
+                <ol class="route">
+                    <li><span class="route-year">Before</span><span class="route-place">Civil &amp; petroleum engineering</span><span class="route-role">Site management · MSc Petroleum</span></li>
+                    <li><span class="route-year">2021</span><span class="route-place">Avale Enterprises</span><span class="route-role">GIS Analyst</span></li>
+                    <li><span class="route-year">2022</span><span class="route-place">HUMAYA Automation</span><span class="route-role">Spatial Data Analyst</span></li>
+                    <li><span class="route-year">2022</span><span class="route-place">Parks Victoria</span><span class="route-role">GIS Analyst · flood &amp; fire recovery</span></li>
+                    <li><span class="route-year">2023</span><span class="route-place">CSDILA, University of Melbourne</span><span class="route-role">Research Assistant → Data Engineer</span></li>
+                    <li><span class="route-year">2024</span><span class="route-place">Curtin University</span><span class="route-role">Research Assistant (GIS Analyst)</span></li>
+                    <li><span class="route-year">2024</span><span class="route-place">Mansfield Shire Council</span><span class="route-role">GIS Officer</span></li>
+                    <li><span class="route-year">2025</span><span class="route-place">Greater Shepparton</span><span class="route-role">GIS &amp; Assets Officer</span></li>
+                    <li class="is-now"><span class="route-year">2026 · now</span><span class="route-place">City of Tea Tree Gully</span><span class="route-role">Systems Analyst / Developer (GIS)</span></li>
+                </ol>
             </div>
         </div>
     </section>
@@ -397,398 +421,193 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Projects Section: scroll-driven 3D flight over the flagships, then a living visual per project -->
+    <section id="projects" class="projects projects--v2">
+        <div class="flight" id="flight" aria-label="Flagship projects">
+            <div class="flight-sticky">
+                <canvas class="flight-canvas" aria-hidden="true"></canvas>
+                <div class="flight-vignette" aria-hidden="true"></div>
+
+            <div class="flight-head">
+                <p class="eyebrow">Projects</p>
+                <h2 class="flight-title">Four platforms, one map</h2>
+            </div>
+
+            <div class="flight-panels">
+                <article class="flight-panel is-active" data-stop="0">
+                    <p class="panel-kicker"><span class="dot"></span>01 · University of Melbourne</p>
+                    <h3>UMAMI</h3>
+                    <p class="panel-sub">Urban digital twin &amp; GeoAI platform</p>
+                    <p class="panel-body">Ten studios on a 3D globe: a multi-agent cadastre assistant over 4.29 million Victorian
+                        parcels, heat and flood surrogates of physics models, live hazard intelligence, AI change detection
+                        and planning-compliance auditing.</p>
+                    <ul class="panel-tags"><li>CesiumJS</li><li>Multi-agent LLM</li><li>PyTorch → ONNX</li><li>PostGIS</li></ul>
+                    <a class="panel-link" href="https://geollm.idigitaltwin.org/UMAMI/" target="_blank" rel="noopener">Visit platform <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    <button type="button" class="panel-more" data-modal="umami">Case study</button>
+                </article>
+                <article class="flight-panel" data-stop="1">
+                    <p class="panel-kicker"><span class="dot"></span>02 · terrascout.app</p>
+                    <h3>Terrascout</h3>
+                    <p class="panel-sub">Geospatial data scoping</p>
+                    <p class="panel-body">Describe a project in plain English and get ranked satellite, aerial, LiDAR and radar
+                        sources from 24 providers, with feasibility, cloud-cover and cost checks. Deterministic first; the
+                        LLM steps in only when rules are unsure.</p>
+                    <ul class="panel-tags"><li>FastAPI</li><li>PostGIS + pgvector</li><li>MCP server</li><li>PyPI CLI</li></ul>
+                    <a class="panel-link" href="https://terrascout.app" target="_blank" rel="noopener">Visit terrascout.app <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    <button type="button" class="panel-more" data-modal="terrascout">Case study</button>
+                </article>
+                <article class="flight-panel" data-stop="2">
+                    <p class="panel-kicker"><span class="dot"></span>03 · Victorian planning</p>
+                    <h3>UrbanMind</h3>
+                    <p class="panel-sub">Urban scenario planning</p>
+                    <p class="panel-body">Draw or import a development, check it against Clause 55, car parking and VicSmart
+                        routes, and test it across 25 analysis models, eleven rebuilt on 79 cited Victorian and Australian
+                        sources.</p>
+                    <ul class="panel-tags"><li>React</li><li>deck.gl</li><li>IFC / BIM</li><li>MCP</li></ul>
+                    <a class="panel-link" href="https://urbanmind.terrascout.app" target="_blank" rel="noopener">Visit UrbanMind <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    <button type="button" class="panel-more" data-modal="urbanmind">Case study</button>
+                </article>
+                <article class="flight-panel" data-stop="3">
+                    <p class="panel-kicker"><span class="dot"></span>04 · Open source</p>
+                    <h3>GeoSpark</h3>
+                    <p class="panel-sub">Spatial reasoning for language models</p>
+                    <p class="panel-body">A typed protocol of 38 spatial operations and a hosted 18-tool MCP server route
+                        questions to real geodesic, topology, routing and terrain engines, and every answer carries its
+                        source and licence.</p>
+                    <ul class="panel-tags"><li>Python</li><li>MCP</li><li>Shapely / pyproj</li><li>Valhalla</li></ul>
+                    <a class="panel-link" href="https://github.com/Maz2580/geospark" target="_blank" rel="noopener">View on GitHub <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    <button type="button" class="panel-more" data-modal="geospark">Case study</button>
+                </article>
+            </div>
+
+            <ol class="flight-progress" aria-hidden="true">
+                <li class="is-active"><span>UMAMI</span></li>
+                <li><span>Terrascout</span></li>
+                <li><span>UrbanMind</span></li>
+                <li><span>GeoSpark</span></li>
+            </ol>
+            <p class="flight-hint" aria-hidden="true"><i class="fas fa-mouse" aria-hidden="true"></i> Scroll to fly</p>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Projects</h2>
-                <p class="section-subtitle">
-                    From council systems to open-source tools — what each one solves and how it's built
-                </p>
+            <div class="stacks-head">
+                <p class="eyebrow">More projects</p>
+                <h3 class="stacks-title">Built for the problem in front of it</h3>
+                <p class="stacks-lead">Each card shows how the project works. Hover, swipe or scrub to explore.</p>
             </div>
+            <div class="viz-grid">
+                <article class="viz-card is-wide" data-viz="change">
+                    <div class="viz">
+                        <svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated illustration of AI Building Change Detection"></svg>
+                        <span class="viz-hint" aria-hidden="true"><i class="fas fa-hand-pointer"></i> Move across the image to swipe between dates</span>
+                    </div>
+                    <div class="viz-content">
+                        <p class="kicker">Remote sensing · Research prototype</p>
+                        <h3>AI Building Change Detection</h3>
+                        <p>Compares two dates of aerial imagery to flag new buildings, extensions and demolitions for human review, using image registration, zero-shot vision models, footprint checks and polygon regularisation.</p>
+                        <div class="links">
+                            <a href="https://github.com/Maz2580/AI-Geospatial-Change-Detection" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <button type="button" class="case-link" data-modal="changeDetection">Case study <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </article>
 
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="ml">GeoAI & ML</button>
-                <button class="filter-btn" data-filter="web-app">Platforms & Apps</button>
-                <button class="filter-btn" data-filter="automation">Automation</button>
-                <button class="filter-btn" data-filter="enterprise">Enterprise GIS</button>
-            </div>
+                <article class="viz-card" data-viz="m1">
+                    <div class="viz">
+                        <svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated illustration of Vicmap M1 Validation Pipeline"></svg>
+                        <span class="viz-hint" aria-hidden="true"><i class="fas fa-hand-pointer"></i> Hover to speed up the flow</span>
+                    </div>
+                    <div class="viz-content">
+                        <p class="kicker">Council automation · Greater Shepparton</p>
+                        <h3>Vicmap M1 Validation Pipeline</h3>
+                        <p>Automates the fortnightly property-update cycle. Rules settle the clear cases, a language model reviews only the ambiguous rows, and a person makes the final call.</p>
+                        <div class="links">
+                            <a href="https://github.com/Maz2580/vicmap-m1-ai-pipeline" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <button type="button" class="case-link" data-modal="m1Pipeline">Case study <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </article>
 
-            <div class="projects-grid" id="projects-grid">
-                <!-- FEATURED: UMAMI Project -->
-                <div class="project-card featured-project project-card--lead" data-category="ml">
-                    <div class="project-badge">Featured Project</div>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-earth-oceania"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('umami')">View Details</button>
+                <article class="viz-card" data-viz="disaster">
+                    <div class="viz">
+                        <svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated illustration of Disaster Recovery Field Data Collection"></svg>
+                        <span class="viz-hint" aria-hidden="true"><i class="fas fa-hand-pointer"></i> Hover to bring the crews back into signal</span>
+                    </div>
+                    <div class="viz-content">
+                        <p class="kicker">Enterprise GIS · Parks Victoria</p>
+                        <h3>Disaster Recovery Field Data Collection</h3>
+                        <p>Offline-first Field Maps and Survey123 forms for damage assessment across flood- and fire-affected parks, with one shared schema and dashboards for recovery leadership.</p>
+                        <div class="links">
+                            <button type="button" class="case-link" data-modal="disasterRecovery">Case study <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Digital Twin</span>
-                            <span class="tag">CesiumJS 3D</span>
-                            <span class="tag">Multi-agent LLM</span>
-                            <span class="tag">PyTorch → ONNX</span>
-                            <span class="tag">PostGIS</span>
-                            <span class="tag">MCP</span>
-                        </div>
-                        <h3 class="project-title">UMAMI - Urban Digital Twin &amp; GeoAI Platform</h3>
-                        <p class="project-description">
-                            A University of Melbourne digital twin I designed and built. Ten studios on a 3D globe:
-                            a multi-agent cadastre assistant over 4.29 million Victorian parcels, heat and flood
-                            surrogates of physics models, live hazard intelligence from 10+ feeds, AI change detection,
-                            planning-compliance auditing, workflows and IoT.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> Digital Twin Platform</span>
-                            <span class="project-impact">
-                                <a href="https://geollm.idigitaltwin.org/UMAMI/" target="_blank" rel="noopener" style="color: inherit;"><i class="fas fa-globe"></i> Live Platform</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Terrascout -->
-                <div class="project-card featured-project" data-category="ml">
-                    <div class="project-badge">Live Platform</div>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('terrascout')">View Details</button>
+                <article class="viz-card is-wide" data-viz="venice">
+                    <div class="viz">
+                        <svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated illustration of Song of the Cricket - Venice Lagoon"></svg>
+                        <span class="viz-hint" aria-hidden="true"><i class="fas fa-hand-pointer"></i> Move across the map to scrub through the years (illustrative)</span>
+                    </div>
+                    <div class="viz-content">
+                        <p class="kicker">Remote sensing · Venice Biennale</p>
+                        <h3>Song of the Cricket - Venice Lagoon</h3>
+                        <p>Multi-decade land-cover and vegetation change of the Venice Lagoon in Google Earth Engine, from Landsat 1985–2020 imagery, spectral indices and supervised classification, supporting a habitat restoration project.</p>
+                        <div class="links">
+                            <a href="https://storymaps.arcgis.com/stories/bb06dd4eb5164d7eb9fc0dc7ddf1e16c" target="_blank" rel="noopener">StoryMap <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <a href="https://github.com/Maz2580/Venice_Data_Analysis" target="_blank" rel="noopener">Notebook <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <button type="button" class="case-link" data-modal="veniceBiennale">Case study <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">React 19</span>
-                            <span class="tag">PostGIS + pgvector</span>
-                            <span class="tag">MCP Server</span>
-                            <span class="tag">PyPI CLI</span>
-                            <span class="tag">STAC</span>
-                        </div>
-                        <h3 class="project-title">Terrascout - Geospatial Data Scoping Platform</h3>
-                        <p class="project-description">
-                            Describe a project in plain English and get ranked satellite, aerial, LiDAR and radar sources
-                            from 24 providers, with feasibility, cloud-cover and cost checks. Deterministic first — the LLM
-                            steps in only when rules are unsure — across a web app, a 46-command CLI, an MCP server and an API.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> GeoAI Platform</span>
-                            <span class="project-impact">
-                                <a href="https://terrascout.app" target="_blank" rel="noopener" style="color: inherit;"><i class="fas fa-globe"></i> terrascout.app</a>
-                                · <a href="https://pypi.org/project/terrascout/" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-python"></i> CLI</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                </article>
 
-                <!-- UrbanMind -->
-                <div class="project-card featured-project" data-category="web-app">
-                    <div class="project-badge">Live Platform</div>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-city"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('urbanmind')">View Details</button>
+                <article class="viz-card" data-viz="records">
+                    <div class="viz">
+                        <svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated illustration of Records-to-GIS Capital Works Link"></svg>
+                        <span class="viz-hint" aria-hidden="true"><i class="fas fa-hand-pointer"></i> Hover a record to follow its link</span>
+                    </div>
+                    <div class="viz-content">
+                        <p class="kicker">System integration · Council</p>
+                        <h3>Records-to-GIS Capital Works Link</h3>
+                        <p>Connects Content Manager records to FME and ArcSDE: pulls record numbers from project exports, downloads documents in bulk and matches them to capital works layers.</p>
+                        <div class="links">
+                            <a href="https://github.com/Maz2580/CM_connection" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <button type="button" class="case-link" data-modal="cmConnection">Case study <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">React</span>
-                            <span class="tag">PostGIS</span>
-                            <span class="tag">deck.gl</span>
-                            <span class="tag">IFC / BIM</span>
-                            <span class="tag">MCP</span>
-                        </div>
-                        <h3 class="project-title">UrbanMind - Urban Scenario Planning Platform</h3>
-                        <p class="project-description">
-                            Draw or import a development, check it against Victorian planning rules (Clause 55, car parking,
-                            VicSmart routes) and test it across 25 analysis models — eleven rebuilt on 79 cited Victorian and
-                            Australian sources. Imports IFC designs, connects to SketchUp and Blender, and offers an AI agent and MCP server.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> Urban Planning</span>
-                            <span class="project-impact">
-                                <a href="https://urbanmind.terrascout.app" target="_blank" rel="noopener" style="color: inherit;"><i class="fas fa-globe"></i> urbanmind.terrascout.app</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                </article>
 
-                <!-- GeoSpark -->
-                <div class="project-card featured-project" data-category="ml">
-                    <div class="project-badge">Open Source</div>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('geospark')">View Details</button>
+                <article class="viz-card" data-viz="ksa">
+                    <div class="viz">
+                        <svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated illustration of KSA-GRF17 WebODM Plugin"></svg>
+                        <span class="viz-hint" aria-hidden="true"><i class="fas fa-hand-pointer"></i> Watch the zone follow the drone</span>
+                    </div>
+                    <div class="viz-content">
+                        <p class="kicker">Drone · Geodesy</p>
+                        <h3>KSA-GRF17 WebODM Plugin</h3>
+                        <p>Reads drone-image GPS, detects the right Saudi UTM zone and injects the KSA-GRF17 coordinate system automatically, with no manual geodetic setup and no network calls.</p>
+                        <div class="links">
+                            <a href="https://github.com/Maz2580/ksa-grf17-webodm-plugin" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <button type="button" class="case-link" data-modal="ksaGrf17">Case study <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">MCP Server</span>
-                            <span class="tag">Shapely / pyproj</span>
-                            <span class="tag">AI Agents</span>
-                            <span class="tag">Docker</span>
-                        </div>
-                        <h3 class="project-title">GeoSpark - Spatial Reasoning for Language Models</h3>
-                        <p class="project-description">
-                            Language models guess at geometry; GeoSpark makes them compute it. A typed protocol of 38 spatial
-                            operations and a hosted 18-tool MCP server, listed in the official MCP Registry, route questions to
-                            real geodesic, topology, routing and terrain engines — and every answer carries its source and licence.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> GeoAI / Open Source</span>
-                            <span class="project-impact">
-                                <a href="https://github.com/Maz2580/geospark" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-github"></i> GitHub</a>
-                                · <a href="https://pypi.org/project/geospark-ai/" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-python"></i> PyPI</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                </article>
 
-                <!-- Vicmap M1 Pipeline -->
-                <div class="project-card" data-category="automation">
-                    <div class="project-badge">Open Source</div>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-list-check"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('m1Pipeline')">View Details</button>
+                <article class="viz-card" data-viz="iot">
+                    <div class="viz">
+                        <svg preserveAspectRatio="xMidYMid meet" role="img" aria-label="Animated illustration of IoT Environmental Monitoring"></svg>
+                        <span class="viz-hint" aria-hidden="true"><i class="fas fa-hand-pointer"></i> Live readings (demo data)</span>
+                    </div>
+                    <div class="viz-content">
+                        <p class="kicker">IoT · Master&#x27;s capstone</p>
+                        <h3>IoT Environmental Monitoring</h3>
+                        <p>Indoor CO₂, temperature and humidity sensors streamed over MQTT into live dashboards, later rebuilt as a FastAPI, WebSocket and React sensor module.</p>
+                        <div class="links">
+                            <a href="https://drive.google.com/file/d/189wQVBo0v57z9PZNVuZiXQuXRUWfj0RG/view?usp=sharing" target="_blank" rel="noopener">Demo <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <button type="button" class="case-link" data-modal="digitalTwinIoT">Case study <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">FME</span>
-                            <span class="tag">ArcSDE</span>
-                            <span class="tag">SQL Server</span>
-                            <span class="tag">LLM</span>
-                        </div>
-                        <h3 class="project-title">Vicmap M1 Validation Pipeline</h3>
-                        <p class="project-description">
-                            Automates a council's fortnightly property-update cycle end-to-end. Deterministic rules settle the
-                            clear cases, a language model reviews only the ambiguous rows, database access is read-only by
-                            design, and a person makes the final call.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> Council Automation</span>
-                            <span class="project-impact">
-                                <a href="https://github.com/Maz2580/vicmap-m1-ai-pipeline" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-github"></i> GitHub</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Disaster Recovery -->
-                <div class="project-card" data-category="enterprise">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-house-flood-water"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('disasterRecovery')">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">ArcGIS Field Maps</span>
-                            <span class="tag">Survey123</span>
-                            <span class="tag">ArcGIS Online</span>
-                            <span class="tag">Dashboards</span>
-                        </div>
-                        <h3 class="project-title">Disaster Recovery Field Data Collection</h3>
-                        <p class="project-description">
-                            Offline-first Field Maps and Survey123 forms for damage assessment across flood- and fire-affected
-                            parks, with one shared schema for every crew and dashboards for recovery leadership.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> Enterprise GIS</span>
-                            <span class="project-impact"><i class="fas fa-tree"></i> Parks Victoria</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Building Change Detection -->
-                <div class="project-card" data-category="ml">
-                    <div class="project-badge">Research Prototype</div>
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-object-group"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('changeDetection')">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">DINOv2 / v3</span>
-                            <span class="tag">Rasterio</span>
-                            <span class="tag">GeoPandas</span>
-                            <span class="tag">Vision LLM</span>
-                        </div>
-                        <h3 class="project-title">AI Building Change Detection</h3>
-                        <p class="project-description">
-                            Compares two dates of high-resolution aerial imagery to flag new buildings, extensions and
-                            demolitions for human review, combining image registration, zero-shot vision models,
-                            footprint-led corroboration and polygon regularisation.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> Remote Sensing</span>
-                            <span class="project-impact">
-                                <a href="https://github.com/Maz2580/AI-Geospatial-Change-Detection" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-github"></i> GitHub</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Manager to GIS -->
-                <div class="project-card is-extra" data-category="enterprise">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-folder-tree"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('cmConnection')">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Content Manager SDK</span>
-                            <span class="tag">FME</span>
-                            <span class="tag">ArcSDE</span>
-                            <span class="tag">Python</span>
-                        </div>
-                        <h3 class="project-title">Records-to-GIS Capital Works Link</h3>
-                        <p class="project-description">
-                            Connects a council's Content Manager records system to FME and ArcSDE: pulls record numbers out of
-                            project exports, downloads documents in bulk, and matches them to capital works layers.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> System Integration</span>
-                            <span class="project-impact">
-                                <a href="https://github.com/Maz2580/CM_connection" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-github"></i> GitHub</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Venice -->
-                <div class="project-card is-extra" data-category="ml">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-water"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('veniceBiennale')">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Google Earth Engine</span>
-                            <span class="tag">Landsat</span>
-                            <span class="tag">Spectral Indices</span>
-                            <span class="tag">Random Forest</span>
-                        </div>
-                        <h3 class="project-title">Song of the Cricket - Venice Lagoon Habitat Analysis</h3>
-                        <p class="project-description">
-                            Multi-decade land-cover and vegetation change analysis of the Venice Lagoon in Google Earth Engine,
-                            using Landsat 5/7/8 imagery (1985–2020), spectral indices and supervised classification to support
-                            a habitat restoration project.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> Remote Sensing</span>
-                            <span class="project-impact">
-                                <a href="https://storymaps.arcgis.com/stories/bb06dd4eb5164d7eb9fc0dc7ddf1e16c" target="_blank" rel="noopener" style="color: inherit;"><i class="fas fa-book-open"></i> StoryMap</a>
-                                · <a href="https://github.com/Maz2580/Venice_Data_Analysis" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-github"></i> Notebook</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KSA-GRF17 WebODM Plugin -->
-                <div class="project-card is-extra" data-category="automation">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-helicopter"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('ksaGrf17')">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">WebODM</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">PROJ</span>
-                            <span class="tag">EXIF</span>
-                            <span class="tag">Geodesy</span>
-                        </div>
-                        <h3 class="project-title">KSA-GRF17 WebODM Plugin</h3>
-                        <p class="project-description">
-                            Reads drone-image GPS, detects the correct Saudi UTM zone and injects the KSA-GRF17 coordinate
-                            system automatically, with no manual geodetic setup and no external network calls.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> Drone / Geodesy</span>
-                            <span class="project-impact">
-                                <a href="https://github.com/Maz2580/ksa-grf17-webodm-plugin" target="_blank" rel="noopener" style="color: inherit;"><i class="fab fa-github"></i> GitHub</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- IoT Environmental Monitoring -->
-                <div class="project-card is-extra" data-category="web-app">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <button class="btn btn-small" onclick="openProjectModal('digitalTwinIoT')">View Details</button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">IoT</span>
-                            <span class="tag">MQTT</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">WebSocket</span>
-                            <span class="tag">React</span>
-                        </div>
-                        <h3 class="project-title">IoT Environmental Monitoring</h3>
-                        <p class="project-description">
-                            Master's capstone: indoor CO₂, temperature and humidity sensors streamed over MQTT into live
-                            dashboards — later rebuilt as a FastAPI, WebSocket and React sensor module.
-                        </p>
-                        <div class="project-meta">
-                            <span class="project-category"><i class="fas fa-tag"></i> IoT / Capstone</span>
-                            <span class="project-impact">
-                                <a href="https://drive.google.com/file/d/189wQVBo0v57z9PZNVuZiXQuXRUWfj0RG/view?usp=sharing" target="_blank" rel="noopener" style="color: inherit;"><i class="fas fa-play-circle"></i> Demo</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="projects-more-wrap">
-                <button type="button" class="btn btn-secondary projects-more" aria-expanded="false" aria-controls="projects-grid">
-                    <span class="projects-more-label">Show 4 more projects</span> <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                </button>
+                </article>
             </div>
 
             <div class="projects-packages">
@@ -868,128 +687,120 @@
                 </p>
             </div>
 
-            <div class="research-profiles">
-                <a href="https://scholar.google.com/citations?user=7Iti5iIAAAAJ&amp;hl=en" class="btn btn-secondary" target="_blank" rel="noopener">
-                    <i class="fas fa-graduation-cap"></i> Google Scholar
-                </a>
-                <a href="https://orcid.org/0000-0001-8084-5270" class="btn btn-secondary" target="_blank" rel="noopener">
-                    <i class="fab fa-orcid"></i> ORCID
-                </a>
-            </div>
+            <div class="research-layout">
+                <aside class="research-aside">
+                    <div class="research-profiles">
+                        <a class="profile-chip" href="https://scholar.google.com/citations?user=7Iti5iIAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                            <span><b>Google Scholar</b><small>Citations and full record</small></span>
+                        </a>
+                        <a class="profile-chip" href="https://orcid.org/0000-0001-8084-5270" target="_blank" rel="noopener">
+                            <i class="fab fa-orcid" aria-hidden="true"></i>
+                            <span><b>ORCID</b><small>0000-0001-8084-5270</small></span>
+                        </a>
+                    </div>
 
-            <h3 class="pub-group-title">Geospatial AI &amp; urban analytics</h3>
-            <ol class="pub-list">
-                <li class="pub-item">
-                    <span class="pub-year">2026</span>
-                    <div class="pub-body">
-                        <span class="pub-type">Journal article</span>
-                        <h4 class="pub-title">
-                            <a href="https://doi.org/10.1007/s41651-026-00260-9" target="_blank" rel="noopener">An Automated Framework for Natural Language-Based Spatial Query Using Large Language Models</a>
-                        </h4>
+                    <div class="pub-filter" role="group" aria-label="Filter publications by theme">
+                        <button type="button" class="is-active" data-theme="all">All</button>
+                        <button type="button" data-theme="geoai">Geospatial AI</button>
+                        <button type="button" data-theme="engineering">Engineering</button>
+                    </div>
+
+                    <ul class="pub-legend" aria-label="Publication types">
+                        <li><span class="pub-glyph pub-glyph--journal" aria-hidden="true"></span>Journal article</li>
+                        <li><span class="pub-glyph pub-glyph--chapter" aria-hidden="true"></span>Book chapter</li>
+                        <li><span class="pub-glyph pub-glyph--preprint" aria-hidden="true"></span>Preprint</li>
+                        <li><span class="pub-glyph pub-glyph--conference" aria-hidden="true"></span>Conference paper</li>
+                    </ul>
+                </aside>
+
+                <ol class="pub-timeline">
+                <li class="pub-entry" data-theme="geoai" data-year="2026">
+                    <span class="pub-yearmark" aria-hidden="true">2026</span>
+                    <article class="pub-card">
+                        <p class="pub-meta"><span class="pub-glyph pub-glyph--journal" aria-hidden="true"></span>Journal article · 2026</p>
+                        <h3 class="pub-heading"><a href="https://doi.org/10.1007/s41651-026-00260-9" target="_blank" rel="noopener">An Automated Framework for Natural Language-Based Spatial Query Using Large Language Models</a></h3>
                         <p class="pub-authors">E. Javaherian Pour, Y. Chen, A. Kesminas, A. Rajabifard, <strong>M. Ghasemi Tootkaboni</strong></p>
                         <p class="pub-venue"><em>Journal of Geovisualization and Spatial Analysis</em>, 10(1), 19</p>
-                        <p class="pub-summary">
-                            A framework that turns plain-language questions into validated spatial operations. A
-                            multi-agent language-model pipeline interprets the request, plans the analysis and runs it,
-                            with consistent accuracy across single-table, multi-table and 3D queries.
-                        </p>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1007/s41651-026-00260-9" target="_blank" rel="noopener"><i class="fas fa-link"></i> DOI 10.1007/s41651-026-00260-9</a>
+                        <p class="pub-summary">A framework that turns plain-language questions into validated spatial operations. A multi-agent language-model pipeline interprets the request, plans the analysis and runs it, with consistent accuracy across single-table, multi-table and 3D queries.</p>
+                        <div class="pub-actions">
+                            <a class="pub-doi" href="https://doi.org/10.1007/s41651-026-00260-9" target="_blank" rel="noopener"><span>DOI</span>10.1007/s41651-026-00260-9</a>
+                            <button type="button" class="pub-cite" data-cite="Javaherian Pour, E., Chen, Y., Kesminas, A., Rajabifard, A., &amp; Ghasemi Tootkaboni, M. (2026). An Automated Framework for Natural Language-Based Spatial Query Using Large Language Models. Journal of Geovisualization and Spatial Analysis, 10(1), 19. https://doi.org/10.1007/s41651-026-00260-9"><i class="far fa-copy" aria-hidden="true"></i> <span>Copy citation</span></button>
                         </div>
-                    </div>
+                    </article>
                 </li>
-                <li class="pub-item">
-                    <span class="pub-year">2026</span>
-                    <div class="pub-body">
-                        <span class="pub-type">Preprint</span>
-                        <h4 class="pub-title">
-                            <a href="https://doi.org/10.2139/ssrn.7615086" target="_blank" rel="noopener">Provenance Failures in Simulator-Trained Urban Microclimate Surrogates: A Seven-Generation Case Study</a>
-                        </h4>
+                <li class="pub-entry" data-theme="geoai" data-year="2026">
+                    <span class="pub-yearmark" aria-hidden="true">2026</span>
+                    <article class="pub-card">
+                        <p class="pub-meta"><span class="pub-glyph pub-glyph--preprint" aria-hidden="true"></span>Preprint · 2026</p>
+                        <h3 class="pub-heading"><a href="https://doi.org/10.2139/ssrn.7615086" target="_blank" rel="noopener">Provenance Failures in Simulator-Trained Urban Microclimate Surrogates: A Seven-Generation Case Study</a></h3>
                         <p class="pub-authors">Y. Chen, <strong>M. Ghasemi Tootkaboni</strong>, A. Kesminas, A. Rajabifard</p>
                         <p class="pub-venue"><em>SSRN</em> preprint</p>
-                        <p class="pub-summary">
-                            The development record of a U-Net that predicts mean radiant temperature on a 1 m grid over
-                            central Melbourne. It documents four data-provenance failures that every standard metric
-                            missed, and distils fifteen staged checks that catch them.
-                        </p>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.2139/ssrn.7615086" target="_blank" rel="noopener"><i class="fas fa-link"></i> DOI 10.2139/ssrn.7615086</a>
+                        <p class="pub-summary">The development record of a U-Net that predicts mean radiant temperature on a 1 m grid over central Melbourne. It documents four data-provenance failures that every standard metric missed, and distils fifteen staged checks that catch them.</p>
+                        <div class="pub-actions">
+                            <a class="pub-doi" href="https://doi.org/10.2139/ssrn.7615086" target="_blank" rel="noopener"><span>DOI</span>10.2139/ssrn.7615086</a>
+                            <button type="button" class="pub-cite" data-cite="Chen, Y., Ghasemi Tootkaboni, M., Kesminas, A., &amp; Rajabifard, A. (2026). Provenance Failures in Simulator-Trained Urban Microclimate Surrogates: A Seven-Generation Case Study. SSRN preprint. https://doi.org/10.2139/ssrn.7615086"><i class="far fa-copy" aria-hidden="true"></i> <span>Copy citation</span></button>
                         </div>
-                    </div>
+                    </article>
                 </li>
-                <li class="pub-item">
-                    <span class="pub-year">2026</span>
-                    <div class="pub-body">
-                        <span class="pub-type">Book chapter</span>
-                        <h4 class="pub-title">
-                            <a href="https://doi.org/10.1201/9781003638308-20" target="_blank" rel="noopener">Evolution of AI in Urban Design</a>
-                        </h4>
+                <li class="pub-entry" data-theme="geoai" data-year="2026">
+                    <span class="pub-yearmark" aria-hidden="true">2026</span>
+                    <article class="pub-card">
+                        <p class="pub-meta"><span class="pub-glyph pub-glyph--chapter" aria-hidden="true"></span>Book chapter · 2026</p>
+                        <h3 class="pub-heading"><a href="https://doi.org/10.1201/9781003638308-20" target="_blank" rel="noopener">Evolution of AI in Urban Design</a></h3>
                         <p class="pub-authors">Y. Chen, A. Rajabifard, <strong>M. Ghasemi Tootkaboni</strong>, V. Oberin</p>
                         <p class="pub-venue"><em>Land Intelligence and Geospatial Ecosystem</em>, CRC Press, pp. 162–169</p>
-                        <p class="pub-summary">
-                            A chapter tracing how artificial intelligence has developed as a tool for urban design.
-                        </p>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1201/9781003638308-20" target="_blank" rel="noopener"><i class="fas fa-link"></i> DOI 10.1201/9781003638308-20</a>
+                        <p class="pub-summary">A chapter tracing how artificial intelligence has developed as a tool for urban design.</p>
+                        <div class="pub-actions">
+                            <a class="pub-doi" href="https://doi.org/10.1201/9781003638308-20" target="_blank" rel="noopener"><span>DOI</span>10.1201/9781003638308-20</a>
+                            <button type="button" class="pub-cite" data-cite="Chen, Y., Rajabifard, A., Ghasemi Tootkaboni, M., &amp; Oberin, V. (2026). Evolution of AI in Urban Design. Land Intelligence and Geospatial Ecosystem, CRC Press, pp. 162–169. https://doi.org/10.1201/9781003638308-20"><i class="far fa-copy" aria-hidden="true"></i> <span>Copy citation</span></button>
                         </div>
-                    </div>
+                    </article>
                 </li>
-            </ol>
-
-            <h3 class="pub-group-title">Earlier research: civil, petroleum &amp; analytical engineering</h3>
-            <ol class="pub-list">
-                <li class="pub-item">
-                    <span class="pub-year">2024</span>
-                    <div class="pub-body">
-                        <span class="pub-type">Conference paper</span>
-                        <h4 class="pub-title">
-                            <a href="https://doi.org/10.1007/978-981-99-6026-2_13" target="_blank" rel="noopener">Evaluation of Slope Stability Due to Earthquake and Rainfall Occurrences</a>
-                        </h4>
+                <li class="pub-entry" data-theme="engineering" data-year="2024">
+                    <span class="pub-yearmark" aria-hidden="true">2024</span>
+                    <article class="pub-card">
+                        <p class="pub-meta"><span class="pub-glyph pub-glyph--conference" aria-hidden="true"></span>Conference paper · 2024</p>
+                        <h3 class="pub-heading"><a href="https://doi.org/10.1007/978-981-99-6026-2_13" target="_blank" rel="noopener">Evaluation of Slope Stability Due to Earthquake and Rainfall Occurrences</a></h3>
                         <p class="pub-authors">G. C. Sin, M. Azmi, <strong>M. Ghasemi Tootkaboni</strong></p>
                         <p class="pub-venue"><em>Proceedings of AWAM International Conference on Civil Engineering 2022</em>, Lecture Notes in Civil Engineering, Springer, pp. 161–180</p>
-                        <p class="pub-summary">
-                            Assesses how earthquakes and rainfall affect the stability of slopes.
-                        </p>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1007/978-981-99-6026-2_13" target="_blank" rel="noopener"><i class="fas fa-link"></i> DOI 10.1007/978-981-99-6026-2_13</a>
+                        <p class="pub-summary">Assesses how earthquakes and rainfall affect the stability of slopes.</p>
+                        <div class="pub-actions">
+                            <a class="pub-doi" href="https://doi.org/10.1007/978-981-99-6026-2_13" target="_blank" rel="noopener"><span>DOI</span>10.1007/978-981-99-6026-2_13</a>
+                            <button type="button" class="pub-cite" data-cite="Sin, G. C., Azmi, M., &amp; Ghasemi Tootkaboni, M. (2024). Evaluation of Slope Stability Due to Earthquake and Rainfall Occurrences. Proceedings of AWAM International Conference on Civil Engineering 2022, Lecture Notes in Civil Engineering, Springer, pp. 161–180. https://doi.org/10.1007/978-981-99-6026-2_13"><i class="far fa-copy" aria-hidden="true"></i> <span>Copy citation</span></button>
                         </div>
-                    </div>
+                    </article>
                 </li>
-                <li class="pub-item">
-                    <span class="pub-year">2021</span>
-                    <div class="pub-body">
-                        <span class="pub-type">Journal article</span>
-                        <h4 class="pub-title">
-                            <a href="https://doi.org/10.1007/s12517-021-07141-z" target="_blank" rel="noopener">3D Simulation of a Giant Oilfield in Calcareous Formations and Scrutiny Study of the Interaction of the Calculated Parameters (Asmari Formation in Maroon Oilfield, Iran)</a>
-                        </h4>
+                <li class="pub-entry" data-theme="engineering" data-year="2021">
+                    <span class="pub-yearmark" aria-hidden="true">2021</span>
+                    <article class="pub-card">
+                        <p class="pub-meta"><span class="pub-glyph pub-glyph--journal" aria-hidden="true"></span>Journal article · 2021</p>
+                        <h3 class="pub-heading"><a href="https://doi.org/10.1007/s12517-021-07141-z" target="_blank" rel="noopener">3D Simulation of a Giant Oilfield in Calcareous Formations and Scrutiny Study of the Interaction of the Calculated Parameters (Asmari Formation in Maroon Oilfield, Iran)</a></h3>
                         <p class="pub-authors"><strong>M. Ghasemi Tootkaboni</strong>, N. Ebadati, A. Naderi</p>
                         <p class="pub-venue"><em>Arabian Journal of Geosciences</em>, 14(9), 799</p>
-                        <p class="pub-summary">
-                            A 3D model of the Asmari carbonate reservoir in the Maroon oilfield, studying how the
-                            calculated reservoir parameters interact.
-                        </p>
-                        <div class="pub-links">
-                            <a href="https://doi.org/10.1007/s12517-021-07141-z" target="_blank" rel="noopener"><i class="fas fa-link"></i> DOI 10.1007/s12517-021-07141-z</a>
+                        <p class="pub-summary">A 3D model of the Asmari carbonate reservoir in the Maroon oilfield, studying how the calculated reservoir parameters interact.</p>
+                        <div class="pub-actions">
+                            <a class="pub-doi" href="https://doi.org/10.1007/s12517-021-07141-z" target="_blank" rel="noopener"><span>DOI</span>10.1007/s12517-021-07141-z</a>
+                            <button type="button" class="pub-cite" data-cite="Ghasemi Tootkaboni, M., Ebadati, N., &amp; Naderi, A. (2021). 3D Simulation of a Giant Oilfield in Calcareous Formations and Scrutiny Study of the Interaction of the Calculated Parameters (Asmari Formation in Maroon Oilfield, Iran). Arabian Journal of Geosciences, 14(9), 799. https://doi.org/10.1007/s12517-021-07141-z"><i class="far fa-copy" aria-hidden="true"></i> <span>Copy citation</span></button>
                         </div>
-                    </div>
+                    </article>
                 </li>
-                <li class="pub-item">
-                    <span class="pub-year">2021</span>
-                    <div class="pub-body">
-                        <span class="pub-type">Journal article</span>
-                        <h4 class="pub-title">Application of an In-situ Solvent Formation Microextraction Technique Using the Functionalized Ionic Liquids (FILs) as a Green Extractant for Cadmium Determination at Trace Levels in Real and Saline Samples</h4>
+                <li class="pub-entry" data-theme="engineering" data-year="2021">
+                    <span class="pub-yearmark" aria-hidden="true">2021</span>
+                    <article class="pub-card">
+                        <p class="pub-meta"><span class="pub-glyph pub-glyph--journal" aria-hidden="true"></span>Journal article · 2021</p>
+                        <h3 class="pub-heading">Application of an In-situ Solvent Formation Microextraction Technique Using the Functionalized Ionic Liquids (FILs) as a Green Extractant for Cadmium Determination at Trace Levels in Real and Saline Samples</h3>
                         <p class="pub-authors">M. Hosseini, A. Naderi, A. Rezaei, <strong>M. Ghasemi</strong></p>
                         <p class="pub-venue"><em>Analytical and Bioanalytical Chemistry Research</em></p>
-                        <p class="pub-summary">
-                            A greener extraction method, using functionalised ionic liquids, for measuring trace
-                            levels of cadmium in real and saline water samples.
-                        </p>
-                        <div class="pub-links">
-                            <a href="https://scholar.google.com/citations?user=7Iti5iIAAAAJ&amp;hl=en" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> View on Google Scholar</a>
+                        <p class="pub-summary">A greener extraction method, using functionalised ionic liquids, for measuring trace levels of cadmium in real and saline water samples.</p>
+                        <div class="pub-actions">
+                            <a class="pub-doi" href="https://scholar.google.com/citations?user=7Iti5iIAAAAJ&amp;hl=en" target="_blank" rel="noopener"><span>Scholar</span>View record</a>
+                            <button type="button" class="pub-cite" data-cite="Hosseini, M., Naderi, A., Rezaei, A., &amp; Ghasemi, M. (2021). Application of an In-situ Solvent Formation Microextraction Technique Using the Functionalized Ionic Liquids (FILs) as a Green Extractant for Cadmium Determination at Trace Levels in Real and Saline Samples. Analytical and Bioanalytical Chemistry Research."><i class="far fa-copy" aria-hidden="true"></i> <span>Copy citation</span></button>
                         </div>
-                    </div>
+                    </article>
                 </li>
-            </ol>
+                </ol>
+            </div>
         </div>
     </section>
 
@@ -1005,7 +816,7 @@
 
             <div class="experience-timeline">
                 <!-- Systems Analyst / Developer (GIS) - City of Tea Tree Gully -->
-                <div class="experience-card highlight-card is-current">
+                <div class="experience-card highlight-card is-current" data-sector="Local government">
                     <div class="exp-badge">Current Role</div>
                     <div class="exp-header">
                         <div class="exp-title-group">
@@ -1064,7 +875,7 @@
                 </div>
 
                 <!-- Data Engineer - CSDILA -->
-                <div class="experience-card">
+                <div class="experience-card" data-sector="Research">
                     <div class="exp-header">
                         <div class="exp-title-group">
                             <h3 class="exp-title">Data Engineer</h3>
@@ -1132,7 +943,7 @@
                 </div>
 
                 <!-- GIS Officer - Greater Shepparton Council -->
-                <div class="experience-card">
+                <div class="experience-card" data-sector="Local government">
                     <div class="exp-header">
                         <div class="exp-title-group">
                             <h3 class="exp-title">GIS &amp; Assets Officer</h3>
@@ -1199,7 +1010,7 @@
                 <h3 class="timeline-group-title">Earlier roles <span>— select a role to expand</span></h3>
 
                 <!-- GIS Officer - Mansfield Shire Council -->
-                <details class="experience-card exp-fold">
+                <details class="experience-card exp-fold" data-sector="Local government">
                     <summary class="exp-header">
                         <div class="exp-title-group">
                             <h3 class="exp-title">GIS Officer</h3>
@@ -1262,7 +1073,7 @@
                 </details>
 
                 <!-- Research Assistant - CSDILA [NEW] -->
-                <details class="experience-card exp-fold">
+                <details class="experience-card exp-fold" data-sector="Research">
                     <summary class="exp-header">
                         <div class="exp-title-group">
                             <h3 class="exp-title">Research Assistant</h3>
@@ -1316,7 +1127,7 @@
                 </details>
 
                 <!-- Research Assistant (GIS Analyst) - Curtin University [NEW] -->
-                <details class="experience-card exp-fold">
+                <details class="experience-card exp-fold" data-sector="Research">
                     <summary class="exp-header">
                         <div class="exp-title-group">
                             <h3 class="exp-title">Research Assistant (GIS Analyst)</h3>
@@ -1368,7 +1179,7 @@
                 </details>
 
                 <!-- GIS Analyst - Parks Victoria -->
-                <details class="experience-card exp-fold highlight-card">
+                <details class="experience-card exp-fold highlight-card" data-sector="State government">
                     <summary class="exp-header">
                         <div class="exp-badge">Emergency Response Leadership</div>
                         <div class="exp-title-group">
@@ -1434,7 +1245,7 @@
                 </details>
 
                 <!-- Spatial Data Analyst - HUMAYA Automation -->
-                <details class="experience-card exp-fold">
+                <details class="experience-card exp-fold" data-sector="Industry">
                     <summary class="exp-header">
                         <div class="exp-title-group">
                             <h3 class="exp-title">Spatial Data Analyst</h3>
@@ -1488,7 +1299,7 @@
                 </details>
 
                 <!-- GIS Analyst - Avale Enterprises -->
-                <details class="experience-card exp-fold">
+                <details class="experience-card exp-fold" data-sector="Industry">
                     <summary class="exp-header">
                         <div class="exp-title-group">
                             <h3 class="exp-title">GIS Analyst</h3>
@@ -1541,45 +1352,6 @@
                 </details>
             </div>
 
-            <!-- Experience Summary Stats -->
-            <div class="experience-summary">
-                <div class="summary-stat">
-                    <div class="summary-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="summary-content">
-                        <h4 class="summary-number">9</h4>
-                        <p class="summary-label">Professional Roles</p>
-                    </div>
-                </div>
-                <div class="summary-stat">
-                    <div class="summary-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <div class="summary-content">
-                        <h4 class="summary-number">Emergency Response</h4>
-                        <p class="summary-label">Flood & Fire Disaster Mapping</p>
-                    </div>
-                </div>
-                <div class="summary-stat">
-                    <div class="summary-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="summary-content">
-                        <h4 class="summary-number">4 Councils &amp; Agencies</h4>
-                        <p class="summary-label">Local &amp; State Government GIS</p>
-                    </div>
-                </div>
-                <div class="summary-stat">
-                    <div class="summary-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="summary-content">
-                        <h4 class="summary-number">3 Sectors</h4>
-                        <p class="summary-label">Government, Research, Private</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -3318,7 +3090,10 @@
         </div>
     </div>
 
-    <script src="script.js?v=20261024-4"></script>
+    <script src="script.js?v=20261025-3"></script>
+    <script type="module" src="projects-cards.js?v=20261025-1"></script>
+    <script type="module" src="projects-flight.js?v=20261025-1"></script>
+    <script type="module" src="skills-space.js?v=20261025-3"></script>
 </body>
 
 </html>

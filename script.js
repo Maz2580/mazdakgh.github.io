@@ -836,7 +836,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'carousel-dot';
-        dot.textContent = slide.dataset.short || title;
+        // Name, plus the case's one-line approach (shown in the desktop case list)
+        const name = document.createElement('span');
+        name.className = 'dot-name';
+        name.textContent = slide.dataset.short || title;
+        const sub = document.createElement('span');
+        sub.className = 'dot-sub';
+        sub.textContent = slide.querySelector('.metric-label')?.textContent.trim() || '';
+        dot.append(name, sub);
         dot.setAttribute('role', 'tab');
         dot.setAttribute('title', title);
         dot.addEventListener('click', () => goTo(i));
@@ -869,6 +876,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dot.classList.toggle('active', i === index);
             dot.setAttribute('aria-selected', i === index ? 'true' : 'false');
         });
+        slides.forEach((slide, i) => slide.classList.toggle('is-current', i === index));
         // Keep the active tab visible when the tab row scrolls (phones)
         if (index !== lastIndex && dotsWrap.scrollWidth > dotsWrap.clientWidth) {
             const dot = dots[index];
@@ -1099,4 +1107,198 @@ document.addEventListener('DOMContentLoaded', () => {
             revealObserver.observe(el);
         });
     }
+})();
+
+
+// ===== ABOUT: CAREER ROUTE + ORGANISATIONS MARQUEE =====
+(() => {
+    const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // The route line fills as the strip scrolls through the lower part of the screen
+    const route = document.querySelector('.career-route .route');
+    if (route) {
+        const stops = Array.from(route.children);
+        route.style.setProperty('--n', stops.length);
+        const paint = p => {
+            route.style.setProperty('--p', p.toFixed(3));
+            stops.forEach((li, i) => li.classList.toggle('is-reached', p >= i / (stops.length - 1) - 0.001));
+        };
+        if (reduceMotion) {
+            paint(1);
+        } else {
+            let ticking = false;
+            const update = () => {
+                ticking = false;
+                const r = route.getBoundingClientRect();
+                const vh = window.innerHeight;
+                const vertical = getComputedStyle(route).gridTemplateColumns.split(' ').length === 1;
+                const p = vertical
+                    ? (vh * 0.8 - r.top) / Math.max(r.height, 1)
+                    : (vh * 0.95 - r.top) / (vh * 0.5);
+                paint(Math.min(Math.max(p, 0), 1));
+            };
+            window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        }
+    }
+
+    // Turn the organisations list into a seamless strip (two copies, scrolled by half)
+    const logos = document.querySelector('.clients-logos');
+    if (logos && !reduceMotion) {
+        const items = Array.from(logos.children);
+        const track = document.createElement('div');
+        track.className = 'marquee-track';
+        items.forEach(item => track.appendChild(item));
+        items.forEach(item => {
+            const copy = item.cloneNode(true);
+            copy.setAttribute('aria-hidden', 'true');
+            track.appendChild(copy);
+        });
+        logos.appendChild(track);
+        logos.classList.add('is-marquee');
+    }
+})();
+
+// ===== RESEARCH: THEME FILTER, YEAR MARKERS, COPY CITATION =====
+(() => {
+    const list = document.querySelector('.pub-timeline');
+    if (!list) return;
+    const entries = Array.from(list.querySelectorAll('.pub-entry'));
+
+    // Show a big year only on the first visible paper of each year
+    function markYears() {
+        let last = null;
+        entries.forEach(e => {
+            if (e.hidden) return;
+            e.classList.toggle('is-year-start', e.dataset.year !== last);
+            last = e.dataset.year;
+        });
+    }
+    markYears();
+
+    const buttons = Array.from(document.querySelectorAll('.pub-filter button'));
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+        const theme = btn.dataset.theme;
+        buttons.forEach(b => b.classList.toggle('is-active', b === btn));
+        entries.forEach(e => { e.hidden = theme !== 'all' && e.dataset.theme !== theme; });
+        markYears();
+    }));
+
+    // Nodes and years light up as each paper scrolls into view
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(items => items.forEach(item => {
+            if (item.isIntersecting) { item.target.classList.add('is-seen'); io.unobserve(item.target); }
+        }), { rootMargin: '0px 0px -20% 0px' });
+        entries.forEach(e => io.observe(e));
+    } else {
+        entries.forEach(e => e.classList.add('is-seen'));
+    }
+
+    list.addEventListener('click', async e => {
+        const btn = e.target.closest('.pub-cite');
+        if (!btn) return;
+        const text = btn.dataset.cite;
+        let ok = false;
+        try {
+            await navigator.clipboard.writeText(text);
+            ok = true;
+        } catch (err) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { ok = document.execCommand('copy'); } catch (e2) { ok = false; }
+            ta.remove();
+        }
+        const label = btn.querySelector('span');
+        label.textContent = ok ? 'Copied' : 'Copy failed';
+        btn.classList.toggle('is-done', ok);
+        setTimeout(() => { label.textContent = 'Copy citation'; btn.classList.remove('is-done'); }, 1800);
+    });
+})();
+
+// ===== EXPERIENCE: LOGBOOK TIMELINE =====
+(() => {
+    const timeline = document.querySelector('.experience-timeline');
+    if (!timeline) return;
+    const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+
+    function parseMonth(text) {
+        const m = text.trim().toLowerCase().match(/([a-z]+)\s+(\d{4})/);
+        if (!m) return null;
+        const i = MONTHS.indexOf(m[1]);
+        return i < 0 ? null : { y: +m[2], m: i };
+    }
+    // Inclusive month count, e.g. "May 2022 – May 2024" is 2 yrs 1 mo; "Present" counts up to today
+    function duration(period) {
+        const [from, to] = period.split(/[–-]/);
+        const a = parseMonth(from || '');
+        const now = new Date();
+        const b = /present/i.test(to || '') ? { y: now.getFullYear(), m: now.getMonth() } : parseMonth(to || '');
+        if (!a || !b) return '';
+        const total = (b.y - a.y) * 12 + (b.m - a.m) + 1;
+        const yrs = Math.floor(total / 12), mos = total % 12;
+        const parts = [];
+        if (yrs) parts.push(`${yrs} yr${yrs > 1 ? 's' : ''}`);
+        if (mos) parts.push(`${mos} mo${mos > 1 ? 's' : ''}`);
+        return parts.join(' ') || '1 mo';
+    }
+    // "September 2026 – Present" reads better as "Sep 2026 – Present" in the narrow column
+    const shortPeriod = p => p.replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\b/g, w => w.slice(0, 3));
+
+    const rows = [];
+    Array.from(timeline.children).forEach(child => {
+        const row = document.createElement('div');
+        row.className = 'exp-row';
+        const meta = document.createElement('div');
+        meta.className = 'exp-meta';
+        const node = document.createElement('div');
+        node.className = 'exp-node';
+        node.setAttribute('aria-hidden', 'true');
+
+        if (child.classList.contains('timeline-group-title')) {
+            row.classList.add('exp-row--divider');
+        } else {
+            const periodEl = child.querySelector('.exp-period');
+            const period = periodEl ? periodEl.textContent.replace(/\s+/g, ' ').trim() : '';
+            const sector = child.dataset.sector || '';
+            row.dataset.sector = sector;
+            if (child.classList.contains('is-current')) row.classList.add('is-current');
+            meta.innerHTML = `<span class="length"></span><span class="when"></span>${sector ? '<span class="sector"></span>' : ''}`;
+            meta.querySelector('.length').textContent = duration(period);
+            meta.querySelector('.when').textContent = shortPeriod(period);
+            if (sector) meta.querySelector('.sector').textContent = sector;
+            rows.push(row);
+        }
+        timeline.insertBefore(row, child);
+        row.append(meta, node, child);
+    });
+    timeline.classList.add('is-logbook');
+
+    // Fill the rail and light the nodes as the timeline scrolls past
+    const paint = p => {
+        timeline.style.setProperty('--p', p.toFixed(3));
+        const tl = timeline.getBoundingClientRect();
+        rows.forEach(r => {
+            const y = r.getBoundingClientRect().top - tl.top + 30;
+            r.classList.toggle('is-reached', y <= (tl.height - 60) * p + 30 + 1);
+        });
+    };
+    if (reduceMotion) { paint(1); return; }
+    let ticking = false;
+    const update = () => {
+        ticking = false;
+        const r = timeline.getBoundingClientRect();
+        const vh = window.innerHeight;
+        paint(Math.min(Math.max((vh * 0.6 - r.top) / Math.max(r.height - 60, 1), 0), 1));
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('resize', update);
+    timeline.addEventListener('toggle', update, true);
+    update();
 })();
