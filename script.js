@@ -1302,3 +1302,14 @@ document.addEventListener('DOMContentLoaded', () => {
     timeline.addEventListener('toggle', update, true);
     update();
 })();
+
+// ===== CLIENT WEBSITES: SCROLL PREVIEW ON TOUCH SCREENS =====
+// There is no hover on phones, so each screenshot scrolls while its card is in the middle of the screen.
+(() => {
+    const cards = document.querySelectorAll('.client-card');
+    if (!cards.length || window.matchMedia('(hover: hover)').matches || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const io = new IntersectionObserver(entries => entries.forEach(e => e.target.classList.toggle('is-previewing', e.isIntersecting)),
+        { rootMargin: '-30% 0px -30% 0px' });
+    cards.forEach(c => io.observe(c));
+})();

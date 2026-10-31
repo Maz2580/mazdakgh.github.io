@@ -328,3 +328,178 @@ body > section#projects[id] { padding-top: 0; }
     .panel-body { font-size: 15px; margin-bottom: 14px; }
     .flight-hint { display: none; }
 }
+
+/* ==========================================================================
+   Client websites: web work outside GIS. Deliberately quieter than the GIS projects
+   above: neutral colours, no glow, no 3D; just a slow scroll preview of each site.
+   ========================================================================== */
+.client-work { margin-top: 96px; }
+
+.client-divider {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.client-divider::-webkit-details-marker { display: none; }
+.client-divider::before,
+.client-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); transition: background 0.3s ease; }
+.client-divider:hover::before,
+.client-divider:hover::after { background: rgba(232, 238, 246, 0.25); }
+.client-divider:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 6px; }
+
+/* The "Show / Hide" pill in the middle of the divider */
+.client-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text);
+    letter-spacing: 0.08em;
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+.client-divider:hover .client-toggle { border-color: rgba(232, 238, 246, 0.35); background: rgba(232, 238, 246, 0.04); }
+.client-toggle i { font-size: 10px; transition: transform 0.3s ease; }
+.client-work[open] .client-toggle i { transform: rotate(180deg); }
+.client-work .when-open { display: none; }
+.client-work[open] .when-open { display: inline; }
+.client-work[open] .when-closed { display: none; }
+
+.client-panel { padding-top: 40px; }
+.client-work[open] .client-panel { animation: client-open 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+@keyframes client-open { from { opacity: 0; transform: translateY(-10px); } }
+
+.client-head { max-width: 760px; margin: 0 0 28px; }
+.client-title {
+    font-family: var(--font-head);
+    font-weight: 650;
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--text);
+    margin: 0 0 8px;
+}
+.client-lead { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0; }
+
+.client-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.client-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(232, 238, 246, 0.02);
+    overflow: hidden;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+.client-card:hover { border-color: rgba(232, 238, 246, 0.22); background: rgba(232, 238, 246, 0.035); }
+
+/* Browser frame with a full-page screenshot that scrolls on hover */
+.client-shot { display: block; text-decoration: none; color: inherit; border-bottom: 1px solid var(--line); }
+.client-chrome {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 10px;
+    background: #0d1626;
+}
+.client-chrome i { width: 7px; height: 7px; border-radius: 50%; background: #2b3a52; }
+.client-url {
+    flex: 1;
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 5px;
+    background: rgba(232, 238, 246, 0.05);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.client-frame { display: block; aspect-ratio: 16 / 11; overflow: hidden; background: #0a1120; }
+.client-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0%;
+    transition: object-position 7s cubic-bezier(0.45, 0, 0.55, 1);
+}
+.client-shot:hover .client-frame img,
+.client-shot:focus-visible .client-frame img,
+.client-card.is-previewing .client-frame img { object-position: 50% 100%; }
+
+.client-body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 20px; }
+.client-kicker { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin: 0 0 6px; }
+.client-name { font-family: var(--font-body); font-weight: 600; font-size: 17px; color: var(--text); margin: 0 0 10px; }
+.client-roles, .client-stack { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.client-roles li {
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text);
+    padding: 2px 9px;
+    border-radius: 999px;
+    border: 1px solid rgba(232, 238, 246, 0.28);
+    white-space: nowrap;
+}
+.client-desc { flex: 1; color: var(--muted); font-size: 14px; line-height: 1.6; margin: 12px 0 18px; text-align: left; hyphens: manual; -webkit-hyphens: manual; }
+
+/* "Built with": even chips instead of a dotted line that wraps unevenly */
+.client-stack-label {
+    margin: 0 0 8px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6f83a0;
+}
+.client-stack { gap: 5px; margin-bottom: 18px; align-content: flex-start; }
+/* Room for three rows of chips, so "Built with" lines up across the four cards */
+@media (min-width: 1101px) { .client-stack { min-height: 68px; } }
+.client-stack li {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.4;
+    color: #c3cfdf;
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: rgba(232, 238, 246, 0.05);
+    white-space: nowrap;
+}
+.client-visit {
+    align-self: flex-start;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(232, 238, 246, 0.35);
+}
+.client-visit:hover { text-decoration-color: var(--text); }
+.client-visit i { font-size: 11px; margin-left: 3px; color: var(--muted); }
+
+
+@media (max-width: 1100px) { .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+    .client-work { margin-top: 72px; }
+    .client-grid { grid-template-columns: minmax(0, 1fr); }
+    .client-divider { font-size: 10.5px; gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .client-frame img { transition: none; } .client-work[open] .client-panel { animation: none; } }
