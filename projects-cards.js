@@ -529,15 +529,16 @@ function vizIoT(svg) {
 const VIZ = { change: vizChange, m1: vizM1, disaster: vizDisaster, venice: vizVenice, records: vizRecords, ksa: vizKSA, iot: vizIoT };
 
 function initCards() {
-    const cards = Array.from(document.querySelectorAll('.viz-card[data-viz]'));
+    // Every card fades in; only cards with data-viz also get an animated drawing
+    // (the IoT card shows real demo footage instead)
+    const cards = Array.from(document.querySelectorAll('.viz-card'));
     if (!cards.length) return;
 
     const live = [];
     cards.forEach((card, i) => {
         const make = VIZ[card.dataset.viz];
         const svg = card.querySelector('.viz svg');
-        if (!make || !svg) return;
-        live.push({ card, anim: make(svg, i), visible: false });
+        live.push({ card, anim: make && svg ? make(svg, i) : null, visible: false });
         card.addEventListener('pointermove', e => {
             const r = card.getBoundingClientRect();
             card.style.setProperty('--mx', `${e.clientX - r.left}px`);
@@ -546,7 +547,7 @@ function initCards() {
     });
 
     // Draw one settled frame for every card first (this is also the reduced-motion view)
-    live.forEach(v => { for (let k = 0; k < 40; k++) v.anim.tick(2 + k * 0.05, 0.05); });
+    live.forEach(v => { if (v.anim) for (let k = 0; k < 40; k++) v.anim.tick(2 + k * 0.05, 0.05); });
     if (reduceMotion || !('IntersectionObserver' in window)) {
         live.forEach(v => v.card.classList.add('is-in'));
         return;
@@ -565,7 +566,7 @@ function initCards() {
     function loop(now) {
         const dt = Math.min((now - last) / 1000, 0.1);
         last = now;
-        if (!document.hidden) live.forEach(v => { if (v.visible) v.anim.tick(now / 1000, dt); });
+        if (!document.hidden) live.forEach(v => { if (v.visible && v.anim) v.anim.tick(now / 1000, dt); });
         requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
@@ -574,7 +575,14 @@ function initCards() {
 // Case-study buttons open the existing project pop-ups from script.js
 document.addEventListener('click', e => {
     const btn = e.target.closest('[data-modal]');
-    if (btn && typeof window.openProjectModal === 'function') window.openProjectModal(btn.dataset.modal);
+    if (btn && typeof window.openProjectModal === 'function') {
+        window.openProjectModal(btn.dataset.modal);
+        // The video card starts the demo straight away
+        if (btn.hasAttribute('data-autoplay')) {
+            const v = document.querySelector('#modal-body video');
+            if (v) v.play().catch(() => {});
+        }
+    }
 });
 
 initCards();

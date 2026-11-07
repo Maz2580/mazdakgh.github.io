@@ -503,3 +503,113 @@ body > section#projects[id] { padding-top: 0; }
     .client-divider { font-size: 10.5px; gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) { .client-frame img { transition: none; } .client-work[open] .client-panel { animation: none; } }
+
+/* ==========================================================================
+   IoT card: real demo footage instead of an illustration
+   ========================================================================== */
+.viz-video {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    overflow: hidden;
+    background: #05080f;
+    font: inherit;
+    color: inherit;
+}
+.viz-video img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+    transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.4s ease;
+    filter: saturate(0.95) brightness(0.85);
+}
+.viz-video:hover img, .viz-video:focus-visible img { transform: scale(1.04); filter: saturate(1.05) brightness(1); }
+.viz-play {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin: -32px 0 0 -32px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: 20px;
+    box-shadow: 0 0 0 8px rgba(60, 214, 240, 0.18), 0 12px 30px rgba(0, 0, 0, 0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.viz-play i { margin-left: 4px; }
+.viz-video:hover .viz-play, .viz-video:focus-visible .viz-play { transform: scale(1.08); box-shadow: 0 0 0 12px rgba(60, 214, 240, 0.16), 0 12px 30px rgba(0, 0, 0, 0.45); }
+.viz-video-label {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(7, 13, 26, 0.85);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text);
+}
+.viz-video:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* The demo inside the project pop-up */
+.project-modal-video { margin: 0 0 28px; }
+.project-modal-video video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #05080f;
+}
+.project-modal-video figcaption { margin-top: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
+/* UMAMI studio demos: one tab per studio above a shared player */
+.project-modal-demos { margin: 0 0 28px; }
+.project-modal-demos .project-modal-video { margin: 0; }
+.demo-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.demo-tab {
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.demo-tab span { font-family: var(--font-mono); font-size: 11px; font-weight: 400; }
+.demo-tab:hover { color: var(--text); border-color: rgba(60, 214, 240, 0.5); }
+.demo-tab.is-active { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+
+/* "Watch demo" link inside the studio list */
+.demo-link {
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(60, 214, 240, 0.1);
+    border: 1px solid rgba(60, 214, 240, 0.35);
+    border-radius: 999px;
+    padding: 1px 9px;
+    margin-left: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.demo-link i { font-size: 9px; margin-right: 3px; }
+.demo-link:hover { background: rgba(60, 214, 240, 0.2); }
+
+/* The flight panel's watch button */
+.panel-watch { color: var(--accent); text-decoration-color: rgba(60, 214, 240, 0.6); }
+.panel-watch i { font-size: 11px; margin-right: 4px; }

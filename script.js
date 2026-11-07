@@ -119,6 +119,17 @@ const projectData = {
         title: 'UMAMI - Urban Digital Twin & GeoAI Platform',
         category: 'Digital Twin Platform | University of Melbourne',
         tags: ['FastAPI', 'React 19', 'TypeScript', 'CesiumJS', 'PostGIS', 'pgvector', 'Redis', 'GeoServer', 'PyTorch', 'ONNX', 'Google Earth Engine', 'OpenRouteService', 'MCP', 'Multi-LLM', 'MQTT', 'Docker', 'Prometheus / Grafana', 'GitLab CI/CD'],
+        // Studio demos: one tab per studio. To add one, drop the files in assets/video and add an entry.
+        demos: [
+            {
+                key: 'flood',
+                label: 'Flood prediction',
+                duration: '1 min',
+                src: 'assets/video/umami-flood.mp4',
+                poster: 'assets/video/umami-flood-poster.webp',
+                caption: 'An AI surrogate of the HEC-RAS flood model of Shepparton: hour-by-hour design flood, a side-by-side check against HEC-RAS, depth at any point, and a new scenario the hydraulic model never ran. No sound.'
+            }
+        ],
         challenge: `Planners, councils and researchers need to ask "what if?" of a city — what happens to heat if we add trees, to flooding if rainfall changes, to a parcel if a boundary moves, to people if a fire starts upwind — but the answers sit in specialist simulations, millions of cadastral records, live feeds and GIS tools that only experts can drive. Physics models like SOLWEIG and HEC-RAS take hours per run, and most users cannot write spatial SQL.`,
         solution: `
             <p>I design, build and run UMAMI, from architecture to production. It is one platform on a CesiumJS 3D globe, organised into studios:</p>
@@ -126,7 +137,7 @@ const projectData = {
                 <li><strong>CadastreAI:</strong> plain-English questions over a statewide Victorian cadastre — 4.29 million parcels and 4.21 million addresses, plus easements, 3D buildings and strata — answered by a multi-agent pipeline (explorer, critic, code and execution roles) with schema grounding and self-correction.</li>
                 <li><strong>Natural-language spatial analysis:</strong> domain sub-agents for database, spatial, heat, flood, corridor and Earth Engine questions, so one chat box reaches every dataset in the platform.</li>
                 <li><strong>Urban Heat:</strong> eight generations of U-Net surrogate trained on SOLWEIG simulations; the current model reads 23 input layers and predicts thermal comfort at 1 m across Melbourne — scenario and design editors, Cool Routes and hotspots, served on CPU via ONNX.</li>
-                <li><strong>Flood prediction:</strong> U-Net surrogates of a calibrated HEC-RAS 2D model, from terrain-only to rainfall-driven whole-map prediction, with time-step playback and impact on buildings and roads.</li>
+                <li><strong>Flood prediction:</strong> U-Net surrogates of a calibrated HEC-RAS 2D model, from terrain-only to rainfall-driven whole-map prediction, with time-step playback and impact on buildings and roads. <button type="button" class="demo-link" data-demo="flood"><i class="fas fa-play" aria-hidden="true"></i> Watch demo</button></li>
                 <li><strong>Live World:</strong> real-time hazard intelligence — bushfire hotspots (NASA FIRMS, DEA Hotspots), global disasters (GDACS), flood forecasts (GloFAS), air quality (CAMS), 662 Victorian river gauges, transit, satellite passes and fresh imagery — with an "Ask" assistant that uses 17 tools to answer questions about exposure, change and history.</li>
                 <li><strong>Change &amp; encroachment detection:</strong> fine-tuned D-FINE and SegFormer building detectors, a SAM model as teacher and vision-language verification find unpermitted construction between aerial-imagery epochs, evaluated against human-confirmed labels.</li>
                 <li><strong>Smart Auditor:</strong> master-plan compliance against Victorian planning rule packs, with what-if analysis, public-transport access, carbon, liveability and microclimate checks.</li>
@@ -394,24 +405,34 @@ const projectData = {
     },
     digitalTwinIoT: {
         title: 'IoT Environmental Monitoring',
-        category: 'IoT | Master\'s Capstone',
-        tags: ['IoT Sensors', 'MQTT', 'FastAPI', 'WebSocket', 'React', 'Plotly'],
+        category: 'IoT | From capstone to room digital twin',
+        tags: ['IoT Sensors', 'MQTT', 'FastAPI', 'WebSocket', 'React', '3D digital twin', 'Forecasting'],
+        video: {
+            src: 'assets/video/room-twin.mp4',
+            poster: 'assets/video/room-twin-poster.webp',
+            caption: 'Demo: a live digital twin of one room (one sensor, real data). 2 min, no sound.'
+        },
         challenge: `Indoor environmental conditions (CO₂, temperature, humidity) were measured by sensors but not visible in one place in real time, making it hard to act on poor air quality or comfort issues.`,
         solution: `
             <ul>
                 <li><strong>Capstone:</strong> designed a layered sensing → network → processing → application architecture, streaming sensor readings over MQTT into live dashboards.</li>
                 <li><strong>Later rebuild:</strong> a reusable sensor module — MQTT over TLS into FastAPI, history and statistics endpoints, and live WebSocket streaming to a React / Plotly front end.</li>
+                <li><strong>Room digital twin:</strong> the sensor placed in a 3D model of the room, coloured by what it reads right now — CO₂, temperature, humidity and pressure, with outdoor conditions, alerts, sensor health and a 6-hour CO₂ forecast.</li>
+                <li><strong>Two models of the same room:</strong> a hand-built model alongside a real 3D scan, switchable in one click.</li>
+                <li><strong>History you can replay:</strong> 24 hours to 3 months on the time bar, played back on the room from stored 3-hour averages, with notable moments (CO₂ peaks, humidity highs) found from the record.</li>
+                <li><strong>Ask the room:</strong> plain-language questions ("How was the air today?") answered from the stored readings, clearly labelled as AI and to be checked.</li>
             </ul>
         `,
         decisions: `
             <ul>
                 <li><strong>Publish/subscribe (MQTT)</strong> decouples sensors from the dashboard, so devices can be added without changing the application.</li>
                 <li><strong>Push, not poll:</strong> WebSocket streaming keeps dashboards current without hammering the API.</li>
+                <li><strong>Honest about the data:</strong> corrected sensor values shown next to the raw reading, replays built only from real stored averages, and notable moments that say what happened and when — not why.</li>
             </ul>
         `,
         architecture: `IoT sensors → MQTT broker (TLS) → FastAPI ingestion with SQLAlchemy → REST + WebSocket → React front end with Plotly charts.`,
         demoLink: 'https://drive.google.com/file/d/189wQVBo0v57z9PZNVuZiXQuXRUWfj0RG/view?usp=sharing',
-        demoLabel: 'Watch the capstone demo'
+        demoLabel: 'Watch the original capstone demo'
     }
 };
 
@@ -428,6 +449,27 @@ function openProjectModal(projectId) {
                     ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                 </div>
             </div>
+
+            ${project.demos && project.demos.length ? `
+                <section class="project-modal-demos" aria-label="Studio demos">
+                    <div class="demo-tabs" role="tablist" aria-label="Choose a studio demo">
+                        ${project.demos.map((d, i) => `<button type="button" role="tab" class="demo-tab${i === 0 ? ' is-active' : ''}" aria-selected="${i === 0}" data-demo="${d.key}">${d.label} <span>· ${d.duration}</span></button>`).join('')}
+                    </div>
+                    <figure class="project-modal-video">
+                        <video controls playsinline muted preload="metadata" poster="${project.demos[0].poster}" src="${project.demos[0].src}"></video>
+                        <figcaption>${project.demos[0].caption}</figcaption>
+                    </figure>
+                </section>
+            ` : ''}
+
+            ${project.video ? `
+                <figure class="project-modal-video">
+                    <video controls playsinline muted preload="metadata" poster="${project.video.poster}">
+                        <source src="${project.video.src}" type="video/mp4">
+                    </video>
+                    <figcaption>${project.video.caption}</figcaption>
+                </figure>
+            ` : ''}
             
             <div class="project-modal-section">
                 <h3><i class="fas fa-exclamation-circle"></i> Challenge</h3>
@@ -472,9 +514,34 @@ function openProjectModal(projectId) {
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    if (project.demos) {
+        modalBody.querySelectorAll('[data-demo]').forEach(btn => btn.addEventListener('click', () => {
+            const demo = project.demos.find(d => d.key === btn.dataset.demo);
+            if (!demo) return;
+            const video = modalBody.querySelector('.project-modal-demos video');
+            const caption = modalBody.querySelector('.project-modal-demos figcaption');
+            modalBody.querySelectorAll('.demo-tab').forEach(t => {
+                const on = t.dataset.demo === demo.key;
+                t.classList.toggle('is-active', on);
+                t.setAttribute('aria-selected', String(on));
+            });
+            if (video.getAttribute('src') !== demo.src) {
+                video.poster = demo.poster;
+                video.src = demo.src;
+                caption.textContent = demo.caption;
+            }
+            // From a link further down, bring the player into view and start it
+            if (btn.classList.contains('demo-link')) {
+                video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                video.play().catch(() => {});
+            }
+        }));
+    }
 }
 
 function closeProjectModal() {
+    modalBody.querySelectorAll('video').forEach(v => v.pause());
     modal.classList.remove('active');
     document.body.style.overflow = '';
 }
