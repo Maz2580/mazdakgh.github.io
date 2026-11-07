@@ -122,6 +122,14 @@ const projectData = {
         // Studio demos: one tab per studio. To add one, drop the files in assets/video and add an entry.
         demos: [
             {
+                key: 'heat',
+                label: 'Urban heat',
+                duration: '1 min',
+                src: 'assets/video/umami-heat.mp4',
+                poster: 'assets/video/umami-heat-poster.webp',
+                caption: 'Designing a cooler street in Melbourne: pick a site, load every building and tree from city open data, plant or remove trees, run the AI heat model on a real 2025 heat day, and compare before and after side by side, with every number explained. No sound.'
+            },
+            {
                 key: 'flood',
                 label: 'Flood prediction',
                 duration: '1 min',
@@ -136,7 +144,7 @@ const projectData = {
             <ul>
                 <li><strong>CadastreAI:</strong> plain-English questions over a statewide Victorian cadastre — 4.29 million parcels and 4.21 million addresses, plus easements, 3D buildings and strata — answered by a multi-agent pipeline (explorer, critic, code and execution roles) with schema grounding and self-correction.</li>
                 <li><strong>Natural-language spatial analysis:</strong> domain sub-agents for database, spatial, heat, flood, corridor and Earth Engine questions, so one chat box reaches every dataset in the platform.</li>
-                <li><strong>Urban Heat:</strong> eight generations of U-Net surrogate trained on SOLWEIG simulations; the current model reads 23 input layers and predicts thermal comfort at 1 m across Melbourne — scenario and design editors, Cool Routes and hotspots, served on CPU via ONNX.</li>
+                <li><strong>Urban Heat:</strong> eight generations of U-Net surrogate trained on SOLWEIG simulations; the current model reads 23 input layers and predicts thermal comfort at 1 m across Melbourne — scenario and design editors, Cool Routes and hotspots, served on CPU via ONNX. <button type="button" class="demo-link" data-demo="heat"><i class="fas fa-play" aria-hidden="true"></i> Watch demo</button></li>
                 <li><strong>Flood prediction:</strong> U-Net surrogates of a calibrated HEC-RAS 2D model, from terrain-only to rainfall-driven whole-map prediction, with time-step playback and impact on buildings and roads. <button type="button" class="demo-link" data-demo="flood"><i class="fas fa-play" aria-hidden="true"></i> Watch demo</button></li>
                 <li><strong>Live World:</strong> real-time hazard intelligence — bushfire hotspots (NASA FIRMS, DEA Hotspots), global disasters (GDACS), flood forecasts (GloFAS), air quality (CAMS), 662 Victorian river gauges, transit, satellite passes and fresh imagery — with an "Ask" assistant that uses 17 tools to answer questions about exposure, change and history.</li>
                 <li><strong>Change &amp; encroachment detection:</strong> fine-tuned D-FINE and SegFormer building detectors, a SAM model as teacher and vision-language verification find unpermitted construction between aerial-imagery epochs, evaluated against human-confirmed labels.</li>
